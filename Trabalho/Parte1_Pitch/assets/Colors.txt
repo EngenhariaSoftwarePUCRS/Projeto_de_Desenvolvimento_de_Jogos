@@ -1,0 +1,5 @@
+Vermelho: 237,28,36 #ed1c23
+Amarelo: 255,242,0 #fff200
+Azul: 89,189,235 #59bdeb
+VerdeClaro: 231,233,134 #e7e986
+VerdeEscuro: 147,180,33 #94b421
