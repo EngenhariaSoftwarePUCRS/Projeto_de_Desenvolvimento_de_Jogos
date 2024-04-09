@@ -13,7 +13,8 @@ func _process(delta: float) -> void:
 	update_score(total)
 
 func _input(event: InputEvent) -> void:
-	print(event.as_text())
+	if event.is_action_pressed("ui_right"):
+		print("Right Arrow!\n")
 
 func update_score(score: float) -> void:
 	# get_node("Score")
