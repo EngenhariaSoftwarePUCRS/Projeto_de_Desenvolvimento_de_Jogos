@@ -12,6 +12,9 @@ func _process(delta: float) -> void:
 	total += delta
 	update_score(total)
 
+func _input(event: InputEvent) -> void:
+	print(event.as_text())
+
 func update_score(score: float) -> void:
 	# get_node("Score")
 	$Score.text = str(score)
