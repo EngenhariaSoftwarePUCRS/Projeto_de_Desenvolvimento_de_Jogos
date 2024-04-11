@@ -23,15 +23,27 @@ func get_rotation_input() -> void:
 	velocity = transform.x * move_direction  * speed
 	#print(transform.x)
 
+func get_mouse_input() -> void:
+	look_at(get_global_mouse_position())
+	#print(rotation_degrees)
+	#print(transform)
+	var move_direction = Input.get_axis(DOWN, UP)
+	velocity = transform.x * move_direction * speed
+
 func _physics_process(delta) -> void:
 	#1. 8 Way movement
 	#get_8way_input()
 	#move_and_slide()
 
 	#2. Rotate, then move
-	get_rotation_input()
-	rotation += rotation_direction * rotation_speed * delta
-	move_and_slide()
+	#get_rotation_input()
+	#rotation += rotation_direction * rotation_speed * delta
+	#move_and_slide()
+
+	#3. Aim with mouse, then move
+	get_mouse_input()
+	if position.distance_to(target) > 10:
+		move_and_slide()
 
 func _process(delta) -> void:
 	for direction in directions:
