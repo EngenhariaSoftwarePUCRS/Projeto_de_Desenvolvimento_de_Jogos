@@ -9,8 +9,10 @@ const LEFT = directions[0]
 const RIGHT = directions[1]
 const UP = directions[2]
 const DOWN = directions[3]
+const MOUSE_CLICK = "mouse_click"
 
 var rotation_direction: float = 0
+var target = position
 
 func get_8way_input() -> void:
 	var input_direction: Vector2 = Input.get_vector(LEFT, RIGHT, UP, DOWN)
@@ -30,6 +32,10 @@ func get_mouse_input() -> void:
 	var move_direction = Input.get_axis(DOWN, UP)
 	velocity = transform.x * move_direction * speed
 
+func get_mouse_click() -> void:
+	if Input.is_action_pressed(MOUSE_CLICK):
+		target = get_global_mouse_position()
+	
 func _physics_process(delta) -> void:
 	#1. 8 Way movement
 	#get_8way_input()
@@ -41,7 +47,13 @@ func _physics_process(delta) -> void:
 	#move_and_slide()
 
 	#3. Aim with mouse, then move
-	get_mouse_input()
+	#get_mouse_input()
+	#if position.distance_to(target) > 10:
+	#	move_and_slide()
+
+	#4. Mouse click moves
+	get_mouse_click()
+	velocity = position.direction_to(target) * speed
 	if position.distance_to(target) > 10:
 		move_and_slide()
 
