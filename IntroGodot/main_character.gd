@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: int = 400
+@export var speed: int = 300
 @export var rotation_speed: float = 1.5
 @onready var _animated_sprite = $AnimatedSprite
 
@@ -35,31 +35,40 @@ func get_mouse_input() -> void:
 func get_mouse_click() -> void:
 	if Input.is_action_pressed(MOUSE_CLICK):
 		target = get_global_mouse_position()
-	
+
+func animate():
+	if velocity.x > 0:
+		_animated_sprite.play(RIGHT)
+	elif velocity.x < 0:
+		_animated_sprite.play(LEFT)
+	elif velocity.y > 0:
+		_animated_sprite.play(DOWN)
+	elif velocity.y < 0:
+		_animated_sprite.play(UP)
+	else:
+		_animated_sprite.stop()
+
 func _physics_process(delta) -> void:
 	#1. 8 Way movement
-	#get_8way_input()
-	#move_and_slide()
+	get_8way_input()
+	animate()
+	move_and_slide()
 
 	#2. Rotate, then move
 	#get_rotation_input()
 	#rotation += rotation_direction * rotation_speed * delta
+	#animate()
 	#move_and_slide()
 
 	#3. Aim with mouse, then move
 	#get_mouse_input()
 	#if position.distance_to(target) > 10:
+	#	animate()
 	#	move_and_slide()
 
 	#4. Mouse click moves
-	get_mouse_click()
-	velocity = position.direction_to(target) * speed
-	if position.distance_to(target) > 10:
-		move_and_slide()
-
-func _process(delta) -> void:
-	for direction in directions:
-		if Input.is_action_pressed(direction):
-			_animated_sprite.play(direction)
-		else:
-			_animated_sprite.stop()
+	#get_mouse_click()
+	#velocity = position.direction_to(target) * speed
+	#if position.distance_to(target) > 10:
+	#	animate()
+	#	move_and_slide()
