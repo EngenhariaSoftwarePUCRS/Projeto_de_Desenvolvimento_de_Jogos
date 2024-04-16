@@ -50,8 +50,21 @@ func animate():
 
 func _physics_process(delta) -> void:
 	#1. 8 Way movement
+	#get_8way_input()
+	#animate()
+	#move_and_slide()
+	
+	#1.5 8 Way movement with stop
 	get_8way_input()
 	animate()
+	var collision_info := move_and_collide(velocity * delta)
+	if collision_info:
+		print(collision_info.get_angle())
+		print(collision_info.get_collider().to_string())
+		print(collision_info.get_normal())
+		print(collision_info.get_position())
+		velocity = velocity.bounce(collision_info.get_normal())
+		move_and_collide(velocity * delta * 50)
 	move_and_slide()
 
 	#2. Rotate, then move

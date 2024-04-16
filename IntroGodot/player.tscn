@@ -140,10 +140,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fva8b"]
 radius = 15.0
-height = 60.0
+height = 52.0
 
 [node name="MainCharacter" type="CharacterBody2D"]
 position = Vector2(79, 73)
+collision_mask = 14
 script = ExtResource("1_3nifp")
 metadata/_edit_group_ = true
 
@@ -152,5 +153,6 @@ sprite_frames = SubResource("SpriteFrames_p6vj1")
 animation = &"move_down"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_fva8b")
