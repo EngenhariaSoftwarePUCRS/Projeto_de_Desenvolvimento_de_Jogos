@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ijbjcg0ecine"]
+[gd_scene load_steps=17 format=3 uid="uid://ijbjcg0ecine"]
 
 [ext_resource type="PackedScene" uid="uid://br1rmqvfd4l2b" path="res://player.tscn" id="1_yqus5"]
 [ext_resource type="Texture2D" uid="uid://bhuyd2yxdthp5" path="res://assets/bricks/Brickwall6_Texture.png" id="2_x3p1w"]
@@ -29,13 +29,17 @@ size = Vector2(41, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jj3o2"]
 size = Vector2(386.143, 39)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgude"]
+size = Vector2(53.5, 1149)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s1hl"]
-size = Vector2(47.5, 642)
+size = Vector2(53.5, 1149)
 
 [node name="Game" type="Node2D"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_yqus5")]
 position = Vector2(22, 365)
+gravity = 1000
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(24, 92)
@@ -90,7 +94,7 @@ shape = SubResource("RectangleShape2D_kwhy6")
 one_way_collision = true
 
 [node name="Grass4" type="Sprite2D" parent="."]
-position = Vector2(217, 209)
+position = Vector2(262, 171)
 texture = ExtResource("6_eh2qi")
 metadata/_edit_group_ = true
 
@@ -126,15 +130,29 @@ position = Vector2(0.420105, -0.5)
 shape = SubResource("RectangleShape2D_jj3o2")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1180, 92)
+position = Vector2(1183, -167)
 collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Brickwall6Texture" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(-0.500008, 229)
-scale = Vector2(0.183594, 2.50781)
+position = Vector2(-0.500008, 231)
+scale = Vector2(0.183594, 4.49219)
 texture = ExtResource("2_x3p1w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-0.25, 229)
+shape = SubResource("RectangleShape2D_tgude")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-26, 90)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="Brickwall6Texture" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(-0.500008, -24.4999)
+scale = Vector2(0.183594, 4.48828)
+texture = ExtResource("2_x3p1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-3.25, -24.5)
 shape = SubResource("RectangleShape2D_7s1hl")
