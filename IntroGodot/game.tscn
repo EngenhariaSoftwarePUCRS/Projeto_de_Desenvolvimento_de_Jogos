@@ -39,7 +39,6 @@ size = Vector2(53.5, 1149)
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_yqus5")]
 position = Vector2(22, 365)
-gravity = 1000
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(24, 92)

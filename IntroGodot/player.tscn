@@ -156,3 +156,14 @@ animation = &"move_down"
 visible = false
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_fva8b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
