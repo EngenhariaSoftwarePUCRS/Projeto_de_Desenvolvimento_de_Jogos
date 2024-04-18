@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://ijbjcg0ecine"]
+[gd_scene load_steps=18 format=3 uid="uid://ijbjcg0ecine"]
 
+[ext_resource type="Script" path="res://game.gd" id="1_8invc"]
 [ext_resource type="PackedScene" uid="uid://br1rmqvfd4l2b" path="res://player.tscn" id="1_yqus5"]
 [ext_resource type="Texture2D" uid="uid://bhuyd2yxdthp5" path="res://assets/bricks/Brickwall6_Texture.png" id="2_x3p1w"]
 [ext_resource type="Texture2D" uid="uid://lfha335p7y28" path="res://assets/grass/grass1.png" id="3_h6w1p"]
@@ -36,6 +37,7 @@ size = Vector2(53.5, 1149)
 size = Vector2(53.5, 1149)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_8invc")
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_yqus5")]
 position = Vector2(22, 365)
@@ -155,3 +157,12 @@ texture = ExtResource("2_x3p1w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(-3.25, -24.5)
 shape = SubResource("RectangleShape2D_7s1hl")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 53.0
+offset_top = 1.0
+offset_right = 117.0
+offset_bottom = 25.0
+text = "Score: 0"

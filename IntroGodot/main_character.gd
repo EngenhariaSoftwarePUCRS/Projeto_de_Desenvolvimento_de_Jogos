@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var rotation_speed: float = 1.5
 @onready var _animated_sprite = $AnimatedSprite
 
+signal jumped
+
 const directions = ["move_left", "move_right", "move_up", "move_down"]
 const LEFT = directions[0]
 const RIGHT = directions[1]
@@ -45,6 +47,7 @@ func get_sideways_input() -> void:
 	
 	if is_on_floor() and jump:
 		velocity.y = jump_speed
+		jumped.emit()
 	velocity.x = vel * speed
 
 func animate_top_down():
