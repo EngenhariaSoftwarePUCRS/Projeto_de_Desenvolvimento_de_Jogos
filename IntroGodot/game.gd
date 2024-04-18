@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func updateScore():
 	gameScore += 1
-	hud.updateScore(gameScore)
+	hud.setScore(gameScore)
 
 func _on_jumped():
 	updateScore()

@@ -5,7 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	setScore(0)
 
-func updateScore()
+func updateScore():
 	print("Updating HUD score")
 
 func setScore(score: int):

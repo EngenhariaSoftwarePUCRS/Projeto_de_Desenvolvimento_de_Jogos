@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var gravity: int = 2500
 @export var rotation_speed: float = 1.5
 @onready var _animated_sprite = $AnimatedSprite
+@onready var box := preload("res://box.tscn")
 
 signal jumped
 
@@ -49,6 +50,9 @@ func get_sideways_input() -> void:
 		velocity.y = jump_speed
 		#jumped.emit()
 		get_tree().call_group("HUD", "updateScore")
+		var b := box.instantiate()
+		b.position = global_position
+		owner.add_child(b)
 	velocity.x = vel * speed
 
 func animate_top_down():
