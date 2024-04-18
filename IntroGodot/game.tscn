@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ijbjcg0ecine"]
+[gd_scene load_steps=19 format=3 uid="uid://ijbjcg0ecine"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8invc"]
 [ext_resource type="PackedScene" uid="uid://br1rmqvfd4l2b" path="res://player.tscn" id="1_yqus5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cd75wdvgd3cwo" path="res://assets/grass/grass3.png" id="5_jacd3"]
 [ext_resource type="Texture2D" uid="uid://kqflxl5faqhc" path="res://assets/grass/grass4.png" id="6_eh2qi"]
 [ext_resource type="Texture2D" uid="uid://7vqfpy7yfgld" path="res://assets/grass/grass5.png" id="7_qugvi"]
+[ext_resource type="Script" path="res://hud.gd" id="9_3un3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2d5h0"]
 size = Vector2(47.5, 183.5)
@@ -36,7 +37,7 @@ size = Vector2(53.5, 1149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s1hl"]
 size = Vector2(53.5, 1149)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["HUD"]]
 script = ExtResource("1_8invc")
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_yqus5")]
@@ -158,7 +159,8 @@ texture = ExtResource("2_x3p1w")
 position = Vector2(-3.25, -24.5)
 shape = SubResource("RectangleShape2D_7s1hl")
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
+script = ExtResource("9_3un3t")
 
 [node name="Score" type="Label" parent="HUD"]
 offset_left = 53.0

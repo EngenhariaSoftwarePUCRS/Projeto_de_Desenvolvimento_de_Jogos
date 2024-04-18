@@ -47,7 +47,8 @@ func get_sideways_input() -> void:
 	
 	if is_on_floor() and jump:
 		velocity.y = jump_speed
-		jumped.emit()
+		#jumped.emit()
+		get_tree().call_group("HUD", "updateScore")
 	velocity.x = vel * speed
 
 func animate_top_down():

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player : CharacterBody2D = $MainCharacter
-@onready var score : Label = $HUD/Score
+@onready var hud : CanvasLayer = $HUD
 
 var gameScore : int = 0
 
@@ -9,11 +9,11 @@ var gameScore : int = 0
 func _ready() -> void:
 	print("Jogo Começou!")
 	print("Pos: " + str(player.position))
-	player.connect("jumped", _on_jumped)
+	#player.connect("jumped", _on_jumped)
 
 func updateScore():
 	gameScore += 1
-	score.text = "Score: " + str(gameScore)
+	hud.updateScore(gameScore)
 
 func _on_jumped():
 	updateScore()
