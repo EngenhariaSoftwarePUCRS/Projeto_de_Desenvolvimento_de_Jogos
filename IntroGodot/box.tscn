@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cuvfqk7ws87wd" path="res://icon.svg" id="1_eu1ii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b42tg"]
-size = Vector2(128, 128)
+size = Vector2(40, 40)
 
 [sub_resource type="Animation" id="Animation_xihye"]
 resource_name = "scale"
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+"values": [Vector2(0.3125, 0.3125), Vector2(0.703125, 0.6875), Vector2(0.3125, 0.3125)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,7 +68,6 @@ _data = {
 }
 
 [node name="Box" type="Area2D"]
-position = Vector2(66, 66)
 script = ExtResource("1_b5708")
 metadata/_edit_group_ = true
 
@@ -76,11 +75,11 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_eu1ii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_b42tg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(6.5, 6.4)
+position = Vector2(9.53674e-07, 2.38419e-07)
+scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
