@@ -168,3 +168,6 @@ offset_top = 1.0
 offset_right = 117.0
 offset_bottom = 25.0
 text = "Score: 0"
+
+[node name="SceneLimit" type="Marker2D" parent="."]
+position = Vector2(24, -100)
