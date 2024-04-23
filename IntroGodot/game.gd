@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var player : CharacterBody2D = $MainCharacter
-@onready var sceneLimit : Marker2D = $SceneLimit
+@onready var player : CharacterBody2D = $Level/MainCharacter
+@onready var sceneLimit : Marker2D = $Level/SceneLimit
 @onready var hud : CanvasLayer = $HUD
 
 var gameScore : int = 0
