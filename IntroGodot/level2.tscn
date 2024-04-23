@@ -35,12 +35,12 @@ size = Vector2(47.5, 183.5)
 position = Vector2(22, 365)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
-position = Vector2(1097, -127)
+position = Vector2(-43, 732)
 
 [node name="Scenery" type="Node" parent="."]
 
 [node name="Grass1" type="Sprite2D" parent="Scenery"]
-position = Vector2(752, 226)
+position = Vector2(699, 294)
 texture = ExtResource("2_4ovqp")
 metadata/_edit_group_ = true
 
@@ -52,7 +52,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_li7rl")
 
 [node name="Grass2" type="Sprite2D" parent="Scenery"]
-position = Vector2(158, 4)
+position = Vector2(293, 129)
 texture = ExtResource("3_toja6")
 metadata/_edit_group_ = true
 
@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_kwhy6")
 one_way_collision = true
 
 [node name="Grass4" type="Sprite2D" parent="Scenery"]
-position = Vector2(386, 90)
+position = Vector2(924, 130)
 texture = ExtResource("5_hcyfk")
 metadata/_edit_group_ = true
 

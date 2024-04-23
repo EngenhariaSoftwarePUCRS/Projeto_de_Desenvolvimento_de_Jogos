@@ -33,7 +33,7 @@ size = Vector2(47.5, 183.5)
 size = Vector2(53.5, 1149)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s1hl"]
-size = Vector2(53.5, 1149)
+size = Vector2(49.5, 679)
 
 [node name="Level" type="Node"]
 
@@ -41,7 +41,7 @@ size = Vector2(53.5, 1149)
 position = Vector2(22, 365)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
-position = Vector2(24, -100)
+position = Vector2(-27, 713)
 
 [node name="Scenery" type="Node" parent="."]
 
@@ -153,10 +153,10 @@ collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Brickwall6Texture" type="Sprite2D" parent="Scenery/StaticBody2D3"]
-position = Vector2(-0.500008, -24.4999)
-scale = Vector2(0.183594, 4.48828)
+position = Vector2(-0.500008, 210.5)
+scale = Vector2(0.183594, 2.65234)
 texture = ExtResource("7_y2jo1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/StaticBody2D3"]
-position = Vector2(-3.25, -24.5)
+position = Vector2(-1.25, 210.5)
 shape = SubResource("RectangleShape2D_7s1hl")
