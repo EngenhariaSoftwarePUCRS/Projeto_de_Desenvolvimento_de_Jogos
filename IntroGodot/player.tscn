@@ -167,3 +167,5 @@ drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
