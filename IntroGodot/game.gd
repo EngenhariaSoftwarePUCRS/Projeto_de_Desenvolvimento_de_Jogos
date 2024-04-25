@@ -12,6 +12,7 @@ func _ready() -> void:
 	print("Jogo Começou!")
 	print("Pos: " + str(player.position))
 	#player.connect("jumped", _on_jumped)
+	$Music.play()
 
 func _physics_process(delta: float) -> void:
 	if sceneLimit == null:
@@ -31,7 +32,7 @@ func _on_jumped():
 
 func goto_scene(path: String):
 		print("Total children: " + str(get_child_count))
-		var world := get_child(1)
+		var world := get_child(2)
 		world.free()
 		var res := ResourceLoader.load(path)
 		currentScene = res.instantiate()

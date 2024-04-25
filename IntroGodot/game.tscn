@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ijbjcg0ecine"]
+[gd_scene load_steps=5 format=3 uid="uid://ijbjcg0ecine"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8invc"]
+[ext_resource type="AudioStream" uid="uid://rmr6siovg0ps" path="res://assets/SFX/Chiptune_Adventures_1.ogg" id="2_7n4wc"]
 [ext_resource type="PackedScene" uid="uid://bsrjsn1ekip0u" path="res://level1.tscn" id="3_mevc0"]
 [ext_resource type="Script" path="res://hud.gd" id="9_3un3t"]
 
 [node name="Game" type="Node2D" groups=["HUD"]]
 script = ExtResource("1_8invc")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7n4wc")
 
 [node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
 script = ExtResource("9_3un3t")
