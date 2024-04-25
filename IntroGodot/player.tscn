@@ -169,3 +169,4 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

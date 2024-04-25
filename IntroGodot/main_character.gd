@@ -47,7 +47,7 @@ func get_sideways_input() -> void:
 	var vel := Input.get_axis(LEFT, RIGHT)
 	var jump := Input.is_action_pressed(UP)
 	
-	if is_on_floor() and jump:
+	if jump: # is_on_floor() and jump:
 		velocity.y = jump_speed
 		#jumped.emit()
 		get_tree().call_group("HUD", "updateScore")

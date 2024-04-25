@@ -10,6 +10,7 @@ script = ExtResource("1_8invc")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_7n4wc")
+bus = &"Music"
 
 [node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
 script = ExtResource("9_3un3t")
