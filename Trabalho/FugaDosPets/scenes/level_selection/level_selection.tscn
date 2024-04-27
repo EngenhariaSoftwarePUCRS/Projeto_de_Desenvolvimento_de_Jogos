@@ -1,0 +1,266 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjkpmwho0lhji"]
+
+[ext_resource type="Texture2D" uid="uid://unwwvoacdx88" path="res://assets/backgrounds/Bairro_do_Limoeiro.webp" id="1_acji7"]
+[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="2_k3kmy"]
+[ext_resource type="Texture2D" uid="uid://bguniam8u3fvb" path="res://assets/texts/monica.png" id="3_jfckm"]
+[ext_resource type="Texture2D" uid="uid://rw17rbwm8yrd" path="res://assets/characters/bidu.webp" id="4_niip4"]
+[ext_resource type="Texture2D" uid="uid://vk7alphvgs1i" path="res://assets/GUI/settings.png" id="5_mhxqu"]
+[ext_resource type="Texture2D" uid="uid://bc08lvay4ro6l" path="res://assets/GUI/exit-door.png" id="6_2qv5e"]
+[ext_resource type="AudioStream" uid="uid://chhxoegktrbue" path="res://assets/audio/trilha_sonora_turma_da_moncia.mp3" id="7_txnyx"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_acji7")
+
+[node name="TitleSection" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33941
+anchor_top = 0.0277778
+anchor_right = 0.675347
+anchor_bottom = 0.358025
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TurmaDa" type="Label" parent="TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 40
+text = "Turma da"
+horizontal_alignment = 1
+
+[node name="Mônica" type="TextureRect" parent="TitleSection"]
+layout_mode = 2
+texture = ExtResource("3_jfckm")
+stretch_mode = 5
+
+[node name="Em" type="Label" parent="TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 40
+text = "em"
+horizontal_alignment = 1
+
+[node name="FugaDosPets" type="Label" parent="TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "Fuga dos Pets"
+horizontal_alignment = 1
+
+[node name="Bidu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -246.0
+offset_right = 188.0
+grow_vertical = 0
+icon = ExtResource("4_niip4")
+flat = true
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.145833
+anchor_top = 0.844136
+anchor_right = 0.217014
+anchor_bottom = 0.969136
+tooltip_text = "Configurações"
+icon = ExtResource("5_mhxqu")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Levels" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -317.5
+offset_top = -289.0
+offset_right = 317.5
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect2"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect3"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect4"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 155.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect5"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 142.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect6"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 142.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect7"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 142.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Label" type="Label" parent="Levels/ColorRect8"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 155.0
+offset_bottom = 142.0
+theme_override_fonts/font = ExtResource("2_k3kmy")
+theme_override_font_sizes/font_size = 60
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -102.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Sair"
+icon = ExtResource("6_2qv5e")
+flat = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_txnyx")
+autoplay = true
+bus = &"Music"
