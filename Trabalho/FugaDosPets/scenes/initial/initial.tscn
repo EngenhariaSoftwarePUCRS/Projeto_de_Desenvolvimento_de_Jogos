@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4lla03dvgado"]
+[gd_scene load_steps=8 format=3 uid="uid://b4lla03dvgado"]
 
 [ext_resource type="Texture2D" uid="uid://unwwvoacdx88" path="res://assets/backgrounds/Bairro_do_Limoeiro.webp" id="1_rofqm"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="2_o58pd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vk7alphvgs1i" path="res://assets/GUI/settings.png" id="4_ij48g"]
 [ext_resource type="Texture2D" uid="uid://rw17rbwm8yrd" path="res://assets/characters/bidu.webp" id="4_kv4pi"]
 [ext_resource type="Texture2D" uid="uid://bc08lvay4ro6l" path="res://assets/GUI/exit-door.png" id="6_khrp2"]
+[ext_resource type="AudioStream" uid="uid://chhxoegktrbue" path="res://assets/audio/trilha_sonora_turma_da_moncia.mp3" id="7_2dvdk"]
 
 [node name="Initial" type="Control"]
 layout_mode = 3
@@ -127,3 +128,8 @@ grow_vertical = 0
 tooltip_text = "Sair"
 icon = ExtResource("6_khrp2")
 flat = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2dvdk")
+autoplay = true
+bus = &"Music"
