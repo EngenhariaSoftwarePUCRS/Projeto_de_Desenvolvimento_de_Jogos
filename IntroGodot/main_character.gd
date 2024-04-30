@@ -47,13 +47,13 @@ func get_sideways_input() -> void:
 	var vel := Input.get_axis(LEFT, RIGHT)
 	var jump := Input.is_action_pressed(UP)
 	
-	if jump: # is_on_floor() and jump:
+	if is_on_floor() and jump:
 		velocity.y = jump_speed
 		#jumped.emit()
 		get_tree().call_group("HUD", "updateScore")
-		var b := box.instantiate()
-		b.position = global_position
-		owner.add_child(b)
+		#var b := box.instantiate()
+		#b.position = global_position
+		#owner.add_child(b)
 		sound.play()
 	velocity.x = vel * speed
 
