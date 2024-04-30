@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_8invc"]
 [ext_resource type="AudioStream" uid="uid://rmr6siovg0ps" path="res://assets/SFX/Chiptune_Adventures_1.ogg" id="2_7n4wc"]
-[ext_resource type="PackedScene" uid="uid://bsrjsn1ekip0u" path="res://level1.tscn" id="3_mevc0"]
+[ext_resource type="PackedScene" uid="uid://d3v3fjr63bufl" path="res://level3.tscn" id="4_tf235"]
 [ext_resource type="Script" path="res://hud.gd" id="9_3un3t"]
 
 [node name="Game" type="Node2D" groups=["HUD"]]
+y_sort_enabled = true
 script = ExtResource("1_8invc")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
@@ -22,4 +23,4 @@ offset_right = 117.0
 offset_bottom = 25.0
 text = "Score: 0"
 
-[node name="Level" parent="." instance=ExtResource("3_mevc0")]
+[node name="Level" parent="." instance=ExtResource("4_tf235")]
