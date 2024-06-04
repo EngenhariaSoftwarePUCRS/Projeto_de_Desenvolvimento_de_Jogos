@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjkpmwho0lhji"]
 
-[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="2_k3kmy"]
+[ext_resource type="PackedScene" uid="uid://bbxexjovu3i0w" path="res://scenes/level_button.tscn" id="1_7bsrt"]
 
 [node name="LevelSelection" type="CanvasLayer"]
 
@@ -18,138 +18,50 @@ grow_horizontal = 2
 grow_vertical = 0
 columns = 4
 
-[node name="ColorRect" type="ColorRect" parent="Levels"]
+[node name="Level1Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 156.0
-offset_bottom = 143.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect2" type="ColorRect" parent="Levels"]
+[node name="Level2Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect2"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 156.0
-offset_bottom = 143.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect3" type="ColorRect" parent="Levels"]
+[node name="Level3Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect3"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 156.0
-offset_bottom = 143.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect4" type="ColorRect" parent="Levels"]
+[node name="Level4Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect4"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 155.0
-offset_bottom = 143.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "4"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect5" type="ColorRect" parent="Levels"]
+[node name="Level5Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect5"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 156.0
-offset_bottom = 142.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "5"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect6" type="ColorRect" parent="Levels"]
+[node name="Level6Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect6"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 156.0
-offset_bottom = 142.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "6"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect7" type="ColorRect" parent="Levels"]
+[node name="Level7Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect7"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 156.0
-offset_bottom = 142.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "7"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ColorRect8" type="ColorRect" parent="Levels"]
+[node name="Level8Button" parent="Levels" instance=ExtResource("1_7bsrt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.505882, 0.505882, 0.505882, 1)
-
-[node name="Label" type="Label" parent="Levels/ColorRect8"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 155.0
-offset_bottom = 142.0
-theme_override_fonts/font = ExtResource("2_k3kmy")
-theme_override_font_sizes/font_size = 60
 text = "8"
-horizontal_alignment = 1
-vertical_alignment = 1
