@@ -48,3 +48,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 func _on_sfx_on_pressed() -> void:
 	update_sfx(1.0)
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

@@ -12,3 +12,7 @@ func _on_settings_pressed():
 func _on_play_pressed() -> void:
 	play_button.queue_free()
 	level_selection.visible = true
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
