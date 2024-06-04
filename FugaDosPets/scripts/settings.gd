@@ -51,4 +51,4 @@ func _on_sfx_on_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	get_tree().quit()
+	get_tree().call_group("main", "return_to_home")
