@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4lla03dvgado"]
 
-[ext_resource type="Script" path="res://scripts/initial.gd" id="1_2oj4m"]
+[ext_resource type="Script" path="res://scripts/landing/initial.gd" id="1_2oj4m"]
 [ext_resource type="Texture2D" uid="uid://unwwvoacdx88" path="res://assets/backgrounds/Bairro_do_Limoeiro.webp" id="1_rofqm"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="2_o58pd"]
-[ext_resource type="PackedScene" uid="uid://cjkpmwho0lhji" path="res://scenes/level_selection.tscn" id="3_3l72s"]
+[ext_resource type="PackedScene" uid="uid://cjkpmwho0lhji" path="res://scenes/landing/level_selection.tscn" id="3_3l72s"]
 [ext_resource type="Texture2D" uid="uid://bguniam8u3fvb" path="res://assets/texts/monica.png" id="3_f1gbx"]
 [ext_resource type="Texture2D" uid="uid://vk7alphvgs1i" path="res://assets/GUI/settings.png" id="4_ij48g"]
-[ext_resource type="Texture2D" uid="uid://rw17rbwm8yrd" path="res://assets/characters/bidu.webp" id="4_kv4pi"]
+[ext_resource type="Texture2D" uid="uid://rw17rbwm8yrd" path="res://assets/characters/bidu/bidu.webp" id="4_kv4pi"]
 [ext_resource type="Texture2D" uid="uid://bc08lvay4ro6l" path="res://assets/GUI/exit-door.png" id="6_khrp2"]
 
 [node name="Initial" type="Control"]

@@ -27,8 +27,8 @@ func _replace_last_node(new_scene_res) -> void:
 
 
 func return_to_home() -> void:
-	var home_res := "res://scenes/initial.tscn"
-	_replace_last_node(home_res)
+	var home_res := "res://scenes/landing/initial.tscn"
+	call_deferred("_replace_last_node", home_res)
 
 
 func on_level_selected(level: int) -> void:

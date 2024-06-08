@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rw17rbwm8yrd"
-path="res://.godot/imported/bidu.webp-6ae919473ee0339a22c14d23e3f01bd8.ctex"
+path="res://.godot/imported/bidu.webp-c095cb564c180bbb036b91503b8fabc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/bidu.webp"
-dest_files=["res://.godot/imported/bidu.webp-6ae919473ee0339a22c14d23e3f01bd8.ctex"]
+source_file="res://assets/characters/bidu/bidu.webp"
+dest_files=["res://.godot/imported/bidu.webp-c095cb564c180bbb036b91503b8fabc0.ctex"]
 
 [params]
 
