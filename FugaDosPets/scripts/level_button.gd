@@ -2,12 +2,15 @@ extends Control
 
 @onready var button: Button = $Button
 
-@export var text = 'ChangeMe'
+@export var value: String = 'ChangeMe'
+@export var disabled: bool = false
 
 
 func _ready() -> void:
-	button.text = text
+	button.text = value
+	button.disabled = disabled
 
 
 func _on_button_pressed() -> void:
-	get_tree().call_group("main", "on_level_selected", int(text))
+	var level = int(value)
+	get_tree().call_group("main", "on_level_selected", level)

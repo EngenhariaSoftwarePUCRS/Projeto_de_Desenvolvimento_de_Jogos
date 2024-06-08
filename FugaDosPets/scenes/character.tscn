@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvqhgf72lveoy"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_2qkwq"]
+[ext_resource type="Texture2D" uid="uid://dm504kxo5pt6e" path="res://assets/characters/monica/monica.png" id="1_6y8wr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3g0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6y8wr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ppxek"]
+radius = 41.0
+height = 148.0
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_2qkwq")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35443, 0.35443)
+sprite_frames = SubResource("SpriteFrames_u3g0n")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ppxek")

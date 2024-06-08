@@ -21,9 +21,9 @@ func _replace_last_node(new_scene_res) -> void:
 	var last_node_index: int = get_child_count() - 1
 	var last_node = get_child(last_node_index)
 	last_node.free()
-	var new_scene = ResourceLoader.load(new_scene_res)
-	new_scene = new_scene.instantiate()
-	add_child(new_scene)
+	var new_scene := ResourceLoader.load(new_scene_res)
+	var new_scene_ins = new_scene.instantiate()
+	add_child(new_scene_ins)
 
 
 func return_to_home() -> void:
@@ -33,4 +33,4 @@ func return_to_home() -> void:
 
 func on_level_selected(level: int) -> void:
 	var level_res := str("res://scenes/levels/level_", level, ".tscn")
-	_replace_last_node(level_res)
+	call_deferred("_replace_last_node", level_res)
