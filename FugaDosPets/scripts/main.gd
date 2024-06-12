@@ -7,6 +7,12 @@ extends Node
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_settings"):
 		show_settings()
+	
+	const characters = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
+	for character in characters:
+		if event.is_action_pressed("change_character_to_" + character):
+			print(1, character)
+			get_tree().call_group("character", "change_character", character)
 
 
 func show_settings() -> void:

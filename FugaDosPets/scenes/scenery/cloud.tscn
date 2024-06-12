@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bclbsj7636m5k"]
+
+[ext_resource type="Script" path="res://scripts/scenery/cloud.gd" id="1_dtg2h"]
+[ext_resource type="Texture2D" uid="uid://mhelj7bjismx" path="res://assets/scenery/cloud/cloud.png" id="2_grkyk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udshd"]
+size = Vector2(246, 60)
+
+[node name="Cloud" type="Node2D"]
+script = ExtResource("1_dtg2h")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+scale = Vector2(0.838889, 0.838889)
+texture = ExtResource("2_grkyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_udshd")
+one_way_collision = true

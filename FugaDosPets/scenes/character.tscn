@@ -18,7 +18,7 @@ animations = [{
 radius = 41.0
 height = 148.0
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" groups=["character"]]
 script = ExtResource("1_2qkwq")
 metadata/_edit_group_ = true
 
