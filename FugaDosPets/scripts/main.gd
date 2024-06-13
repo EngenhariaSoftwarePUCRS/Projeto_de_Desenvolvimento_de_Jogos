@@ -11,11 +11,14 @@ var current_level: int
 
 
 func _input(event: InputEvent) -> void:
+	level = get_level()
 	if event.is_action_pressed("open_settings"):
 		print("Openning Settings")
 		show_settings()
+		if level != null:
+			get_tree().call_group("level1", "set_active_camera", "MenuCamera")
 	
-	if get_level() == null:
+	if level == null:
 		return
 	const characters = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
 	for character in characters:
@@ -26,8 +29,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta) -> void:
-	level = get_level()
-	if level == null:
+	if get_level() == null:
 		return
 	if player.position.y > sceneLimit.position.y:
 		call_deferred("_replace_last_node", "res://scenes/game_over.tscn")
@@ -58,7 +60,15 @@ func set_level_params(level_name: String) -> void:
 
 
 func show_settings() -> void:
+	# get_tree().paused = true
 	settings_layer.visible = true
+
+
+func close_settings() -> void:
+	settings_layer.visible = false
+	if get_level() != null:
+		get_tree().call_group("level1", "reset_camera")
+	# get_tree().paused = false
 
 
 func _replace_last_node(new_scene_res) -> void:

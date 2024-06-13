@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_close_pressed() -> void:
-	visible = false
+	get_tree().call_group("main", "close_settings")
 
 
 func update_music(volume: float) -> void:
