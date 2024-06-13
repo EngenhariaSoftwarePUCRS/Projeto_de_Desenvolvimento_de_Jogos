@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbgcvbrc13x5h"
-path="res://.godot/imported/monica_bg.webp-879c8b55a1f615542d39c7f95d87001f.ctex"
+uid="uid://ce6fd6dxk33qs"
+path="res://.godot/imported/walking_3.png-051ea9aa0e0632f3b3c76c1ba58563a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monica/monica_bg.webp"
-dest_files=["res://.godot/imported/monica_bg.webp-879c8b55a1f615542d39c7f95d87001f.ctex"]
+source_file="res://assets/characters/monica/walking_3.png"
+dest_files=["res://.godot/imported/walking_3.png-051ea9aa0e0632f3b3c76c1ba58563a2.ctex"]
 
 [params]
 

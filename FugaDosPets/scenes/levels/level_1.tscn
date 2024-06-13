@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
-[ext_resource type="PackedScene" uid="uid://cvqhgf72lveoy" path="res://scenes/characters.tscn" id="2_8pm7o"]
+[ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters.tscn" id="2_8pm7o"]
 [ext_resource type="Texture2D" uid="uid://cka7o8o543isj" path="res://assets/backgrounds/Tileset.png" id="3_0ryb7"]
 [ext_resource type="Texture2D" uid="uid://by0y7fd4huwag" path="res://assets/backgrounds/sky.png" id="4_3f74n"]
 [ext_resource type="PackedScene" uid="uid://bclbsj7636m5k" path="res://scenes/scenery/cloud.tscn" id="4_78xrr"]
-[ext_resource type="Texture2D" uid="uid://c8i22bvq1w3sg" path="res://assets/characters/cebolinha/cebolinha_pg.webp" id="4_ntn03"]
-[ext_resource type="Texture2D" uid="uid://cym7wfm5myeno" path="res://assets/characters/cascao/cascao_bg.webp" id="5_2wtn2"]
 [ext_resource type="Texture2D" uid="uid://e527gc0sd2hb" path="res://assets/backgrounds/sky2.jpg" id="5_bnr8s"]
-[ext_resource type="Texture2D" uid="uid://cv6sigxkmnoof" path="res://assets/characters/magali/magali_bg.webp" id="6_0io4s"]
 [ext_resource type="Texture2D" uid="uid://be35uocy8r0tq" path="res://assets/backgrounds/skyblue.jpg" id="6_u7xba"]
+[ext_resource type="Texture2D" uid="uid://caowtio48drdi" path="res://assets/characters/cebolinha/cebolinha.png" id="8_ha37v"]
+[ext_resource type="Texture2D" uid="uid://kgua8et40w1l" path="res://assets/characters/cascao/cascao.png" id="9_vhdkl"]
+[ext_resource type="Texture2D" uid="uid://bual1kmeqduq7" path="res://assets/characters/magali/magali.png" id="10_1bvcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
 texture = ExtResource("3_0ryb7")
@@ -30670,7 +30670,7 @@ sources/3 = SubResource("TileSetAtlasSource_2tmty")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6prt"]
 size = Vector2(78, 114)
 
-[node name="Level1" type="Node"]
+[node name="Level1" type="Node" groups=["level1"]]
 script = ExtResource("1_uouim")
 
 [node name="CameraA" type="Camera2D" parent="."]
@@ -30695,10 +30695,8 @@ modulate = Color(0.823529, 0.74902, 0.113725, 1)
 anchor_mode = 0
 zoom = Vector2(0.2, 0.2)
 
-[node name="Character" parent="." instance=ExtResource("2_8pm7o")]
-position = Vector2(425, 2875)
-SPEED = 400.0
-JUMP_VELOCITY = -500.0
+[node name="Player" parent="." instance=ExtResource("2_8pm7o")]
+position = Vector2(199, 2946)
 
 [node name="Scenery" type="Node" parent="."]
 
@@ -30722,36 +30720,36 @@ position = Vector2(2871, 2699)
 offset = Vector2(0, -1200)
 
 [node name="CheckpointA" type="Area2D" parent="Scenery"]
-position = Vector2(1030, 2883)
+position = Vector2(1073, 2919)
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointA"]
-scale = Vector2(0.433333, 0.433333)
-texture = ExtResource("4_ntn03")
+scale = Vector2(0.0490867, 0.0490867)
+texture = ExtResource("8_ha37v")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointA"]
 shape = SubResource("RectangleShape2D_b6prt")
 
 [node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(1169, 2184)
+position = Vector2(1170, 2215)
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
 position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.422222, 0.386207)
-texture = ExtResource("5_2wtn2")
+scale = Vector2(0.0525114, 0.0480323)
+texture = ExtResource("9_vhdkl")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointB"]
 shape = SubResource("RectangleShape2D_b6prt")
 
 [node name="CheckpointC" type="Area2D" parent="Scenery"]
-position = Vector2(2136, 3018)
+position = Vector2(2134, 3047)
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointC"]
 position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.433333, 0.397212)
-texture = ExtResource("6_0io4s")
+scale = Vector2(0.0502283, 0.0460415)
+texture = ExtResource("10_1bvcq")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointC"]
 shape = SubResource("RectangleShape2D_b6prt")

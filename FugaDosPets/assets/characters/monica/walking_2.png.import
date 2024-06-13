@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8i22bvq1w3sg"
-path="res://.godot/imported/cebolinha_pg.webp-52550541567ab4d807de5e81135a33a4.ctex"
+uid="uid://rc6bsjmpk8la"
+path="res://.godot/imported/walking_2.png-39e0530d6afa82e99a0e9ea298cb38ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/cebolinha/cebolinha_pg.webp"
-dest_files=["res://.godot/imported/cebolinha_pg.webp-52550541567ab4d807de5e81135a33a4.ctex"]
+source_file="res://assets/characters/monica/walking_2.png"
+dest_files=["res://.godot/imported/walking_2.png-39e0530d6afa82e99a0e9ea298cb38ad.ctex"]
 
 [params]
 

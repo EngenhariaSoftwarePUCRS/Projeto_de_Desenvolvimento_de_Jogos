@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv6sigxkmnoof"
-path="res://.godot/imported/magali_bg.webp-9df740fcc7f1da19dfb4286d1202e0fe.ctex"
+uid="uid://cbserudhob631"
+path="res://.godot/imported/walking_1.png-0fad972c7dabcf399916ceff4c34a0e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/magali/magali_bg.webp"
-dest_files=["res://.godot/imported/magali_bg.webp-9df740fcc7f1da19dfb4286d1202e0fe.ctex"]
+source_file="res://assets/characters/monica/walking_1.png"
+dest_files=["res://.godot/imported/walking_1.png-0fad972c7dabcf399916ceff4c34a0e3.ctex"]
 
 [params]
 

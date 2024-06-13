@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cym7wfm5myeno"
-path="res://.godot/imported/cascao_bg.webp-0c7c072c2d0000e3c170008632f6e13a.ctex"
+uid="uid://o2c2bwm7tn6h"
+path="res://.godot/imported/walking_0.png-8468c99e395922e187f2305f8fa074e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/cascao/cascao_bg.webp"
-dest_files=["res://.godot/imported/cascao_bg.webp-0c7c072c2d0000e3c170008632f6e13a.ctex"]
+source_file="res://assets/characters/monica/walking_0.png"
+dest_files=["res://.godot/imported/walking_0.png-8468c99e395922e187f2305f8fa074e8.ctex"]
 
 [params]
 

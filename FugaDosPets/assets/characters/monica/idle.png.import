@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm504kxo5pt6e"
-path="res://.godot/imported/monica.png-7ec2b23ece5643f7fd22c6026d401e19.ctex"
+uid="uid://dstgy5c36aeab"
+path="res://.godot/imported/idle.png-f47d654ed2daa10ada7eb4b2437c8cdd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monica/monica.png"
-dest_files=["res://.godot/imported/monica.png-7ec2b23ece5643f7fd22c6026d401e19.ctex"]
+source_file="res://assets/characters/monica/idle.png"
+dest_files=["res://.godot/imported/idle.png-f47d654ed2daa10ada7eb4b2437c8cdd.ctex"]
 
 [params]
 

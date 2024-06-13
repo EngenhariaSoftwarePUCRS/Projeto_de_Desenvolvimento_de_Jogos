@@ -12,26 +12,40 @@ extends Node
 
 
 func _ready() -> void:
-	set_active_camera(camera_a)
+	set_active_camera(camera_d)
+	change_character("monica")
 
 
 func set_active_camera(camera: Camera2D) -> void:
 	camera.make_current()
 
 
-func _on_checkpoint_a_body_entered(body: Node2D) -> void:
-	checkpoint_a.queue_free()
+func update_player_position(x: int, y: int) -> void:
+	if character == null:
+		return
+	character.position.x = x
+	character.position.y = y
+
+
+func change_character(character_name: String) -> void:
+	if character == null:
+		return
+	get_tree().call_group("character", "change_character", character_name, character.position.x, character.position.y)
+
+
+func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
+	# checkpoint_a.queue_free()
 	set_active_camera(camera_b)
-	get_tree().call_group("character", "change_character", "cebolinha")
+	change_character("cebolinha")
 
 
-func _on_checkpoint_b_body_entered(body: Node2D) -> void:
-	checkpoint_b.queue_free()
+func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
+	# checkpoint_b.queue_free()
 	set_active_camera(camera_c)
-	get_tree().call_group("character", "change_character", "cascao")
+	change_character("cascao")
 
 
-func _on_checkpoint_c_body_entered(body: Node2D) -> void:
-	checkpoint_c.queue_free()
+func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
+	# checkpoint_c.queue_free()
 	set_active_camera(camera_d)
-	get_tree().call_group("character", "change_character", "magali")
+	change_character("magali")
