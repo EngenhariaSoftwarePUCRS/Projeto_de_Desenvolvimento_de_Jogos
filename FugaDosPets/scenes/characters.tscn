@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://duqcgnkn5yt03"]
+[gd_scene load_steps=23 format=3 uid="uid://duqcgnkn5yt03"]
 
 [ext_resource type="Script" path="res://scripts/characters/characters.gd" id="1_sktxr"]
 [ext_resource type="Script" path="res://scripts/characters/monica.gd" id="2_n7w5n"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/characters/magali.gd" id="8_m3fex"]
 [ext_resource type="Texture2D" uid="uid://dde3p1dvaj2ps" path="res://assets/characters/cebolinha/idle.png" id="9_3rocy"]
 [ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="11_2m2bn"]
+[ext_resource type="Texture2D" uid="uid://bnea38xfnoydo" path="res://assets/characters/cascao/gliding.png" id="11_r6u2u"]
 [ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="13_h3okr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rd87y"]
@@ -63,6 +64,14 @@ height = 192.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnfb0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_r6u2u")
+}],
+"loop": true,
+"name": &"gliding",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("11_2m2bn")
@@ -130,7 +139,8 @@ script = ExtResource("6_qeg03")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Cascao"]
-scale = Vector2(0.06621, 0.06621)
+position = Vector2(-0.00018692, 0.000221252)
+scale = Vector2(0.0662103, 0.0662103)
 sprite_frames = SubResource("SpriteFrames_tnfb0")
 animation = &"idle"
 
@@ -138,6 +148,7 @@ animation = &"idle"
 shape = SubResource("CapsuleShape2D_mmct4")
 
 [node name="Magali" type="CharacterBody2D" parent="."]
+visible = false
 collision_layer = 17
 collision_mask = 96
 script = ExtResource("8_m3fex")
