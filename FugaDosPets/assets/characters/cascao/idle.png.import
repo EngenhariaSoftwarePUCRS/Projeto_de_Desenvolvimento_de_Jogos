@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kgua8et40w1l"
-path="res://.godot/imported/cascao.png-48824798e5d29b36dc847153547e20cf.ctex"
+uid="uid://bp4qlw4kosfna"
+path="res://.godot/imported/idle.png-2afbd4ac07f8e15a67a7fbabbad1e27f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/cascao/cascao.png"
-dest_files=["res://.godot/imported/cascao.png-48824798e5d29b36dc847153547e20cf.ctex"]
+source_file="res://assets/characters/cascao/idle.png"
+dest_files=["res://.godot/imported/idle.png-2afbd4ac07f8e15a67a7fbabbad1e27f.ctex"]
 
 [params]
 

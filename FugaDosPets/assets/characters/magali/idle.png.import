@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bual1kmeqduq7"
-path="res://.godot/imported/magali.png-b733c23a9feaf6cb7beac044a7e22512.ctex"
+uid="uid://yckkkqar530p"
+path="res://.godot/imported/idle.png-c7aa1a5a1a941ae9af2ba9de3c4126f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/magali/magali.png"
-dest_files=["res://.godot/imported/magali.png-b733c23a9feaf6cb7beac044a7e22512.ctex"]
+source_file="res://assets/characters/magali/idle.png"
+dest_files=["res://.godot/imported/idle.png-c7aa1a5a1a941ae9af2ba9de3c4126f2.ctex"]
 
 [params]
 

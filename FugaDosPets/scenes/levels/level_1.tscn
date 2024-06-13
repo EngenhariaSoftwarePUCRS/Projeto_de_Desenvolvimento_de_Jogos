@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bclbsj7636m5k" path="res://scenes/scenery/cloud.tscn" id="4_78xrr"]
 [ext_resource type="Texture2D" uid="uid://e527gc0sd2hb" path="res://assets/backgrounds/sky2.jpg" id="5_bnr8s"]
 [ext_resource type="Texture2D" uid="uid://be35uocy8r0tq" path="res://assets/backgrounds/skyblue.jpg" id="6_u7xba"]
-[ext_resource type="Texture2D" uid="uid://caowtio48drdi" path="res://assets/characters/cebolinha/cebolinha.png" id="8_ha37v"]
-[ext_resource type="Texture2D" uid="uid://kgua8et40w1l" path="res://assets/characters/cascao/cascao.png" id="9_vhdkl"]
-[ext_resource type="Texture2D" uid="uid://bual1kmeqduq7" path="res://assets/characters/magali/magali.png" id="10_1bvcq"]
+[ext_resource type="Texture2D" uid="uid://dde3p1dvaj2ps" path="res://assets/characters/cebolinha/idle.png" id="8_lr60v"]
+[ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="9_5w3wi"]
+[ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="10_3l70c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
 texture = ExtResource("3_0ryb7")
@@ -31068,7 +31068,7 @@ sources/2 = SubResource("TileSetAtlasSource_o0syb")
 sources/3 = SubResource("TileSetAtlasSource_2tmty")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6prt"]
-size = Vector2(78, 114)
+size = Vector2(88, 135)
 
 [node name="Level1" type="Node" groups=["level1"]]
 script = ExtResource("1_uouim")
@@ -31129,24 +31129,26 @@ metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointA"]
 scale = Vector2(0.0490867, 0.0490867)
-texture = ExtResource("8_ha37v")
+texture = ExtResource("8_lr60v")
 flip_h = true
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointA"]
+position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_b6prt")
 
 [node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(1182, 2314)
+position = Vector2(1178, 2302)
 collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.0525114, 0.0480323)
-texture = ExtResource("9_vhdkl")
+texture = ExtResource("9_5w3wi")
 flip_h = true
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointB"]
+position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_b6prt")
 
 [node name="CheckpointC" type="Area2D" parent="Scenery"]
@@ -31157,7 +31159,7 @@ metadata/_edit_group_ = true
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointC"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.0502283, 0.0460415)
-texture = ExtResource("10_1bvcq")
+texture = ExtResource("10_3l70c")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointC"]
 shape = SubResource("RectangleShape2D_b6prt")

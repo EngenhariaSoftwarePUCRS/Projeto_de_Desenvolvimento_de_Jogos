@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://scripts/characters/characters.gd" id="1_sktxr"]
 [ext_resource type="Script" path="res://scripts/characters/monica.gd" id="2_n7w5n"]
 [ext_resource type="Texture2D" uid="uid://dstgy5c36aeab" path="res://assets/characters/monica/idle.png" id="3_hxfn8"]
-[ext_resource type="Texture2D" uid="uid://caowtio48drdi" path="res://assets/characters/cebolinha/cebolinha.png" id="3_j71cb"]
-[ext_resource type="Texture2D" uid="uid://kgua8et40w1l" path="res://assets/characters/cascao/cascao.png" id="4_6ej52"]
 [ext_resource type="Texture2D" uid="uid://o2c2bwm7tn6h" path="res://assets/characters/monica/walking_0.png" id="4_dlpiq"]
 [ext_resource type="Script" path="res://scripts/characters/cebolinha.gd" id="4_txbs2"]
-[ext_resource type="Texture2D" uid="uid://bual1kmeqduq7" path="res://assets/characters/magali/magali.png" id="5_0lye2"]
 [ext_resource type="Texture2D" uid="uid://ce6fd6dxk33qs" path="res://assets/characters/monica/walking_3.png" id="5_d3ru1"]
 [ext_resource type="Texture2D" uid="uid://cbserudhob631" path="res://assets/characters/monica/walking_1.png" id="6_7rrny"]
 [ext_resource type="Script" path="res://scripts/characters/cascao.gd" id="6_qeg03"]
 [ext_resource type="Texture2D" uid="uid://rc6bsjmpk8la" path="res://assets/characters/monica/walking_2.png" id="7_mkjad"]
 [ext_resource type="Script" path="res://scripts/characters/magali.gd" id="8_m3fex"]
+[ext_resource type="Texture2D" uid="uid://dde3p1dvaj2ps" path="res://assets/characters/cebolinha/idle.png" id="9_3rocy"]
+[ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="11_2m2bn"]
+[ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="13_h3okr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rd87y"]
 animations = [{
@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_hxfn8")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 1.0
 }, {
@@ -50,46 +50,46 @@ height = 192.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_j71cb")
+"texture": ExtResource("9_3rocy")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5hja"]
-radius = 35.0
-height = 158.0
+radius = 39.0
+height = 192.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnfb0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6ej52")
+"texture": ExtResource("11_2m2bn")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmct4"]
-radius = 35.0
-height = 154.0
+radius = 39.0
+height = 192.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v04jp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_0lye2")
+"texture": ExtResource("13_h3okr")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sqqll"]
-radius = 35.0
-height = 172.0
+radius = 39.0
+height = 192.0
 
 [node name="Characters" type="Node2D" groups=["character"]]
 script = ExtResource("1_sktxr")
@@ -118,6 +118,7 @@ metadata/_edit_group_ = true
 scale = Vector2(0.0684932, 0.0684931)
 sprite_frames = SubResource("SpriteFrames_sgcbv")
 animation = &"idle"
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cebolinha"]
 shape = SubResource("CapsuleShape2D_g5hja")
