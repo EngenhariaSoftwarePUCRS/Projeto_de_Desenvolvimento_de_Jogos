@@ -18,11 +18,15 @@ func animate() -> void:
 	if velocity.x == 0:
 		animated_sprite.play("idle")
 	else:
-		animated_sprite.play("walking")
+		pass
+		# animated_sprite.play("walking")
 	animated_sprite.flip_h = velocity.x < 0
 
 
 func _physics_process(delta: float) -> void:
+	if visible == false:
+		return
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

@@ -4,10 +4,10 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 300.0 * 1.1
+const JUMP_VELOCITY = -400.0 / 4
 
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") / 4
 
 
 func _ready() -> void:
@@ -18,11 +18,15 @@ func animate() -> void:
 	if velocity.x == 0:
 		animated_sprite.play("idle")
 	else:
-		animated_sprite.play("walking")
+		pass
+		# animated_sprite.play("walking")
 	animated_sprite.flip_h = velocity.x < 0
 
 
 func _physics_process(delta: float) -> void:
+	if visible == false:
+		return
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

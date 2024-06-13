@@ -23,6 +23,9 @@ func animate() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if visible == false:
+		return
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

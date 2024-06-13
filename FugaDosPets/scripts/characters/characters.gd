@@ -9,7 +9,6 @@ extends Node2D
 
 func _ready() -> void:
 	reset_characters()
-	monica.visible = true
 
 
 func reset_characters() -> void:
