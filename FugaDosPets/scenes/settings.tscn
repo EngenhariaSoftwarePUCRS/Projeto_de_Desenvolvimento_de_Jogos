@@ -24,7 +24,7 @@ offset_right = -176.0
 offset_bottom = -99.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.5)
+color = Color(1, 1, 1, 0.8)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 show_behind_parent = true

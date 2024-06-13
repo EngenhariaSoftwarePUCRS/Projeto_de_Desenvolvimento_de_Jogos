@@ -22,7 +22,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -54,7 +54,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5hja"]
@@ -69,7 +69,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmct4"]
@@ -84,7 +84,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sqqll"]
@@ -95,6 +95,8 @@ height = 172.0
 script = ExtResource("1_sktxr")
 
 [node name="Monica" type="CharacterBody2D" parent="."]
+collision_layer = 3
+collision_mask = 96
 script = ExtResource("2_n7w5n")
 metadata/_edit_group_ = true
 
@@ -104,11 +106,11 @@ sprite_frames = SubResource("SpriteFrames_rd87y")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monica"]
-light_mask = 2
-visibility_layer = 2
 shape = SubResource("CapsuleShape2D_8wc07")
 
 [node name="Cebolinha" type="CharacterBody2D" parent="."]
+collision_layer = 5
+collision_mask = 96
 script = ExtResource("4_txbs2")
 metadata/_edit_group_ = true
 
@@ -118,11 +120,11 @@ sprite_frames = SubResource("SpriteFrames_sgcbv")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cebolinha"]
-light_mask = 4
-visibility_layer = 4
 shape = SubResource("CapsuleShape2D_g5hja")
 
 [node name="Cascao" type="CharacterBody2D" parent="."]
+collision_layer = 9
+collision_mask = 96
 script = ExtResource("6_qeg03")
 metadata/_edit_group_ = true
 
@@ -132,11 +134,11 @@ sprite_frames = SubResource("SpriteFrames_tnfb0")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cascao"]
-light_mask = 8
-visibility_layer = 8
 shape = SubResource("CapsuleShape2D_mmct4")
 
 [node name="Magali" type="CharacterBody2D" parent="."]
+collision_layer = 17
+collision_mask = 96
 script = ExtResource("8_m3fex")
 metadata/_edit_group_ = true
 
@@ -146,6 +148,4 @@ sprite_frames = SubResource("SpriteFrames_v04jp")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Magali"]
-light_mask = 16
-visibility_layer = 16
 shape = SubResource("CapsuleShape2D_sqqll")

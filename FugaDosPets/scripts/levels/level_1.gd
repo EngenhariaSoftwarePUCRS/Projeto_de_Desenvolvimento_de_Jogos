@@ -5,47 +5,54 @@ extends Node
 @onready var camera_b: Camera2D = $CameraB
 @onready var camera_c: Camera2D = $CameraC
 @onready var camera_d: Camera2D = $CameraD
-@onready var character: CharacterBody2D = $Character
+@onready var player: Node2D = $Player
 @onready var checkpoint_a: Area2D = $Scenery/CheckpointA
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
+@onready var spawn_point = $SpawnPoint
 
 
 func _ready() -> void:
-	set_active_camera(camera_d)
+	update_player_position(spawn_point.position.x, spawn_point.position.y)
 	change_character("monica")
+	set_active_camera(camera_a)
 
 
 func set_active_camera(camera: Camera2D) -> void:
 	camera.make_current()
 
 
+func get_player() -> Node2D:
+	if player == null:
+		return $Player
+	return player
+
+
 func update_player_position(x: int, y: int) -> void:
-	if character == null:
-		return
-	character.position.x = x
-	character.position.y = y
+	get_player()
+	player.position.x = x
+	player.position.y = y
 
 
 func change_character(character_name: String) -> void:
-	if character == null:
-		return
-	get_tree().call_group("character", "change_character", character_name, character.position.x, character.position.y)
+	get_player()
+	get_tree().call_group("character", "change_character",
+		character_name, player.position.x, player.position.y)
 
 
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
-	# checkpoint_a.queue_free()
+	checkpoint_a.queue_free()
 	set_active_camera(camera_b)
 	change_character("cebolinha")
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
-	# checkpoint_b.queue_free()
+	checkpoint_b.queue_free()
 	set_active_camera(camera_c)
 	change_character("cascao")
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
-	# checkpoint_c.queue_free()
+	checkpoint_c.queue_free()
 	set_active_camera(camera_d)
 	change_character("magali")

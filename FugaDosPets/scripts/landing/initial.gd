@@ -4,7 +4,7 @@ extends Control
 @onready var play_button: Button = $Play
 
 
-func _on_settings_pressed():
+func _on_settings_pressed() -> void:
 	get_tree().call_group("main", "show_settings")
 
 
