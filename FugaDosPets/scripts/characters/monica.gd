@@ -14,12 +14,12 @@ func _ready() -> void:
 	animated_sprite.play("idle")
 
 
-func animate() -> void:
-	if velocity.x == 0:
-		animated_sprite.play("idle")
-	else:
-		animated_sprite.play("walking")
-	animated_sprite.flip_h = velocity.x < 0
+func _input(event: InputEvent) -> void:
+	if visible == false:
+		return
+	
+	if event.is_action_pressed("action"):
+		get_tree().call_group("level1", "pull_lever")
 
 
 func _physics_process(delta: float) -> void:
@@ -43,3 +43,11 @@ func _physics_process(delta: float) -> void:
 	
 	animate()
 	move_and_slide()
+
+
+func animate() -> void:
+	if velocity.x == 0:
+		animated_sprite.play("idle")
+	else:
+		animated_sprite.play("walking")
+	animated_sprite.flip_h = velocity.x < 0

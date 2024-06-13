@@ -10,7 +10,11 @@ extends Node
 @onready var checkpoint_a: Area2D = $Scenery/CheckpointA
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
+@onready var collectible_1 = $Scenery/Collectible1
 @onready var spawn_point: Marker2D = $SpawnPoint
+@onready var tree = $Scenery/Tree
+@onready var lever = $Scenery/Lever
+
 
 var activeCamera: String
 
@@ -20,6 +24,8 @@ func _ready() -> void:
 	change_character("monica")
 	activeCamera = camera_a.name
 	set_active_camera(camera_a.name)
+	for branch in tree.get_children():
+		branch['visible'] = false
 
 
 func set_active_camera(camera_name: String) -> void:
@@ -70,3 +76,14 @@ func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	activeCamera = camera_c.name
 	set_active_camera(camera_d.name)
 	change_character("magali")
+
+
+func _on_collectible_1_body_entered(body):
+	collectible_1.queue_free()
+	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
+
+
+func pull_lever() -> void:
+	lever.queue_free()
+	for branch in tree.get_children():
+		branch['visible'] = true
