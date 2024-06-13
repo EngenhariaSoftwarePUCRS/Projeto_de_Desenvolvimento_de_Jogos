@@ -1,0 +1,15 @@
+Fr: Franjinha
+Mo: Mônica
+Ce: Cebolinha
+Ca: Cascão
+Ma: Magali
+
+Scene1Begin
+Fr: Olá, Mônica! Tudo bem? Você não viu o Bidu por aí, viu?
+Mo: Não acredito! Não vá me dizer que o Bidu também fugiu? Estou atrás do Monicão...
+Fr: Essa não! Vamos procurá-los juntos então.
+Scene1End
+
+Scene2Begin
+
+Scene2End
