@@ -23,7 +23,7 @@ script = ExtResource("1_2qkwq")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.35443, 0.35443)
+scale = Vector2(0.0707763, 0.0707762)
 sprite_frames = SubResource("SpriteFrames_u3g0n")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8wh2tcrrnfgh"]
+[gd_scene load_steps=6 format=3 uid="uid://b8wh2tcrrnfgh"]
 
 [ext_resource type="PackedScene" uid="uid://dupg3rcnhpcou" path="res://scenes/settings.tscn" id="1_mvh8t"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t3ksg"]
 [ext_resource type="AudioStream" uid="uid://chhxoegktrbue" path="res://assets/audio/trilha_sonora_turma_da_moncia.mp3" id="2_k0w0q"]
 [ext_resource type="PackedScene" uid="uid://b4lla03dvgado" path="res://scenes/landing/initial.tscn" id="3_kcon7"]
+[ext_resource type="PackedScene" uid="uid://putmp8s4hwsc" path="res://scenes/levels/level_1.tscn" id="5_akm63"]
 
 [node name="Main" type="Node" groups=["main"]]
 script = ExtResource("1_t3ksg")
@@ -16,3 +17,6 @@ stream = ExtResource("2_k0w0q")
 bus = &"Music"
 
 [node name="Initial" parent="." instance=ExtResource("3_kcon7")]
+visible = false
+
+[node name="Level1" parent="." instance=ExtResource("5_akm63")]
