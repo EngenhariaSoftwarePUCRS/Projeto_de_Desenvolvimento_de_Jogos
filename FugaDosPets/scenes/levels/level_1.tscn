@@ -31108,7 +31108,7 @@ zoom = Vector2(0.3, 0.3)
 position = Vector2(70, 365)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
-position = Vector2(0, 2161)
+position = Vector2(1905, 2161)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(45, 493)

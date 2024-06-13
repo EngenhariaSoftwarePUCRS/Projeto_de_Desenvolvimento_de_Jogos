@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://fx3nkdirtowl"]
+
+[ext_resource type="Script" path="res://scripts/level_passed.gd" id="1_na12t"]
+[ext_resource type="Texture2D" uid="uid://330imvd8jbc" path="res://assets/backgrounds/bg04.jpg" id="1_x3brf"]
+[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="2_adir5"]
+[ext_resource type="Texture2D" uid="uid://bguniam8u3fvb" path="res://assets/texts/monica.png" id="3_q3wst"]
+[ext_resource type="Texture2D" uid="uid://vk7alphvgs1i" path="res://assets/GUI/settings.png" id="4_877s1"]
+[ext_resource type="Texture2D" uid="uid://bc08lvay4ro6l" path="res://assets/GUI/exit-door.png" id="5_xxvac"]
+
+[node name="LevelPassed" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_na12t")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x3brf")
+
+[node name="TitleSection" type="VBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 407.0
+offset_bottom = 234.0
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TurmaDa" type="Label" parent="TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_adir5")
+theme_override_font_sizes/font_size = 30
+text = "Turma da"
+horizontal_alignment = 1
+
+[node name="Mônica" type="TextureRect" parent="TitleSection"]
+layout_mode = 2
+texture = ExtResource("3_q3wst")
+stretch_mode = 5
+
+[node name="Em" type="Label" parent="TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_adir5")
+theme_override_font_sizes/font_size = 30
+text = "em"
+horizontal_alignment = 1
+
+[node name="FugaDosPets" type="Label" parent="TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_adir5")
+theme_override_font_sizes/font_size = 50
+text = "Fuga dos Pets"
+horizontal_alignment = 1
+
+[node name="SettingsBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0164931
+anchor_top = 0.844136
+anchor_right = 0.0876741
+anchor_bottom = 0.969136
+tooltip_text = "Configurações"
+icon = ExtResource("4_877s1")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NextLevel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -376.0
+offset_top = -148.0
+offset_right = 323.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Jogar"
+theme_override_colors/font_color = Color(0.92549, 0.109804, 0.156863, 1)
+theme_override_colors/font_pressed_color = Color(0.623529, 0.0627451, 0.0862745, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.192157, 0.207843, 1)
+theme_override_colors/font_focus_color = Color(0.984314, 0.192157, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_adir5")
+theme_override_font_sizes/font_size = 80
+text = "Próxima Fase"
+flat = true
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -102.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Sair"
+icon = ExtResource("5_xxvac")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -67.0
+offset_right = 209.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Você está um passo mais próximo de reencontrar os pets, não desista!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

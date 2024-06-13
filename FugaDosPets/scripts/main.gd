@@ -29,10 +29,12 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta) -> void:
-	if get_level() == null:
+	if get_level() == null or player == null:
 		return
 	if player.position.y > sceneLimit.position.y:
 		call_deferred("_replace_last_node", "res://scenes/game_over.tscn")
+	if player.position.x > sceneLimit.position.x:
+		call_deferred("_replace_last_node", "res://scenes/level_passed.tscn")
 
 
 func get_level() -> Node:
@@ -90,6 +92,11 @@ func return_to_home() -> void:
 
 
 func restart_level() -> void:
+	on_level_selected(current_level)
+
+
+func go_to_next_level() -> void:
+	current_level += 1
 	on_level_selected(current_level)
 
 
