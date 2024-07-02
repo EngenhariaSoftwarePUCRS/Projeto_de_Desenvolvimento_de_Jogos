@@ -84,6 +84,7 @@ func _on_collectible_1_body_entered(body):
 
 
 func pull_lever() -> void:
-	lever.queue_free()
-	for branch in tree.get_children():
-		branch['visible'] = true
+	var show_branches = func():
+		for branch in tree.get_children():
+			branch['visible'] = true
+	lever.pull(show_branches)

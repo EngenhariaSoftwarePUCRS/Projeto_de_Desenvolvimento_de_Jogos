@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://duqcgnkn5yt03"]
+[gd_scene load_steps=20 format=3 uid="uid://duqcgnkn5yt03"]
 
 [ext_resource type="Script" path="res://scripts/characters/characters.gd" id="1_sktxr"]
 [ext_resource type="Script" path="res://scripts/characters/monica.gd" id="2_n7w5n"]
 [ext_resource type="Texture2D" uid="uid://dstgy5c36aeab" path="res://assets/characters/monica/idle.png" id="3_hxfn8"]
+[ext_resource type="PackedScene" uid="uid://btr8vlwc323xg" path="res://scenes/sansao.tscn" id="3_r6owx"]
 [ext_resource type="Texture2D" uid="uid://o2c2bwm7tn6h" path="res://assets/characters/monica/walking_0.png" id="4_dlpiq"]
 [ext_resource type="Script" path="res://scripts/characters/cebolinha.gd" id="4_txbs2"]
 [ext_resource type="Texture2D" uid="uid://ce6fd6dxk33qs" path="res://assets/characters/monica/walking_3.png" id="5_d3ru1"]
@@ -43,10 +44,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wc07"]
-radius = 39.0
-height = 192.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_sgcbv"]
 animations = [{
 "frames": [{
@@ -57,10 +54,6 @@ animations = [{
 "name": &"idle",
 "speed": 1.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5hja"]
-radius = 39.0
-height = 192.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnfb0"]
 animations = [{
@@ -81,10 +74,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmct4"]
-radius = 39.0
-height = 192.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_v04jp"]
 animations = [{
 "frames": [{
@@ -96,10 +85,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sqqll"]
-radius = 39.0
-height = 192.0
-
 [node name="Characters" type="Node2D" groups=["character"]]
 script = ExtResource("1_sktxr")
 
@@ -109,13 +94,17 @@ collision_mask = 96
 script = ExtResource("2_n7w5n")
 metadata/_edit_group_ = true
 
+[node name="Sansao" parent="Monica" instance=ExtResource("3_r6owx")]
+z_index = 1
+position = Vector2(40, 50)
+
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Monica"]
 scale = Vector2(0.0684931, 0.0684932)
 sprite_frames = SubResource("SpriteFrames_rd87y")
 animation = &"walking"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Monica"]
-shape = SubResource("CapsuleShape2D_8wc07")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Monica"]
+polygon = PackedVector2Array(-15, 95, 0, 95, 22, 75, 45, -5, 36, -47, -28, -21, -39, 68)
 
 [node name="Cebolinha" type="CharacterBody2D" parent="."]
 visible = false
@@ -130,10 +119,11 @@ sprite_frames = SubResource("SpriteFrames_sgcbv")
 animation = &"idle"
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cebolinha"]
-shape = SubResource("CapsuleShape2D_g5hja")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cebolinha"]
+polygon = PackedVector2Array(-15, 95, 0, 95, 27, 70, 49, -11, 32, -50, -36, -42, -44, 60)
 
 [node name="Cascao" type="CharacterBody2D" parent="."]
+visible = false
 collision_layer = 9
 collision_mask = 96
 script = ExtResource("6_qeg03")
@@ -143,10 +133,10 @@ metadata/_edit_group_ = true
 position = Vector2(-0.00018692, 0.000221252)
 scale = Vector2(0.0662103, 0.0662103)
 sprite_frames = SubResource("SpriteFrames_tnfb0")
-animation = &"gliding"
+animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cascao"]
-shape = SubResource("CapsuleShape2D_mmct4")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cascao"]
+polygon = PackedVector2Array(-21, 93, -2, 93, 30, 68, 48, -12, 36, -59, -27, -60, -45, -27, -43, 64)
 
 [node name="Magali" type="CharacterBody2D" parent="."]
 visible = false
@@ -160,5 +150,5 @@ scale = Vector2(0.0707763, 0.0707763)
 sprite_frames = SubResource("SpriteFrames_v04jp")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magali"]
-shape = SubResource("CapsuleShape2D_sqqll")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Magali"]
+polygon = PackedVector2Array(-19, 99, 2, 99, 27, 71, 46, -18, 25, -62, -52, -12, -42, 69)

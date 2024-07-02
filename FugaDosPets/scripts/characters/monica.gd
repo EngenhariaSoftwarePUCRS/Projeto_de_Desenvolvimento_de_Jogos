@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-
+@onready var sansao = $Sansao
 
 const SPEED = 300.0 / 1.5
 const JUMP_VELOCITY = -400.0 / 2
@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("action"):
-		get_tree().call_group("level1", "pull_lever")
+		throw_sansao()
 
 
 func _physics_process(delta: float) -> void:
@@ -51,3 +51,11 @@ func animate() -> void:
 	else:
 		animated_sprite.play("walking")
 	animated_sprite.flip_h = velocity.x < 0
+
+
+func throw_sansao() -> void:
+	var mouse_position = get_global_mouse_position()
+	sansao.visible = true
+	sansao.position = position
+	sansao.move(mouse_position)
+	get_tree().call_group("level1", "pull_lever")

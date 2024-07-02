@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://frswvc5ksedu"]
+[gd_scene load_steps=4 format=3 uid="uid://frswvc5ksedu"]
 
 [ext_resource type="Texture2D" uid="uid://c1taj1k28ad7d" path="res://assets/scenery/lever/lever.png" id="1_rdi64"]
+[ext_resource type="Script" path="res://scripts/scenery/lever.gd" id="1_tn3du"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gr4l"]
 radius = 6.0
 height = 64.0
 
 [node name="Lever" type="Node2D"]
+script = ExtResource("1_tn3du")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 collision_layer = 0
