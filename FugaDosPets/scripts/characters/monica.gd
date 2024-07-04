@@ -55,7 +55,5 @@ func animate() -> void:
 
 func throw_sansao() -> void:
 	var mouse_position = get_global_mouse_position()
-	sansao.visible = true
-	sansao.position = position
 	sansao.move(mouse_position)
 	get_tree().call_group("level1", "pull_lever")

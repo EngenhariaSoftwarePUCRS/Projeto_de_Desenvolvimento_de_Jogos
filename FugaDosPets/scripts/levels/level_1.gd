@@ -23,7 +23,7 @@ func _ready() -> void:
 	update_player_position(spawn_point.position.x, spawn_point.position.y)
 	change_character("monica")
 	activeCamera = camera_a.name
-	set_active_camera(camera_a.name)
+	set_active_camera(camera_d.name)
 	for branch in tree.get_children():
 		branch['visible'] = false
 
