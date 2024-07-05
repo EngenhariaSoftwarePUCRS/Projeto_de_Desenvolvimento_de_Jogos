@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://5nhshc8l5lsk" path="res://assets/GUI/cancel.png" id="1_hlew7"]
 [ext_resource type="Texture2D" uid="uid://bd2a1qpdypru6" path="res://assets/GUI/sound-off.png" id="1_i17dl"]
-[ext_resource type="Script" path="res://scripts/settings.gd" id="1_n6emk"]
+[ext_resource type="Script" path="res://scripts/layers/settings.gd" id="1_n6emk"]
 [ext_resource type="Texture2D" uid="uid://c55avoygwch5h" path="res://assets/GUI/sound-on.png" id="2_ldt26"]
 [ext_resource type="Texture2D" uid="uid://cp0ssvak42d3h" path="res://assets/GUI/speaker-off.png" id="3_76hg1"]
 [ext_resource type="Texture2D" uid="uid://dyru7wa4psw0w" path="res://assets/GUI/speaker.png" id="4_ghdqf"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="5_3l0lu"]
+
 
 [node name="Settings" type="CanvasLayer"]
 follow_viewport_enabled = true
