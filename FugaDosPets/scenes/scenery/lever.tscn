@@ -7,18 +7,12 @@
 radius = 6.0
 height = 64.0
 
-[node name="Lever" type="Node2D"]
+[node name="Lever" type="AnimatableBody2D"]
 script = ExtResource("1_tn3du")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0816327, 0.0816327)
 texture = ExtResource("1_rdi64")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0gr4l")
-
-[connection signal="mouse_entered" from="AnimatableBody2D" to="." method="_on_animatable_body_2d_mouse_entered"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var SPEED = 1000
 
+const TARGET_OFFSET: int = 5
 var returning = false
 var monica_pos: Vector2
 var target_pos: Vector2
@@ -13,14 +14,17 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if position.distance_to(target_pos) < 50:
-		returning = true
+	if position.distance_to(target_pos) < TARGET_OFFSET:
 		move_back()
 	
-	if returning and position.distance_to(monica_pos) < 50:
+	if returning and position.distance_to(monica_pos) < TARGET_OFFSET:
 		queue_free()
 	
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().visible:
+			move_back()
 
 
 func move(origin: Vector2, target: Vector2) -> void:
@@ -32,6 +36,7 @@ func move(origin: Vector2, target: Vector2) -> void:
 
 
 func move_back() -> void:
+	returning = true
 	target_pos = monica_pos
 	var direction: = (monica_pos - position).normalized()
 	rotation = direction.angle()
@@ -39,4 +44,16 @@ func move_back() -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	if not body.visible:
+		return
+	print(body)
+	# get_tree().call_group("level1", "pull_lever", lever)
+	move_back()
+
+
+func _on_timer_timeout():
 	queue_free()

@@ -31197,6 +31197,7 @@ position = Vector2(970, 1434)
 position = Vector2(502, 1183)
 
 [node name="Lever" parent="Scenery" instance=ExtResource("12_p8ld7")]
+light_mask = 64
 position = Vector2(1034, 1871)
 
 [node name="Cloud" parent="Scenery" instance=ExtResource("4_78xrr")]

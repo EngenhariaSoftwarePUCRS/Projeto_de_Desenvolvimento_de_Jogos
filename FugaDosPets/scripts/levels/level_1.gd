@@ -23,7 +23,7 @@ func _ready() -> void:
 	update_player_position(spawn_point.position.x, spawn_point.position.y)
 	change_character("monica")
 	activeCamera = camera_a.name
-	set_active_camera(camera_d.name)
+	set_active_camera(camera_a.name)
 	for branch in tree.get_children():
 		branch['visible'] = false
 
@@ -83,7 +83,7 @@ func _on_collectible_1_body_entered(body):
 	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
 
 
-func pull_lever() -> void:
+func pull_lever(lever: Node2D) -> void:
 	var show_branches = func():
 		for branch in tree.get_children():
 			branch['visible'] = true

@@ -3,7 +3,7 @@ extends Node2D
 
 @export var pulled: bool
 
-@onready var sprite_2d: Sprite2D = $AnimatableBody2D/Sprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:
