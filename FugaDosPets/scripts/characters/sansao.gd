@@ -1,50 +1,40 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 200
+@export var SPEED = 1000
 
 var returning = false
-var goal
-var monica
+var monica_pos: Vector2
+var target_pos: Vector2
 
 
 func _ready() -> void:
-	visible = false
-	velocity = Vector2.ZERO
-	top_level = true
+	global_position = monica_pos
 
 
 func _physics_process(delta: float) -> void:
-	if not visible:
-		return
-	
-	print()
-	print(0, " ", velocity)
-	print(1.2, " ", position.x, " | ", position.y)
-	print(1.4, " ", goal.x, " | ", goal[1])
-	
-	print(1, " ", position.distance_to(goal))
-	if position.distance_to(goal) < 2:
+	if position.distance_to(target_pos) < 50:
+		print(1, " | ", position.distance_to(target_pos), "\n")
 		returning = true
 		move_back()
 	
-	print(2, " ", position.distance_to(monica.position))
-	if returning and position.distance_to(monica.position) < 4:
-		visible = false
+	if returning and position.distance_to(monica_pos) < 50:
+		print(2, " | ", position.distance_to(monica_pos), "\n")
+		queue_free()
 	
-	velocity = (goal - position).normalized() * SPEED * delta
 	move_and_slide()
 
 
-func move(target) -> void:
-	if not visible:
-		visible = true
-	monica = get_parent()
-	position = monica.position
-	goal = target
-	velocity = (goal - position).normalized() * SPEED
+func move(origin: Vector2, target: Vector2) -> void:
+	monica_pos = origin
+	target_pos = target
+	var direction: = (target - origin).normalized()
+	rotation = direction.angle()
+	velocity = Vector2(SPEED, 0).rotated(rotation)
 
 
 func move_back() -> void:
-	goal = monica.position
-	velocity = (goal - position).normalized() * SPEED
+	target_pos = monica_pos
+	var direction: = (monica_pos - position).normalized()
+	rotation = direction.angle()
+	velocity = Vector2(SPEED, 0).rotated(rotation)

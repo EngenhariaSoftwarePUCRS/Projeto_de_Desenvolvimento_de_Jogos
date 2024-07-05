@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var sansao = $Sansao
+@onready var sansao = load("res://scenes/sansao.tscn")
 
 const SPEED = 300.0 / 1.5
 const JUMP_VELOCITY = -400.0 / 2
@@ -54,6 +54,7 @@ func animate() -> void:
 
 
 func throw_sansao() -> void:
+	var sansao_i = sansao.instantiate()
 	var mouse_position = get_global_mouse_position()
-	sansao.move(mouse_position)
-	get_tree().call_group("level1", "pull_lever")
+	sansao_i.move(global_position, mouse_position)
+	get_tree().call_group("level1", "spawn_sansao", sansao_i)

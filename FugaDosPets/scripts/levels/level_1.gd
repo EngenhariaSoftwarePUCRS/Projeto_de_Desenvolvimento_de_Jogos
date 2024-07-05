@@ -88,3 +88,7 @@ func pull_lever() -> void:
 		for branch in tree.get_children():
 			branch['visible'] = true
 	lever.pull(show_branches)
+
+
+func spawn_sansao(sansao_instance) -> void:
+	add_child.call_deferred(sansao_instance)
