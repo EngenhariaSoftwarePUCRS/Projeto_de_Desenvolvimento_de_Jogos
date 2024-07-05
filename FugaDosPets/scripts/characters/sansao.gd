@@ -14,12 +14,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if position.distance_to(target_pos) < 50:
-		print(1, " | ", position.distance_to(target_pos), "\n")
 		returning = true
 		move_back()
 	
 	if returning and position.distance_to(monica_pos) < 50:
-		print(2, " | ", position.distance_to(monica_pos), "\n")
 		queue_free()
 	
 	move_and_slide()
@@ -38,3 +36,7 @@ func move_back() -> void:
 	var direction: = (monica_pos - position).normalized()
 	rotation = direction.angle()
 	velocity = Vector2(SPEED, 0).rotated(rotation)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
