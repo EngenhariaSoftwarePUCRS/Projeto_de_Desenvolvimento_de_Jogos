@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://det6cs3wc1jx6"]
+
+[ext_resource type="Texture2D" uid="uid://dsxxiahvp8hd7" path="res://assets/GUI/characters/franjinha.png" id="1_qnmm5"]
+
+[node name="LevelSelection" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="FranjinhaButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_qnmm5")
+
+[node name="MonicaButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="CebolinhaButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="CascaoButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="MagaliButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
