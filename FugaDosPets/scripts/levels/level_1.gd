@@ -29,12 +29,12 @@ func _ready() -> void:
 	
 	for branch in tree.get_children():
 		branch['visible'] = false
-	var show_branches = func():
+	var show_branches: Callable = func() -> void:
 		for branch in tree.get_children():
 			branch['visible'] = true
 	lever_1.on_pull(show_branches)
 	
-	var open_gate = func():
+	var open_gate: Callable = func() -> void:
 		print("Gate opened")
 	lever_2.on_pull(open_gate)
 
@@ -56,7 +56,7 @@ func get_player() -> Node2D:
 	return player
 
 
-func update_player_position(x: int, y: int) -> void:
+func update_player_position(x: float, y: float) -> void:
 	get_player()
 	player.position.x = x
 	player.position.y = y
@@ -89,10 +89,10 @@ func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	change_character("magali")
 
 
-func _on_collectible_1_body_entered(body):
+func _on_collectible_1_body_entered(_body: Node2D) -> void:
 	collectible_1.queue_free()
 	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
 
 
-func spawn_object(obj_instance) -> void:
+func spawn_object(obj_instance: Node) -> void:
 	add_child.call_deferred(obj_instance)

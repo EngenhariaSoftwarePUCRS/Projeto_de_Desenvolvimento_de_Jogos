@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-@export var SPEED = 200
+@export var SPEED: int = 200
 
 var magali_pos: Vector2
 
@@ -14,11 +14,11 @@ func move(origin: Vector2) -> void:
 	magali_pos = origin
 
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body.visible:
 		return
 	if String(body.name).begins_with("Lever") \
@@ -26,5 +26,5 @@ func _on_area_2d_body_entered(body):
 		body.pull()
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	queue_free()

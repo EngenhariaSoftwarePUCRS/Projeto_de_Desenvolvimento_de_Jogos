@@ -12,5 +12,5 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	var level = int(value)
+	var level: int = int(value)
 	get_tree().call_group("main", "on_level_selected", level)

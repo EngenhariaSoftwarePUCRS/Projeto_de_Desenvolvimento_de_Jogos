@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var watermelon = load("res://scenes/characters/watermelon.tscn")
+@onready var watermelon: Resource = load("res://scenes/characters/watermelon.tscn")
 @onready var right_collider: CollisionPolygon2D = $RightCollider
 @onready var left_collider: CollisionPolygon2D = $LeftCollider
 
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction: float = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -72,7 +72,7 @@ func animate() -> void:
 
 
 func throw_watermelon() -> void:
-	var watermelon_i = watermelon.instantiate()
+	var watermelon_i: Node = watermelon.instantiate()
 	var watermelon_pos: Vector2 = global_position
 	var direction_coeficient: int = 1
 	if animated_sprite.flip_h:

@@ -2,25 +2,25 @@ extends Node
 
 
 @onready var settings_layer: CanvasLayer = $SettingsLayer
-@onready var level : Node
-@onready var player : Node2D
-@onready var sceneLimit : Marker2D
-@onready var spawnPoint : Marker2D
+@onready var current_level: Node
+@onready var player: Node2D
+@onready var sceneLimit: Marker2D
+@onready var spawnPoint: Marker2D
 
-var current_level: int
+var current_level_number: int
 
 
 func _input(event: InputEvent) -> void:
-	level = get_level()
+	current_level = get_level()
 	if event.is_action_pressed("open_settings"):
 		print("Openning Settings")
 		show_settings()
-		if level != null:
+		if current_level != null:
 			get_tree().call_group("level1", "set_active_camera", "MenuCamera")
 	
-	if level == null:
+	if current_level == null:
 		return
-	const characters = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
+	const characters: Array[String] = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
 	for character in characters:
 		if event.is_action_pressed("change_character_to_" + character):
 			print(str("Changing to ", character))
@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 				character, player.position.x, player.position.y)
 
 
-func _physics_process(_delta) -> void:
+func _physics_process(_delta: float) -> void:
 	if get_level() == null or player == null:
 		return
 	if player.position.y > sceneLimit.position.y:
@@ -39,8 +39,8 @@ func _physics_process(_delta) -> void:
 
 func get_level() -> Node:
 	var last_node_index: int = get_child_count() - 1
-	var last_node = get_child(last_node_index)
-	var last_node_name = str(last_node.get_path())
+	var last_node: Node = get_child(last_node_index)
+	var last_node_name: String = str(last_node.get_path())
 	if last_node_name.contains("/Level"):
 		set_level_params(last_node.name)
 		return last_node
@@ -49,15 +49,15 @@ func get_level() -> Node:
 
 func set_level_params(level_name: String) -> void:
 	if player == null:
-		var player_node = str(level_name, "/Player")
+		var player_node: String = str(level_name, "/Player")
 		player = get_node(player_node)
 	
 	if sceneLimit == null:
-		var scene_limit_node = str(level_name, "/SceneLimit")
+		var scene_limit_node: String = str(level_name, "/SceneLimit")
 		sceneLimit = get_node(scene_limit_node)
 	
 	if spawnPoint == null:
-		var spawn_point_node = str(level_name, "/SpawnPoint")
+		var spawn_point_node: String = str(level_name, "/SpawnPoint")
 		spawnPoint = get_node(spawn_point_node)
 
 
@@ -73,35 +73,34 @@ func close_settings() -> void:
 	# get_tree().paused = false
 
 
-func _replace_last_node(new_scene_res) -> void:
+func _replace_last_node(new_scene_res: String) -> void:
 	var scene_exists: bool = ResourceLoader.exists(new_scene_res)
 	if not scene_exists:
 		print("Scene Not Found")
 		return
 	var last_node_index: int = get_child_count() - 1
-	var last_node = get_child(last_node_index)
+	var last_node: Node = get_child(last_node_index)
 	last_node.free()
-	var new_scene := ResourceLoader.load(new_scene_res)
-	var new_scene_ins = new_scene.instantiate()
+	var new_scene: Resource = ResourceLoader.load(new_scene_res)
+	var new_scene_ins: Node = new_scene.instantiate()
 	add_child(new_scene_ins)
 
 
 func return_to_home() -> void:
-	var home_res := "res://scenes/landing/initial.tscn"
+	var home_res: String = "res://scenes/landing/initial.tscn"
 	call_deferred("_replace_last_node", home_res)
 
 
 func restart_level() -> void:
-	on_level_selected(current_level)
+	on_level_selected(current_level_number)
 
 
 func go_to_next_level() -> void:
-	current_level += 1
-	on_level_selected(current_level)
+	current_level_number += 1
+	on_level_selected(current_level_number)
 
 
-@warning_ignore("shadowed_variable")
 func on_level_selected(level: int) -> void:
-	current_level = level
-	var level_res := str("res://scenes/levels/level_", level, ".tscn")
+	current_level_number = level
+	var level_res: String = str("res://scenes/levels/level_", level, ".tscn")
 	call_deferred("_replace_last_node", level_res)

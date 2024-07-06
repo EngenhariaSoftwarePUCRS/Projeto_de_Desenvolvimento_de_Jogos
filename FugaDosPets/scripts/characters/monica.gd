@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var sansao = load("res://scenes/characters/sansao.tscn")
+@onready var sansao: Resource = load("res://scenes/characters/sansao.tscn")
 @onready var right_collider: CollisionPolygon2D = $RightCollider
 @onready var left_collider: CollisionPolygon2D = $LeftCollider
 
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction: float = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -71,7 +71,7 @@ func animate() -> void:
 
 
 func throw_sansao() -> void:
-	var sansao_i = sansao.instantiate()
-	var mouse_position = get_global_mouse_position()
+	var sansao_i: Node = sansao.instantiate()
+	var mouse_position: Vector2 = get_global_mouse_position()
 	sansao_i.move(global_position, mouse_position)
 	get_tree().call_group("level1", "spawn_object", sansao_i)
