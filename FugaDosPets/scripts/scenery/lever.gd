@@ -24,3 +24,7 @@ func pull() -> void:
 	pulled = true
 	collider.disabled = true
 	pull_action.call()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pull()
