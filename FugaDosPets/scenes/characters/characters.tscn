@@ -1,149 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://duqcgnkn5yt03"]
+[gd_scene load_steps=6 format=3 uid="uid://duqcgnkn5yt03"]
 
 [ext_resource type="Script" path="res://scripts/characters/characters.gd" id="1_sktxr"]
-[ext_resource type="Script" path="res://scripts/characters/monica.gd" id="2_n7w5n"]
-[ext_resource type="Texture2D" uid="uid://dstgy5c36aeab" path="res://assets/characters/monica/idle.png" id="3_hxfn8"]
-[ext_resource type="Texture2D" uid="uid://o2c2bwm7tn6h" path="res://assets/characters/monica/walking_0.png" id="4_dlpiq"]
-[ext_resource type="Script" path="res://scripts/characters/cebolinha.gd" id="4_txbs2"]
-[ext_resource type="Texture2D" uid="uid://ce6fd6dxk33qs" path="res://assets/characters/monica/walking_3.png" id="5_d3ru1"]
-[ext_resource type="Texture2D" uid="uid://cbserudhob631" path="res://assets/characters/monica/walking_1.png" id="6_7rrny"]
-[ext_resource type="Script" path="res://scripts/characters/cascao.gd" id="6_qeg03"]
-[ext_resource type="Texture2D" uid="uid://rc6bsjmpk8la" path="res://assets/characters/monica/walking_2.png" id="7_mkjad"]
-[ext_resource type="Script" path="res://scripts/characters/magali.gd" id="8_m3fex"]
-[ext_resource type="Texture2D" uid="uid://dde3p1dvaj2ps" path="res://assets/characters/cebolinha/idle.png" id="9_3rocy"]
-[ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="11_2m2bn"]
-[ext_resource type="Texture2D" uid="uid://bnea38xfnoydo" path="res://assets/characters/cascao/gliding.png" id="11_r6u2u"]
-[ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="13_h3okr"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rd87y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_hxfn8")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_dlpiq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_7rrny")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_mkjad")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_d3ru1")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sgcbv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_3rocy")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 1.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tnfb0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_r6u2u")
-}],
-"loop": true,
-"name": &"gliding",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_2m2bn")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 1.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v04jp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_h3okr")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 1.0
-}]
+[ext_resource type="PackedScene" uid="uid://daigxicevnp71" path="res://scenes/characters/monica.tscn" id="2_d13fs"]
+[ext_resource type="PackedScene" uid="uid://cfokx5p5xsp00" path="res://scenes/characters/cebolinha.tscn" id="3_up7rv"]
+[ext_resource type="PackedScene" uid="uid://bwqb20sshr84i" path="res://scenes/characters/cascao.tscn" id="4_8cq50"]
+[ext_resource type="PackedScene" uid="uid://pmvljuwc7mxd" path="res://scenes/characters/magali.tscn" id="5_yo3rq"]
 
 [node name="Characters" type="Node2D" groups=["character"]]
 script = ExtResource("1_sktxr")
 
-[node name="Monica" type="CharacterBody2D" parent="."]
-collision_layer = 3
-collision_mask = 96
-script = ExtResource("2_n7w5n")
-metadata/_edit_group_ = true
+[node name="Monica" parent="." instance=ExtResource("2_d13fs")]
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Monica"]
-scale = Vector2(0.0684931, 0.0684932)
-sprite_frames = SubResource("SpriteFrames_rd87y")
-animation = &"walking"
+[node name="Cebolinha" parent="." instance=ExtResource("3_up7rv")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Monica"]
-polygon = PackedVector2Array(-15, 95, 0, 95, 22, 75, 45, -5, 36, -47, -28, -21, -39, 68)
+[node name="Cascao" parent="." instance=ExtResource("4_8cq50")]
 
-[node name="Cebolinha" type="CharacterBody2D" parent="."]
-visible = false
-collision_layer = 5
-collision_mask = 96
-script = ExtResource("4_txbs2")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Cebolinha"]
-scale = Vector2(0.0684932, 0.0684931)
-sprite_frames = SubResource("SpriteFrames_sgcbv")
-animation = &"idle"
-frame_progress = 1.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cebolinha"]
-polygon = PackedVector2Array(-15, 95, 0, 95, 27, 70, 49, -11, 32, -50, -36, -42, -44, 60)
-
-[node name="Cascao" type="CharacterBody2D" parent="."]
-visible = false
-collision_layer = 9
-collision_mask = 96
-script = ExtResource("6_qeg03")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Cascao"]
-position = Vector2(-0.00018692, 0.000221252)
-scale = Vector2(0.0662103, 0.0662103)
-sprite_frames = SubResource("SpriteFrames_tnfb0")
-animation = &"idle"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cascao"]
-polygon = PackedVector2Array(-21, 93, -2, 93, 30, 68, 48, -12, 36, -59, -27, -60, -45, -27, -43, 64)
-
-[node name="Magali" type="CharacterBody2D" parent="."]
-visible = false
-collision_layer = 17
-collision_mask = 96
-script = ExtResource("8_m3fex")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Magali"]
-scale = Vector2(0.0707763, 0.0707763)
-sprite_frames = SubResource("SpriteFrames_v04jp")
-animation = &"idle"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Magali"]
-polygon = PackedVector2Array(-19, 99, 2, 99, 27, 71, 46, -18, 25, -62, -52, -12, -42, 69)
+[node name="Magali" parent="." instance=ExtResource("5_yo3rq")]

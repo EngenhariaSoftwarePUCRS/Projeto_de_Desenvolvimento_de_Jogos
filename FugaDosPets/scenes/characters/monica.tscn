@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://daigxicevnp71"]
+
+[ext_resource type="Script" path="res://scripts/characters/monica.gd" id="1_wi4df"]
+[ext_resource type="Texture2D" uid="uid://dstgy5c36aeab" path="res://assets/characters/monica/idle.png" id="2_4rxrd"]
+[ext_resource type="Texture2D" uid="uid://o2c2bwm7tn6h" path="res://assets/characters/monica/walking_0.png" id="3_1at7d"]
+[ext_resource type="Texture2D" uid="uid://cbserudhob631" path="res://assets/characters/monica/walking_1.png" id="4_8p2bo"]
+[ext_resource type="Texture2D" uid="uid://rc6bsjmpk8la" path="res://assets/characters/monica/walking_2.png" id="5_awsep"]
+[ext_resource type="Texture2D" uid="uid://ce6fd6dxk33qs" path="res://assets/characters/monica/walking_3.png" id="6_rd8bu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd87y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4rxrd")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1at7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8p2bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_awsep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rd8bu")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Monica" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 96
+script = ExtResource("1_wi4df")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0684931, 0.0684932)
+sprite_frames = SubResource("SpriteFrames_rd87y")
+animation = &"walking"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-15, 95, 0, 95, 22, 75, 45, -5, 36, -47, -28, -21, -39, 68)

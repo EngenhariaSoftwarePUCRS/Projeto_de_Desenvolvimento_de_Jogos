@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfokx5p5xsp00"]
+
+[ext_resource type="Script" path="res://scripts/characters/cebolinha.gd" id="1_miuif"]
+[ext_resource type="Texture2D" uid="uid://dde3p1dvaj2ps" path="res://assets/characters/cebolinha/idle.png" id="2_imh6s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgcbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imh6s")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="Cebolinha" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 96
+script = ExtResource("1_miuif")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0684932, 0.0684931)
+sprite_frames = SubResource("SpriteFrames_sgcbv")
+animation = &"idle"
+frame_progress = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-15, 95, 0, 95, 27, 70, 49, -11, 32, -50, -36, -42, -44, 60)
