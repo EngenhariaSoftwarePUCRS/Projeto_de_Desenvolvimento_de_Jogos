@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch.tscn" id="10_h0bbq"]
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
 texture = ExtResource("3_0ryb7")
 0:0/0 = 0
@@ -31197,7 +31196,7 @@ position = Vector2(970, 1434)
 [node name="Branch4" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
 position = Vector2(502, 1183)
 
-[node name="Lever" parent="Scenery" instance=ExtResource("12_p8ld7")]
+[node name="Lever1" parent="Scenery" instance=ExtResource("12_p8ld7")]
 light_mask = 64
 position = Vector2(1034, 1871)
 

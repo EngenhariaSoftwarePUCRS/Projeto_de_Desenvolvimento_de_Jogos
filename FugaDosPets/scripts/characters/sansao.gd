@@ -23,8 +23,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().visible:
-			move_back()
+		_on_area_2d_body_entered(collision.get_collider())
 
 
 func move(origin: Vector2, target: Vector2) -> void:
@@ -50,8 +49,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_area_2d_body_entered(body):
 	if not body.visible:
 		return
-	print(body)
-	# get_tree().call_group("level1", "pull_lever", lever)
+	if String(body.name).begins_with("Lever") \
+		and body.has_method("pull"):
+		body.pull()
 	move_back()
 
 

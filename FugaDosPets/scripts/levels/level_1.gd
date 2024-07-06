@@ -13,7 +13,7 @@ extends Node
 @onready var collectible_1 = $Scenery/Collectible1
 @onready var spawn_point: Marker2D = $SpawnPoint
 @onready var tree = $Scenery/Tree
-@onready var lever = $Scenery/Lever
+@onready var lever_1 = $Scenery/Lever1
 
 
 var activeCamera: String
@@ -22,10 +22,16 @@ var activeCamera: String
 func _ready() -> void:
 	update_player_position(spawn_point.position.x, spawn_point.position.y)
 	change_character("monica")
+	
 	activeCamera = camera_a.name
 	set_active_camera(camera_a.name)
+	
 	for branch in tree.get_children():
 		branch['visible'] = false
+	var show_branches = func():
+		for branch in tree.get_children():
+			branch['visible'] = true
+	lever_1.on_pull(show_branches)
 
 
 func set_active_camera(camera_name: String) -> void:
@@ -81,13 +87,6 @@ func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 func _on_collectible_1_body_entered(body):
 	collectible_1.queue_free()
 	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
-
-
-func pull_lever(lever: Node2D) -> void:
-	var show_branches = func():
-		for branch in tree.get_children():
-			branch['visible'] = true
-	lever.pull(show_branches)
 
 
 func spawn_object(obj_instance) -> void:
