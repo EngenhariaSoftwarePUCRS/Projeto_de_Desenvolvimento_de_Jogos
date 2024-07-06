@@ -31201,7 +31201,7 @@ position = Vector2(1034, 1871)
 
 [node name="Cloud" parent="Scenery" instance=ExtResource("4_78xrr")]
 position = Vector2(2879, 1544)
-offset = Vector2(0, -1300)
+OFFSET = Vector2(0, -1300)
 
 [node name="Lever2" parent="Scenery" instance=ExtResource("12_p8ld7")]
 position = Vector2(3777, 2000)
