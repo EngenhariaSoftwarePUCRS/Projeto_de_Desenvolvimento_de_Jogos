@@ -15,4 +15,4 @@ func open() -> void:
 	if opened:
 		return
 	opened = true
-	collider.disabled = true
+	collider.set_deferred("disabled", true)

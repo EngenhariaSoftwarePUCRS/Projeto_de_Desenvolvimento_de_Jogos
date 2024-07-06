@@ -22,7 +22,7 @@ func pull() -> void:
 	if pulled:
 		return
 	pulled = true
-	collider.disabled = true
+	collider.set_deferred("disabled", true)
 	pull_action.call()
 
 
