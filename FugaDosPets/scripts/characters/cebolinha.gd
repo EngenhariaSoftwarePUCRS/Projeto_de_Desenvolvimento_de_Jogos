@@ -14,15 +14,6 @@ func _ready() -> void:
 	animated_sprite.play("idle")
 
 
-func animate() -> void:
-	if velocity.x == 0:
-		animated_sprite.play("idle")
-	else:
-		pass
-		# animated_sprite.play("walking")
-	animated_sprite.flip_h = velocity.x < 0
-
-
 func _physics_process(delta: float) -> void:
 	if visible == false:
 		return
@@ -44,3 +35,14 @@ func _physics_process(delta: float) -> void:
 	
 	animate()
 	move_and_slide()
+
+
+func animate() -> void:
+	if velocity.x == 0:
+		animated_sprite.play("idle")
+		return
+	# animated_sprite.play("walking")
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+	elif velocity.x < 0:
+		animated_sprite.flip_h = true

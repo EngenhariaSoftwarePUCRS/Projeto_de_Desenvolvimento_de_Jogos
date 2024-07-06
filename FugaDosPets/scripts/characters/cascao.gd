@@ -7,20 +7,11 @@ extends CharacterBody2D
 const SPEED = 300.0 * 1.2
 const JUMP_VELOCITY = -400.0 / 3
 
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") / 8
+var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready() -> void:
 	animated_sprite.play("idle")
-
-
-func animate() -> void:
-	if velocity.x == 0:
-		animated_sprite.play("idle")
-	else:
-		pass
-		# animated_sprite.play("walking")
-	animated_sprite.flip_h = velocity.x < 0
 
 
 func _physics_process(delta: float) -> void:
@@ -28,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if not is_on_floor():
-		animated_sprite.play("gliding")
 		velocity.y += gravity * delta
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -45,3 +35,18 @@ func _physics_process(delta: float) -> void:
 	
 	animate()
 	move_and_slide()
+
+
+func animate() -> void:
+	if velocity.y > 0:
+		animated_sprite.play("gliding")
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity") / 8
+	elif velocity.x == 0:
+		animated_sprite.play("idle")
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity") / 4
+		return
+	# animated_sprite.play("walking")
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+	elif velocity.x < 0:
+		animated_sprite.flip_h = true

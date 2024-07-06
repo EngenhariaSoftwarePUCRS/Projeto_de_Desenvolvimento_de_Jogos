@@ -47,9 +47,12 @@ func _physics_process(delta: float) -> void:
 func animate() -> void:
 	if velocity.x == 0:
 		animated_sprite.play("idle")
-	else:
-		animated_sprite.play("walking")
-	animated_sprite.flip_h = velocity.x < 0
+		return
+	animated_sprite.play("walking")
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+	elif velocity.x < 0:
+		animated_sprite.flip_h = true
 
 
 func throw_sansao() -> void:
