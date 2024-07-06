@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var sansao = load("res://scenes/sansao.tscn")
+@onready var sansao = load("res://scenes/characters/sansao.tscn")
 
 const SPEED = 300.0 / 1.5
 const JUMP_VELOCITY = -400.0 / 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
-[ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters.tscn" id="2_8pm7o"]
+[ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/characters.tscn" id="2_8pm7o"]
 [ext_resource type="Texture2D" uid="uid://cka7o8o543isj" path="res://assets/backgrounds/Tileset.png" id="3_0ryb7"]
 [ext_resource type="Texture2D" uid="uid://by0y7fd4huwag" path="res://assets/backgrounds/sky.png" id="4_3f74n"]
 [ext_resource type="PackedScene" uid="uid://bclbsj7636m5k" path="res://scenes/scenery/cloud.tscn" id="4_78xrr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_eerfg"]
 [ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch.tscn" id="10_h0bbq"]
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
 texture = ExtResource("3_0ryb7")
