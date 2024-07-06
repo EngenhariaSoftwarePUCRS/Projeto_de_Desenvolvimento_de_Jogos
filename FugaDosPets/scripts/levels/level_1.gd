@@ -28,10 +28,12 @@ func _ready() -> void:
 	set_active_camera(camera_a.name)
 	
 	for branch in tree.get_children():
-		branch['visible'] = false
+		branch.visible = false
+		branch.get_node("CollisionShape2D").disabled = true
 	var show_branches: Callable = func() -> void:
 		for branch in tree.get_children():
-			branch['visible'] = true
+			branch.visible = true
+			branch.get_node("CollisionShape2D").disabled = false
 	lever_1.on_pull(show_branches)
 	
 	var open_gate: Callable = func() -> void:
