@@ -46,5 +46,8 @@ scale = Vector2(0.0684931, 0.0684932)
 sprite_frames = SubResource("SpriteFrames_rd87y")
 animation = &"walking"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="RightCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-15, 95, 0, 95, 22, 75, 45, -5, 36, -47, -28, -21, -39, 68)
+
+[node name="LeftCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(15, 95, 0, 95, -22, 75, -45, -5, -36, -47, 28, -21, 39, 68)

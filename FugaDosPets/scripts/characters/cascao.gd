@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var right_collider: CollisionPolygon2D = $RightCollider
+@onready var left_collider: CollisionPolygon2D = $LeftCollider
 
 
 const SPEED = 300.0 * 1.2
@@ -12,6 +14,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
 	animated_sprite.play("idle")
+	enable_right_collider()
 
 
 func _physics_process(delta: float) -> void:
@@ -37,6 +40,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func enable_left_collider() -> void:
+	right_collider.disabled = true
+	left_collider.disabled = false
+
+
+func enable_right_collider() -> void:
+	left_collider.disabled = true
+	right_collider.disabled = false
+
+
 func animate() -> void:
 	if velocity.y > 0:
 		animated_sprite.play("gliding")
@@ -48,5 +61,7 @@ func animate() -> void:
 	# animated_sprite.play("walking")
 	if velocity.x > 0:
 		animated_sprite.flip_h = false
+		enable_right_collider()
 	elif velocity.x < 0:
 		animated_sprite.flip_h = true
+		enable_left_collider()

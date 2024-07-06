@@ -25,5 +25,8 @@ scale = Vector2(0.0707763, 0.0707763)
 sprite_frames = SubResource("SpriteFrames_v04jp")
 animation = &"idle"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="RightCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-19, 99, 2, 99, 27, 71, 46, -18, 25, -62, -52, -12, -42, 69)
+
+[node name="LeftCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(19, 99, 2, 99, -27, 71, -46, -18, -25, -62, 52, -12, 42, 69)

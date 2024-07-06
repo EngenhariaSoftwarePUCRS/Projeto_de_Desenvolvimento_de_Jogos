@@ -26,5 +26,8 @@ sprite_frames = SubResource("SpriteFrames_sgcbv")
 animation = &"idle"
 frame_progress = 1.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="RightCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-15, 95, 0, 95, 27, 70, 49, -11, 32, -50, -36, -42, -44, 60)
+
+[node name="LeftCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(15, 95, 0, 95, -27, 70, -49, 11, -32, -50, 36, -42, 44, 60)
