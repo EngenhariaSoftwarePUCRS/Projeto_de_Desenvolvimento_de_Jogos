@@ -90,5 +90,5 @@ func pull_lever(lever: Node2D) -> void:
 	lever.pull(show_branches)
 
 
-func spawn_sansao(sansao_instance) -> void:
-	add_child.call_deferred(sansao_instance)
+func spawn_object(obj_instance) -> void:
+	add_child.call_deferred(obj_instance)

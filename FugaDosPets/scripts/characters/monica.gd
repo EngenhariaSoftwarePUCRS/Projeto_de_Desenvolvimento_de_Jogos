@@ -56,4 +56,4 @@ func throw_sansao() -> void:
 	var sansao_i = sansao.instantiate()
 	var mouse_position = get_global_mouse_position()
 	sansao_i.move(global_position, mouse_position)
-	get_tree().call_group("level1", "spawn_sansao", sansao_i)
+	get_tree().call_group("level1", "spawn_object", sansao_i)
