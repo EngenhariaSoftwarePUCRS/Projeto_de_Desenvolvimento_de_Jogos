@@ -11,8 +11,7 @@ func _ready() -> void:
 
 
 func move(origin: Vector2) -> void:
-	magali_pos.x = origin.x + 25
-	magali_pos.y = origin.y + 50
+	magali_pos = origin
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

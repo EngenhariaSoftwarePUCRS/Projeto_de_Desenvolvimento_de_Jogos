@@ -73,5 +73,11 @@ func animate() -> void:
 
 func throw_watermelon() -> void:
 	var watermelon_i = watermelon.instantiate()
-	watermelon_i.move(global_position)
+	var watermelon_pos: Vector2 = global_position
+	var direction_coeficient: int = 1
+	if animated_sprite.flip_h:
+		direction_coeficient = -1
+	watermelon_pos.x += 25 * direction_coeficient
+	watermelon_pos.y += 50 * direction_coeficient
+	watermelon_i.move(watermelon_pos)
 	get_tree().call_group("level1", "spawn_object", watermelon_i)
