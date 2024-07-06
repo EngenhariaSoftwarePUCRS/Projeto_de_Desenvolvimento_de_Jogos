@@ -15,6 +15,7 @@ extends Node
 @onready var tree: Node = $Scenery/Tree
 @onready var lever_1: AnimatableBody2D = $Scenery/Lever1
 @onready var lever_2: AnimatableBody2D = $Scenery/Lever2
+@onready var gate: StaticBody2D = $Scenery/Gate
 
 
 var activeCamera: String
@@ -37,7 +38,7 @@ func _ready() -> void:
 	lever_1.on_pull(show_branches)
 	
 	var open_gate: Callable = func() -> void:
-		print("Gate opened")
+		gate.open()
 	lever_2.on_pull(open_gate)
 
 

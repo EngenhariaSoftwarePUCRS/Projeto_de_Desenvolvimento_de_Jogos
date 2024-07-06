@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=22 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/characters.tscn" id="2_8pm7o"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_eerfg"]
 [ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch.tscn" id="10_h0bbq"]
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
+[ext_resource type="PackedScene" uid="uid://83oftwnr2aj8" path="res://scenes/scenery/gate.tscn" id="14_yawya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
 texture = ExtResource("3_0ryb7")
@@ -31205,6 +31206,9 @@ OFFSET = Vector2(0, -1300)
 
 [node name="Lever2" parent="Scenery" instance=ExtResource("12_p8ld7")]
 position = Vector2(3777, 2000)
+
+[node name="Gate" parent="Scenery" instance=ExtResource("14_yawya")]
+position = Vector2(3818, 1480)
 
 [connection signal="body_entered" from="Scenery/CheckpointA" to="." method="_on_checkpoint_a_body_entered"]
 [connection signal="body_entered" from="Scenery/CheckpointB" to="." method="_on_checkpoint_b_body_entered"]

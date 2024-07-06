@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://83oftwnr2aj8"]
+
+[ext_resource type="Script" path="res://scripts/scenery/gate.gd" id="1_pb221"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6kqwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18u"]
+size = Vector2(44, 560)
+
+[node name="Gate" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 33
+script = ExtResource("1_pb221")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(44, 560)
+texture = SubResource("PlaceholderTexture2D_6kqwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fh18u")
