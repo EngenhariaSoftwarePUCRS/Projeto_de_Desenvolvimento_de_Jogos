@@ -10,10 +10,11 @@ extends Node
 @onready var checkpoint_a: Area2D = $Scenery/CheckpointA
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
-@onready var collectible_1 = $Scenery/Collectible1
+@onready var collectible_1: Area2D = $Scenery/Collectible1
 @onready var spawn_point: Marker2D = $SpawnPoint
-@onready var tree = $Scenery/Tree
-@onready var lever_1 = $Scenery/Lever1
+@onready var tree: Node = $Scenery/Tree
+@onready var lever_1: AnimatableBody2D = $Scenery/Lever1
+@onready var lever_2: AnimatableBody2D = $Scenery/Lever2
 
 
 var activeCamera: String
@@ -32,6 +33,10 @@ func _ready() -> void:
 		for branch in tree.get_children():
 			branch['visible'] = true
 	lever_1.on_pull(show_branches)
+	
+	var open_gate = func():
+		print("Gate opened")
+	lever_2.on_pull(open_gate)
 
 
 func set_active_camera(camera_name: String) -> void:
