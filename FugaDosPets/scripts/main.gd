@@ -32,9 +32,9 @@ func _physics_process(_delta) -> void:
 	if get_level() == null or player == null:
 		return
 	if player.position.y > sceneLimit.position.y:
-		call_deferred("_replace_last_node", "res://scenes/game_over.tscn")
+		call_deferred("_replace_last_node", "res://scenes/layers/game_over.tscn")
 	if player.position.x > sceneLimit.position.x:
-		call_deferred("_replace_last_node", "res://scenes/level_passed.tscn")
+		call_deferred("_replace_last_node", "res://scenes/layers/level_passed.tscn")
 
 
 func get_level() -> Node:
