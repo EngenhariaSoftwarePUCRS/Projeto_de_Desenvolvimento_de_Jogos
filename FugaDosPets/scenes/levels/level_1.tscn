@@ -31131,7 +31131,7 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
 
 [node name="CheckpointA" type="Area2D" parent="Scenery"]
-position = Vector2(1104, 1829)
+position = Vector2(1097, 1836)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31145,7 +31145,7 @@ position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_b6prt")
 
 [node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(435, 1135)
+position = Vector2(396, 1128)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31153,14 +31153,13 @@ metadata/_edit_group_ = true
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.0525114, 0.0480323)
 texture = ExtResource("9_5w3wi")
-flip_h = true
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointB"]
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_b6prt")
 
 [node name="CheckpointC" type="Area2D" parent="Scenery"]
-position = Vector2(2387, 1657)
+position = Vector2(2356, 1696)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31188,13 +31187,13 @@ shape = SubResource("CircleShape2D_iec46")
 position = Vector2(865, 1906)
 
 [node name="Branch2" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(721, 1649)
+position = Vector2(698, 1678)
 
 [node name="Branch3" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
 position = Vector2(970, 1434)
 
 [node name="Branch4" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(502, 1183)
+position = Vector2(494, 1184)
 
 [node name="Lever1" parent="Scenery" instance=ExtResource("12_p8ld7")]
 light_mask = 64
