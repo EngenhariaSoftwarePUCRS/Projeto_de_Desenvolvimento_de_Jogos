@@ -9,7 +9,6 @@
 script = ExtResource("1_t3ksg")
 
 [node name="SettingsLayer" parent="." instance=ExtResource("1_mvh8t")]
-visible = false
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_k0w0q")

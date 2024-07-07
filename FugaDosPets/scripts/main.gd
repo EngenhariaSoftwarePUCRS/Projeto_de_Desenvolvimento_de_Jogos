@@ -10,22 +10,18 @@ extends Node
 var current_level_number: int
 
 
+func _ready() -> void:
+	settings_layer.visible = false
+
+
 func _input(event: InputEvent) -> void:
 	current_level = get_level()
+	
 	if event.is_action_pressed("open_settings"):
 		print("Openning Settings")
 		show_settings()
 		if current_level != null:
 			get_tree().call_group("level1", "set_active_camera", "MenuCamera")
-	
-	if current_level == null:
-		return
-	const characters: Array[String] = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
-	for character in characters:
-		if event.is_action_pressed("change_character_to_" + character):
-			print(str("Changing to ", character))
-			get_tree().call_group("character", "change_character",
-				character, player.position.x, player.position.y)
 
 
 func _physics_process(_delta: float) -> void:

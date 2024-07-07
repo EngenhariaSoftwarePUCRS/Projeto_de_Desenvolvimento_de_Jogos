@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@onready var character_selection: CanvasLayer = $CharacterSelection
 @onready var monica: CharacterBody2D = $Monica
 @onready var cebolinha: CharacterBody2D = $Cebolinha
 @onready var cascao: CharacterBody2D = $Cascao
@@ -8,7 +9,22 @@ extends Node2D
 
 
 func _ready() -> void:
+	character_selection.visible = false
 	reset_characters()
+
+
+func _input(event: InputEvent) -> void:
+	const characters: Array[String] = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
+	for character in characters:
+		if event.is_action_pressed("change_character_to_" + character):
+			change_character(character)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("change_characters"):
+		character_selection.visible = true
+	else:
+		character_selection.visible = false
 
 
 func reset_characters() -> void:
@@ -18,24 +34,21 @@ func reset_characters() -> void:
 	magali.visible = false
 
 
-func change_character(new_character: String, pos_x: int, pos_y: int) -> void:
+func change_character(	new_character: String) -> void:
 	reset_characters()
+	print(str("Changing to ", new_character))
 	match new_character:
 		'franjinha':
 			pass
 		'monica':
 			monica.visible = true
-			monica.position.x = pos_x
-			monica.position.y = pos_y
+			monica.position = position
 		'cebolinha':
 			cebolinha.visible = true
-			cebolinha.position.x = pos_x
-			cebolinha.position.y = pos_y
+			cebolinha.position = position
 		"cascao":
 			cascao.visible = true
-			cascao.position.x = pos_x
-			cascao.position.y = pos_y
+			cascao.position = position
 		"magali":
 			magali.visible = true
-			magali.position.x = pos_x
-			magali.position.y = pos_y
+			magali.position = position

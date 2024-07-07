@@ -61,14 +61,12 @@ func get_player() -> Node2D:
 
 func update_player_position(x: float, y: float) -> void:
 	get_player()
-	player.position.x = x
-	player.position.y = y
+	player.position = Vector2(x, y)
 
 
 func change_character(character_name: String) -> void:
 	get_player()
-	get_tree().call_group("character", "change_character",
-		character_name, player.position.x, player.position.y)
+	get_tree().call_group("character", "change_character", character_name)
 
 
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:

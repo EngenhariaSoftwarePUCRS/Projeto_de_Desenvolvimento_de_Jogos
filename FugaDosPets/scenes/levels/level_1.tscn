@@ -31142,7 +31142,7 @@ color = Color(0.607843, 0.607843, 0.607843, 1)
 position = Vector2(3525, 284)
 shadow_enabled = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Scenery"]
+[node name="MapShadow" type="LightOccluder2D" parent="Scenery"]
 position = Vector2(1805, 1464)
 occluder = SubResource("OccluderPolygon2D_kd36h")
 

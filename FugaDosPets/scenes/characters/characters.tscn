@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://duqcgnkn5yt03"]
+[gd_scene load_steps=7 format=3 uid="uid://duqcgnkn5yt03"]
 
 [ext_resource type="Script" path="res://scripts/characters/characters.gd" id="1_sktxr"]
+[ext_resource type="PackedScene" uid="uid://det6cs3wc1jx6" path="res://scenes/layers/character_selection.tscn" id="2_76kqb"]
 [ext_resource type="PackedScene" uid="uid://daigxicevnp71" path="res://scenes/characters/monica.tscn" id="2_d13fs"]
 [ext_resource type="PackedScene" uid="uid://cfokx5p5xsp00" path="res://scenes/characters/cebolinha.tscn" id="3_up7rv"]
 [ext_resource type="PackedScene" uid="uid://bwqb20sshr84i" path="res://scenes/characters/cascao.tscn" id="4_8cq50"]
@@ -8,6 +9,8 @@
 
 [node name="Characters" type="Node2D" groups=["character"]]
 script = ExtResource("1_sktxr")
+
+[node name="CharacterSelection" parent="." instance=ExtResource("2_76kqb")]
 
 [node name="Monica" parent="." instance=ExtResource("2_d13fs")]
 

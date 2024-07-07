@@ -1,35 +1,206 @@
-[gd_scene load_steps=2 format=3 uid="uid://det6cs3wc1jx6"]
+[gd_scene load_steps=18 format=3 uid="uid://det6cs3wc1jx6"]
 
+[ext_resource type="Script" path="res://scripts/layers/character_selection.gd" id="1_gioiy"]
+[ext_resource type="Texture2D" uid="uid://di4cqn4pqormu" path="res://assets/GUI/characters/magali.png" id="1_p217w"]
 [ext_resource type="Texture2D" uid="uid://dsxxiahvp8hd7" path="res://assets/GUI/characters/franjinha.png" id="1_qnmm5"]
+[ext_resource type="Texture2D" uid="uid://bds357v3r2wg7" path="res://assets/GUI/characters/cascao.png" id="2_uitik"]
+[ext_resource type="Texture2D" uid="uid://ik30dr1mcngf" path="res://assets/GUI/characters/cebolinha.png" id="3_5f5rp"]
+[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="3_gipmf"]
+[ext_resource type="Texture2D" uid="uid://b27j5g67u6yvu" path="res://assets/GUI/characters/monica.png" id="4_hiaeh"]
 
-[node name="LevelSelection" type="CanvasLayer"]
+[sub_resource type="InputEventKey" id="InputEventKey_8vlx1"]
+device = -1
+alt_pressed = true
+keycode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_7xqx6"]
+events = [SubResource("InputEventKey_8vlx1")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_go3ck"]
+device = -1
+alt_pressed = true
+keycode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_sb30s"]
+events = [SubResource("InputEventKey_go3ck")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_s7vri"]
+device = -1
+alt_pressed = true
+keycode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_bnkm3"]
+events = [SubResource("InputEventKey_s7vri")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_dgpw6"]
+device = -1
+alt_pressed = true
+keycode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_mxo34"]
+events = [SubResource("InputEventKey_dgpw6")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ermcl"]
+device = -1
+alt_pressed = true
+keycode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_2i6bj"]
+events = [SubResource("InputEventKey_ermcl")]
+
+[node name="CharacterSelection" type="CanvasLayer"]
+script = ExtResource("1_gioiy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.0
+offset_top = -325.0
+offset_right = 333.0
+offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+[node name="Magali" type="TextureButton" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+tooltip_text = "Clique aqui ou Pressione Alt + 5 para trocar para a Magali"
+shortcut = SubResource("Shortcut_7xqx6")
+texture_normal = ExtResource("1_p217w")
 
-[node name="FranjinhaButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Magali"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -32.5
+offset_bottom = 32.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cascao" type="TextureButton" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+tooltip_text = "Clique aqui ou Pressione Alt + 4 para trocar para o Cascão"
+shortcut = SubResource("Shortcut_sb30s")
+texture_normal = ExtResource("2_uitik")
+
+[node name="Label" type="Label" parent="MarginContainer/Cascao"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 38.0
+offset_bottom = 32.5
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+text = "4
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cebolinha" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+tooltip_text = "Clique aqui ou Pressione Alt + 3 para trocar para o Cebolinha"
+shortcut = SubResource("Shortcut_bnkm3")
+texture_normal = ExtResource("3_5f5rp")
+
+[node name="Label" type="Label" parent="MarginContainer/Cebolinha"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.5
+offset_top = -65.0
+offset_right = 15.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Monica" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+tooltip_text = "Clique aqui ou Pressione Alt + 2 para trocar para a Mônica"
+shortcut = SubResource("Shortcut_mxo34")
+texture_normal = ExtResource("4_hiaeh")
+
+[node name="Label" type="Label" parent="MarginContainer/Monica"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.5
+offset_right = 16.5
+offset_bottom = 65.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Franjinha" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Clique aqui ou Pressione Alt + 1 para trocar para o Franjinha"
+shortcut = SubResource("Shortcut_2i6bj")
 texture_normal = ExtResource("1_qnmm5")
 
-[node name="MonicaButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="MarginContainer/Franjinha"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -32.5
+offset_right = 61.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+text = "1     "
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CebolinhaButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="CascaoButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="MagaliButton" type="TextureButton" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
+[connection signal="pressed" from="MarginContainer/Monica" to="." method="_on_monica_button_pressed"]
