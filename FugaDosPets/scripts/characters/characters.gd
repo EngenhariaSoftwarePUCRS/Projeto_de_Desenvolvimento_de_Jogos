@@ -7,20 +7,15 @@ extends Node2D
 @onready var cascao: CharacterBody2D = $Cascao
 @onready var magali: CharacterBody2D = $Magali
 
+var active_character: CharacterBody2D
+
 
 func _ready() -> void:
 	character_selection.visible = false
 	reset_characters()
 
 
-func _input(event: InputEvent) -> void:
-	const characters: Array[String] = ["franjinha", "monica", "cebolinha", "cascao", "magali"]
-	for character in characters:
-		if event.is_action_pressed("change_character_to_" + character):
-			change_character(character)
-
-
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("change_characters"):
 		character_selection.visible = true
 	else:
@@ -34,21 +29,16 @@ func reset_characters() -> void:
 	magali.visible = false
 
 
-func change_character(	new_character: String) -> void:
+func change_character(new_character_name: String) -> void:
+	if not has_node(new_character_name):
+		print("Personagem '", new_character_name, "' indisponível ou inexistente.")
+		return
+	var new_active_character: CharacterBody2D = get_node(new_character_name)
+	if new_active_character == active_character:
+		return
 	reset_characters()
-	print(str("Changing to ", new_character))
-	match new_character:
-		'franjinha':
-			pass
-		'monica':
-			monica.visible = true
-			monica.position = position
-		'cebolinha':
-			cebolinha.visible = true
-			cebolinha.position = position
-		"cascao":
-			cascao.visible = true
-			cascao.position = position
-		"magali":
-			magali.visible = true
-			magali.position = position
+	if not active_character:
+		active_character = new_active_character
+	new_active_character.position = active_character.position
+	new_active_character.visible = true
+	active_character = new_active_character

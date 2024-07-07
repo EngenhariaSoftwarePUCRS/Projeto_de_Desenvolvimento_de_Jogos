@@ -41,9 +41,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	# print("Magali", position)
-	get_tree().call_group("level1", "update_player_position", position.x, position.y)
-	
 	animate()
 	move_and_slide()
 

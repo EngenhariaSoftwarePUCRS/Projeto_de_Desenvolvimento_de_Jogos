@@ -22,8 +22,7 @@ var activeCamera: String
 
 
 func _ready() -> void:
-	update_player_position(spawn_point.position.x, spawn_point.position.y)
-	change_character("monica")
+	change_character("Monica")
 	
 	activeCamera = camera_a.name
 	set_active_camera(camera_a.name)
@@ -53,19 +52,7 @@ func reset_camera() -> void:
 	set_active_camera(activeCamera)
 
 
-func get_player() -> Node2D:
-	if player == null:
-		return $Player
-	return player
-
-
-func update_player_position(x: float, y: float) -> void:
-	get_player()
-	player.position = Vector2(x, y)
-
-
 func change_character(character_name: String) -> void:
-	get_player()
 	get_tree().call_group("character", "change_character", character_name)
 
 
@@ -73,21 +60,21 @@ func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 	checkpoint_a.queue_free()
 	activeCamera = camera_b.name
 	set_active_camera(camera_b.name)
-	change_character("cebolinha")
+	change_character("Cebolinha")
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
 	checkpoint_b.queue_free()
 	activeCamera = camera_c.name
 	set_active_camera(camera_c.name)
-	change_character("cascao")
+	change_character("Cascao")
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	checkpoint_c.queue_free()
 	activeCamera = camera_c.name
 	set_active_camera(camera_d.name)
-	change_character("magali")
+	change_character("Magali")
 
 
 func _on_collectible_1_body_entered(_body: Node2D) -> void:
