@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
+@export var SPEED: float = 300.0 / 1.25
+@export var JUMP_VELOCITY: float = -400.0 / 1.5
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var sansao: Resource = load("res://scenes/characters/sansao.tscn")
 @onready var right_collider: CollisionPolygon2D = $RightCollider
 @onready var left_collider: CollisionPolygon2D = $LeftCollider
-
-const SPEED = 300.0 / 1.5
-const JUMP_VELOCITY = -400.0 / 2
+@onready var sansao: Resource = load("res://scenes/characters/sansao.tscn")
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 

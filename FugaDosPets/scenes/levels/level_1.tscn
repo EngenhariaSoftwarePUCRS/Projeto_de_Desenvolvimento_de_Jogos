@@ -31115,9 +31115,6 @@ position = Vector2(70, 365)
 [node name="SceneLimit" type="Marker2D" parent="."]
 position = Vector2(1905, 2161)
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(45, 493)
-
 [node name="Scenery" type="Node" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Scenery"]

@@ -11,7 +11,6 @@ extends Node
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
 @onready var collectible_1: Area2D = $Scenery/Collectible1
-@onready var spawn_point: Marker2D = $SpawnPoint
 @onready var tree: Node = $Scenery/Tree
 @onready var lever_1: AnimatableBody2D = $Scenery/Lever1
 @onready var lever_2: AnimatableBody2D = $Scenery/Lever2
