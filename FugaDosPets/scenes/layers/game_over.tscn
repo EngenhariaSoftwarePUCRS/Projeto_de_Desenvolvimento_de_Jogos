@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://vk7alphvgs1i" path="res://assets/GUI/settings.png" id="4_vm2ll"]
 [ext_resource type="Texture2D" uid="uid://bc08lvay4ro6l" path="res://assets/GUI/exit-door.png" id="5_g4gl1"]
 
-
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
