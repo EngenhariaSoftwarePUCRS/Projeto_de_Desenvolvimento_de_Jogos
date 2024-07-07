@@ -7,7 +7,7 @@
 size = Vector2(246, 60)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_axjrv"]
-polygon = PackedVector2Array(-121, 30, -121, 90, 123, 90, 123, 30)
+polygon = PackedVector2Array(-138, 30, 127, 30, 114, 35, 113, 44, 108, 52, 94, 55, 84, 50, 77, 72, 51, 88, 19, 89, -7, 82, -21, 76, -26, 66, -40, 68, -44, 65, -45, 58, -61, 67, -88, 69, -111, 64, -123, 55, -126, 47, -126, 40, -135, 37)
 
 [node name="Cloud" type="AnimatableBody2D"]
 position = Vector2(0, -320)
