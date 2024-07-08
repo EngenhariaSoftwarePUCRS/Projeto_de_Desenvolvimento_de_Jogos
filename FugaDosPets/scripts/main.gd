@@ -6,6 +6,7 @@ extends Node
 var configFile = ConfigFile.new()
 var currentLevelNumber: int
 
+const LAST_LEVEL: int = 4 # 8
 const CONFIG_FILE_PATH: String = "user://config.cfg"
 
 enum LevelStatus { AVAILABLE, PASSED, LOCKED }
@@ -56,7 +57,7 @@ func get_available_levels() -> void:
 	if err != OK:
 		configFile = ConfigFile.new()
 		configFile.set_value("Levels", str(1), LevelStatus.AVAILABLE)
-		for i in range(2, 8 + 1):
+		for i in range(2, LAST_LEVEL + 1):
 			configFile.set_value("Levels", str(i), LevelStatus.LOCKED)
 		configFile.save(CONFIG_FILE_PATH)
 

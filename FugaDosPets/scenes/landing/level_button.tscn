@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbxexjovu3i0w"]
-
-[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="1_8vkpp"]
-
-[node name="LevelButton" type="Button"]
-theme_override_fonts/font = ExtResource("1_8vkpp")
-theme_override_font_sizes/font_size = 64
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
