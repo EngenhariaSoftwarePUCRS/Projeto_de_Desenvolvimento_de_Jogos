@@ -48,7 +48,7 @@ func _replace_last_node(new_scene_res: String) -> void:
 
 
 func return_to_home() -> void:
-	var home_res: String = "res://scenes/landing/initial.tscn"
+	var home_res: String = "res://scenes/layers/initial.tscn"
 	call_deferred("_replace_last_node", home_res)
 
 

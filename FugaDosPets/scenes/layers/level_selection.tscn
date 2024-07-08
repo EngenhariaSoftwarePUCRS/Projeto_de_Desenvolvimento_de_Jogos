@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjkpmwho0lhji"]
 
-[ext_resource type="Script" path="res://scripts/landing/level_selection.gd" id="1_g3stj"]
+[ext_resource type="Script" path="res://scripts/layers/level_selection.gd" id="1_g3stj"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="2_8v2j5"]
 
 [node name="LevelSelection" type="CanvasLayer" groups=["level_selection"]]
