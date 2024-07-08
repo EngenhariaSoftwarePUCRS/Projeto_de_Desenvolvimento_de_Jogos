@@ -2,10 +2,10 @@ extends StaticBody2D
 
 
 @export var opened: bool
-@onready var closed_sprite = $ClosedSprite
-@onready var opened_sprite = $OpenedSprite
+@onready var closed_sprite: Sprite2D = $ClosedSprite
+@onready var opened_sprite: Sprite2D = $OpenedSprite
 @onready var collider: CollisionShape2D = $CollisionShape2D
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func _ready() -> void:

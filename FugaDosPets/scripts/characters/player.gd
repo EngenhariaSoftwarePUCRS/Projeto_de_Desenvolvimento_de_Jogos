@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var audio_listener_2d = $AudioListener2D
+@onready var audio_listener_2d: AudioListener2D = $AudioListener2D
 @onready var monica: CharacterBody2D = $Monica
 @onready var cebolinha: CharacterBody2D = $Cebolinha
 @onready var cascao: CharacterBody2D = $Cascao

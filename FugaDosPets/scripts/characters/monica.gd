@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var right_collider: CollisionPolygon2D = $RightCollider
 @onready var left_collider: CollisionPolygon2D = $LeftCollider
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var sansao: Resource = load("res://scenes/characters/sansao.tscn")
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -55,8 +55,8 @@ func _physics_process(delta: float) -> void:
 
 func go_intangible() -> void:
 	visible = false
-	right_collider.disabled = true
-	left_collider.disabled = true
+	right_collider.set_deferred("disabled", true)
+	left_collider.set_deferred("disabled", true)
 
 
 func go_tangible() -> void:
@@ -68,13 +68,13 @@ func go_tangible() -> void:
 
 
 func enable_left_collider() -> void:
-	right_collider.disabled = true
-	left_collider.disabled = false
+	right_collider.set_deferred("disabled", true)
+	left_collider.set_deferred("disabled", false)
 
 
 func enable_right_collider() -> void:
-	left_collider.disabled = true
-	right_collider.disabled = false
+	left_collider.set_deferred("disabled", true)
+	right_collider.set_deferred("disabled", false)
 
 
 func animate() -> void:

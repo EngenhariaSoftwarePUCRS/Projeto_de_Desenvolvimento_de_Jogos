@@ -3,7 +3,7 @@ extends Node
 
 @onready var settings_layer: CanvasLayer = $SettingsLayer
 
-var configFile = ConfigFile.new()
+var configFile: ConfigFile = ConfigFile.new()
 var currentLevelNumber: int
 
 const LAST_LEVEL: int = 4 # 8
@@ -53,7 +53,7 @@ func return_to_home() -> void:
 
 
 func get_available_levels() -> void:
-	var err = configFile.load(CONFIG_FILE_PATH)
+	var err: Error = configFile.load(CONFIG_FILE_PATH)
 	if err != OK:
 		configFile = ConfigFile.new()
 		configFile.set_value("Levels", str(1), LevelStatus.AVAILABLE)

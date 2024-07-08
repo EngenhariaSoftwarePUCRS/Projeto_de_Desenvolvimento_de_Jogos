@@ -38,8 +38,8 @@ func _physics_process(delta: float) -> void:
 
 func go_intangible() -> void:
 	visible = false
-	right_collider.disabled = true
-	left_collider.disabled = true
+	right_collider.set_deferred("disabled", true)
+	left_collider.set_deferred("disabled", true)
 
 
 func go_tangible() -> void:
@@ -51,13 +51,13 @@ func go_tangible() -> void:
 
 
 func enable_left_collider() -> void:
-	right_collider.disabled = true
-	left_collider.disabled = false
+	right_collider.set_deferred("disabled", true)
+	left_collider.set_deferred("disabled", false)
 
 
 func enable_right_collider() -> void:
-	left_collider.disabled = true
-	right_collider.disabled = false
+	left_collider.set_deferred("disabled", true)
+	right_collider.set_deferred("disabled", false)
 
 
 func animate() -> void:

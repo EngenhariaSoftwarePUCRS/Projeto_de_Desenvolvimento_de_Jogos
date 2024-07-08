@@ -1,10 +1,10 @@
 extends CanvasLayer
 
 
-@onready var template_button = $TemplateButton
-@onready var levels_grid = $LevelsGrid
+@onready var template_button: Button = $TemplateButton
+@onready var levels_grid: GridContainer = $LevelsGrid
 
-var configFile = ConfigFile.new()
+var configFile: ConfigFile = ConfigFile.new()
 
 enum LevelStatus { AVAILABLE, PASSED, LOCKED }
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 		return
 	
 	for level in configFile.get_section_keys("Levels"):
-		var status = configFile.get_value("Levels", level)
+		var status: int = configFile.get_value("Levels", level)
 	
 		var level_btn: Button = template_button.duplicate()
 		level_btn.visible = true
