@@ -26,4 +26,5 @@ shape = SubResource("RectangleShape2D_fh18u")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_utwcs")
+max_distance = 1000.0
 bus = &"SFX"

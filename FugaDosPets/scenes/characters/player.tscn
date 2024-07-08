@@ -19,3 +19,7 @@ script = ExtResource("1_sktxr")
 [node name="Cascao" parent="." instance=ExtResource("4_8cq50")]
 
 [node name="Magali" parent="." instance=ExtResource("5_yo3rq")]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+visible = false
+current = true

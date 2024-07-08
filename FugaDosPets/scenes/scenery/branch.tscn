@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cri4ke3c3lhgt"]
+[gd_scene load_steps=7 format=3 uid="uid://cri4ke3c3lhgt"]
 
+[ext_resource type="Script" path="res://scripts/scenery/branch.gd" id="1_btgcn"]
 [ext_resource type="Texture2D" uid="uid://pnd3v73y8dxp" path="res://assets/scenery/branch/branch.png" id="1_kuy3r"]
+[ext_resource type="AudioStream" uid="uid://bdltmkod8goan" path="res://assets/scenery/branch/leaves.mp3" id="3_qd5nd"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smncg"]
 polygon = PackedVector2Array(-153, 39, -148, 50, -135, 54, -101, 39, -83, 38, -47, 44, 1, 48, 19, 47, 31, 44, 59, 42, 59, 38, 55, 36, 25.0651, 36.4338, 13, 33, -153, 33)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fe0fx"]
+radius = 36.0555
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5kwl"]
+radius = 49.0102
+
 [node name="Branch" type="StaticBody2D"]
 collision_layer = 32
+script = ExtResource("1_btgcn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.385136, 0.385135)
@@ -19,3 +28,22 @@ one_way_collision_margin = 32.0
 
 [node name="Shadow" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_smncg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="SmallerLeafage" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -19)
+shape = SubResource("CircleShape2D_fe0fx")
+
+[node name="BiggerLeafage" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(94, 2)
+shape = SubResource("CircleShape2D_s5kwl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(47, -4)
+stream = ExtResource("3_qd5nd")
+max_distance = 300.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

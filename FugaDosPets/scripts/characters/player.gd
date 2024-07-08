@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@onready var audio_listener_2d = $AudioListener2D
 @onready var monica: CharacterBody2D = $Monica
 @onready var cebolinha: CharacterBody2D = $Cebolinha
 @onready var cascao: CharacterBody2D = $Cascao
@@ -20,6 +21,7 @@ func _process(_delta: float) -> void:
 		get_tree().call_group("main", "player_fell")
 	if active_character.position.x > sceneLimit.x:
 		get_tree().call_group("main", "player_passed_level")
+	audio_listener_2d.position = active_character.position
 
 
 func reset_characters() -> void:
