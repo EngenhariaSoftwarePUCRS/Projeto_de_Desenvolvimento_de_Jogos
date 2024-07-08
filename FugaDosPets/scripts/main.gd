@@ -3,11 +3,17 @@ extends Node
 
 @onready var settings_layer: CanvasLayer = $SettingsLayer
 
-var current_level_number: int
+var configFile = ConfigFile.new()
+var currentLevelNumber: int
+
+const CONFIG_FILE_PATH: String = "user://config.cfg"
+
+enum LevelStatus { AVAILABLE, PASSED, LOCKED }
 
 
 func _ready() -> void:
 	settings_layer.visible = false
+	get_available_levels()
 
 
 func _input(event: InputEvent) -> void:	
@@ -45,25 +51,38 @@ func return_to_home() -> void:
 	call_deferred("_replace_last_node", home_res)
 
 
+func get_available_levels() -> void:
+	var err = configFile.load(CONFIG_FILE_PATH)
+	if err != OK:
+		configFile = ConfigFile.new()
+		configFile.set_value("Levels", str(1), LevelStatus.AVAILABLE)
+		for i in range(2, 8 + 1):
+			configFile.set_value("Levels", str(i), LevelStatus.LOCKED)
+		configFile.save(CONFIG_FILE_PATH)
+
+
 func player_fell() -> void:
 	call_deferred("_replace_last_node", "res://scenes/layers/game_over.tscn")
 
 
 func restart_level() -> void:
-	on_level_selected(current_level_number)
+	on_level_selected(currentLevelNumber)
 
 
 func player_passed_level() -> void:
+	configFile.set_value("Levels", str(currentLevelNumber), LevelStatus.PASSED)
+	configFile.set_value("Levels", str(currentLevelNumber + 1), LevelStatus.AVAILABLE)
+	configFile.save(CONFIG_FILE_PATH)
 	call_deferred("_replace_last_node", "res://scenes/layers/level_passed.tscn")
 
 
 func go_to_next_level() -> void:
-	current_level_number += 1
-	on_level_selected(current_level_number)
+	currentLevelNumber += 1
+	on_level_selected(currentLevelNumber)
 
 
 func on_level_selected(level: int) -> void:
-	current_level_number = level
+	currentLevelNumber = level
 	var level_res: String = str("res://scenes/levels/level_", level, ".tscn")
 	call_deferred("_replace_last_node", level_res)
 
