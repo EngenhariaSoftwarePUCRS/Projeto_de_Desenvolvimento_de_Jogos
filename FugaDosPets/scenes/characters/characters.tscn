@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwqb20sshr84i" path="res://scenes/characters/cascao.tscn" id="4_8cq50"]
 [ext_resource type="PackedScene" uid="uid://pmvljuwc7mxd" path="res://scenes/characters/magali.tscn" id="5_yo3rq"]
 
-[node name="Characters" type="Node2D" groups=["character"]]
+[node name="Characters" type="Node2D" groups=["characters"]]
 script = ExtResource("1_sktxr")
 
 [node name="CharacterSelection" parent="." instance=ExtResource("2_76kqb")]

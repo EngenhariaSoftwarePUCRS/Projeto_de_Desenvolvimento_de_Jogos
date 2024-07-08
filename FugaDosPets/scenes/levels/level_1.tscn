@@ -31073,7 +31073,7 @@ sources/2 = SubResource("TileSetAtlasSource_o0syb")
 sources/3 = SubResource("TileSetAtlasSource_2tmty")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kd36h"]
-polygon = PackedVector2Array(2031, 300, 1607.18, 300, 1606, 483, 1645, 518, 1706, 570, 1604, 575, 1548, 522, 1528, 340, 506, 332, 503, 300, 116, 11, -1406, 580, -1402, 640, -1488, 632, -1489, 617, -1550, 617, -1551, 630, -1724, 636, -1727, 608, -1806, 606, -1803, 693, 2037, 696)
+polygon = PackedVector2Array(2035, 333, 1607, 333, 1606, 483, 1645, 518, 1706, 570, 1604, 575, 1548, 522, 1528, 340, 506, 332, 503, 300, 116, 11, -1405, 581, -1405, 640, -1453, 640, -1453, 632, -1485, 632, -1485, 616, -1549, 616, -1549, 632, -1725, 632, -1725, 608, -1805, 608, -1805, 696, 2036, 696)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6prt"]
 size = Vector2(88, 135)
@@ -31081,7 +31081,7 @@ size = Vector2(88, 135)
 [sub_resource type="CircleShape2D" id="CircleShape2D_iec46"]
 radius = 50.0899
 
-[node name="Level1" type="Node" groups=["level1"]]
+[node name="Level1" type="Node" groups=["current_level"]]
 script = ExtResource("1_uouim")
 
 [node name="CameraA" type="Camera2D" parent="."]
@@ -31110,7 +31110,7 @@ zoom = Vector2(0.3, 0.3)
 position = Vector2(70, 365)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
-position = Vector2(1905, 2161)
+position = Vector2(3840, 2160)
 
 [node name="Scenery" type="Node" parent="."]
 

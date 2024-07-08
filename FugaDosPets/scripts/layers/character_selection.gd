@@ -20,7 +20,7 @@ func _ready() -> void:
 	]
 	for button in buttons:
 		button.pressed.connect(func() -> void:
-			get_tree().call_group("character", "change_character", button.name)
+			get_tree().call_group("characters", "change_character", button.name)
 		)
 
 func _process(_delta: float) -> void:

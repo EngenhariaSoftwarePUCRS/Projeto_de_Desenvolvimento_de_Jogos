@@ -2,9 +2,6 @@ extends Node
 
 
 @onready var settings_layer: CanvasLayer = $SettingsLayer
-@onready var current_level: Node
-@onready var player: Node2D
-@onready var sceneLimit: Marker2D
 
 var current_level_number: int
 
@@ -13,41 +10,9 @@ func _ready() -> void:
 	settings_layer.visible = false
 
 
-func _input(event: InputEvent) -> void:
-	current_level = get_level()
-	
+func _input(event: InputEvent) -> void:	
 	if event.is_action_pressed("open_settings"):
-		print("Openning Settings")
 		show_settings()
-
-
-func _physics_process(_delta: float) -> void:
-	if get_level() == null or player == null:
-		return
-	if player.position.y > sceneLimit.position.y:
-		call_deferred("_replace_last_node", "res://scenes/layers/game_over.tscn")
-	if player.position.x > sceneLimit.position.x:
-		call_deferred("_replace_last_node", "res://scenes/layers/level_passed.tscn")
-
-
-func get_level() -> Node:
-	var last_node_index: int = get_child_count() - 1
-	var last_node: Node = get_child(last_node_index)
-	var last_node_name: String = str(last_node.get_path())
-	if last_node_name.contains("/Level"):
-		set_level_params(last_node.name)
-		return last_node
-	return null
-
-
-func set_level_params(level_name: String) -> void:
-	if player == null:
-		var player_node: String = str(level_name, "/Player")
-		player = get_node(player_node)
-	
-	if sceneLimit == null:
-		var scene_limit_node: String = str(level_name, "/SceneLimit")
-		sceneLimit = get_node(scene_limit_node)
 
 
 func show_settings() -> void:
@@ -62,9 +27,7 @@ func close_settings() -> void:
 
 func _replace_last_node(new_scene_res: String) -> void:
 	var scene_exists: bool = ResourceLoader.exists(new_scene_res)
-	if not scene_exists:
-		print("Scene Not Found")
-		return
+	assert(scene_exists, "Scene Not Found")
 	var last_node_index: int = get_child_count() - 1
 	var last_node: Node = get_child(last_node_index)
 	last_node.free()
@@ -78,8 +41,16 @@ func return_to_home() -> void:
 	call_deferred("_replace_last_node", home_res)
 
 
+func player_fell() -> void:
+	call_deferred("_replace_last_node", "res://scenes/layers/game_over.tscn")
+
+
 func restart_level() -> void:
 	on_level_selected(current_level_number)
+
+
+func player_passed_level() -> void:
+	call_deferred("_replace_last_node", "res://scenes/layers/level_passed.tscn")
 
 
 func go_to_next_level() -> void:

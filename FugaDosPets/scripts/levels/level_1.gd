@@ -6,6 +6,7 @@ extends Node
 @onready var camera_c: Camera2D = $CameraC
 @onready var camera_d: Camera2D = $CameraD
 @onready var player: Node2D = $Player
+@onready var scene_limit: Marker2D = $SceneLimit
 @onready var checkpoint_a: Area2D = $Scenery/CheckpointA
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
@@ -17,7 +18,8 @@ extends Node
 
 
 func _ready() -> void:
-	change_character("Monica")
+	player.sceneLimit = Vector2(scene_limit.position.x, scene_limit.position.y)
+	player.change_character("Monica")
 	
 	set_active_camera(camera_a.name)
 	
@@ -42,26 +44,22 @@ func set_active_camera(camera_name: String) -> void:
 	camera.make_current()
 
 
-func change_character(character_name: String) -> void:
-	get_tree().call_group("character", "change_character", character_name)
-
-
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 	checkpoint_a.queue_free()
 	set_active_camera(camera_b.name)
-	change_character("Cebolinha")
+	player.change_character("Cebolinha")
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
 	checkpoint_b.queue_free()
 	set_active_camera(camera_c.name)
-	change_character("Cascao")
+	player.change_character("Cascao")
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	checkpoint_c.queue_free()
 	set_active_camera(camera_d.name)
-	change_character("Magali")
+	player.change_character("Magali")
 
 
 func _on_collectible_1_body_entered(_body: Node2D) -> void:
