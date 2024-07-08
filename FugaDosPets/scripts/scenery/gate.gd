@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var closed_sprite = $ClosedSprite
 @onready var opened_sprite = $OpenedSprite
 @onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -15,6 +16,7 @@ func _ready() -> void:
 func open() -> void:
 	if opened:
 		return
+	audio_stream_player_2d.play()
 	opened = true
 	closed_sprite.visible = true
 	opened_sprite.visible = false

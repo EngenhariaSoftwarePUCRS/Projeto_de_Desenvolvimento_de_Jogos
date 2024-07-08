@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://83oftwnr2aj8"]
+[gd_scene load_steps=5 format=3 uid="uid://83oftwnr2aj8"]
 
 [ext_resource type="Script" path="res://scripts/scenery/gate.gd" id="1_pb221"]
 [ext_resource type="Texture2D" uid="uid://dko4afwhg8uyk" path="res://assets/scenery/gate/gate.jpg" id="2_6o78v"]
+[ext_resource type="AudioStream" uid="uid://bnnnxsxwnbfx0" path="res://assets/scenery/gate/open_sound.mp3" id="3_utwcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18u"]
 size = Vector2(44, 560)
@@ -22,3 +23,7 @@ texture = ExtResource("2_6o78v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fh18u")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_utwcs")
+bus = &"SFX"
