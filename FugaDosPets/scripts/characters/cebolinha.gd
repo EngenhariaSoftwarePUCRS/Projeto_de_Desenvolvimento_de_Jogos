@@ -36,6 +36,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func go_intangible() -> void:
+	visible = false
+	right_collider.disabled = true
+	left_collider.disabled = true
+
+
+func go_tangible() -> void:
+	visible = true
+	if animated_sprite.flip_h:
+		enable_left_collider()
+	else:
+		enable_right_collider()
+
+
 func enable_left_collider() -> void:
 	right_collider.disabled = true
 	left_collider.disabled = false

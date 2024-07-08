@@ -25,10 +25,10 @@ func _process(_delta: float) -> void:
 
 
 func reset_characters() -> void:
-	monica.visible = false
-	cebolinha.visible = false
-	cascao.visible = false
-	magali.visible = false
+	monica.go_intangible()
+	cebolinha.go_intangible()
+	cascao.go_intangible()
+	magali.go_intangible()
 
 
 func change_character(new_character_name: String) -> void:
@@ -41,5 +41,5 @@ func change_character(new_character_name: String) -> void:
 	if not active_character:
 		active_character = new_active_character
 	new_active_character.position = active_character.position
-	new_active_character.visible = true
+	new_active_character.go_tangible()
 	active_character = new_active_character

@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if not audio_stream_player_2d.playing:
-		print("Playing")
 		audio_stream_player_2d.play()
 	
 	if position.distance_to(target_pos) < TARGET_OFFSET:
@@ -54,8 +53,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not body.visible:
-		return
 	if String(body.name).begins_with("Lever") \
 		and body.has_method("pull"):
 		body.pull()
