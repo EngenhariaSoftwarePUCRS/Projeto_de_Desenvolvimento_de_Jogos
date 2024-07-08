@@ -21,7 +21,7 @@ func _ready() -> void:
 	player.sceneLimit = Vector2(scene_limit.position.x, scene_limit.position.y)
 	player.change_character("Monica")
 	
-	set_active_camera(camera_a.name)
+	camera_a.make_current()
 	
 	for branch in tree.get_children():
 		branch.visible = false
@@ -37,28 +37,21 @@ func _ready() -> void:
 	lever_2.on_pull(open_gate)
 
 
-func set_active_camera(camera_name: String) -> void:
-	var camera: Camera2D = get_node(camera_name)
-	if camera == null:
-		return
-	camera.make_current()
-
-
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 	checkpoint_a.queue_free()
-	set_active_camera(camera_b.name)
+	camera_b.make_current()
 	player.change_character("Cebolinha")
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
 	checkpoint_b.queue_free()
-	set_active_camera(camera_c.name)
+	camera_c.make_current()
 	player.change_character("Cascao")
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	checkpoint_c.queue_free()
-	set_active_camera(camera_d.name)
+	camera_d.make_current()
 	player.change_character("Magali")
 
 
