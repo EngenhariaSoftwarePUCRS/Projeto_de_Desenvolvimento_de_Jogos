@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1to83u6ms2gy"]
+[gd_scene load_steps=5 format=3 uid="uid://b1to83u6ms2gy"]
 
 [ext_resource type="Texture2D" uid="uid://b0qrhw1jnc3nd" path="res://assets/characters/magali/watermelon.png" id="1_3xkyo"]
 [ext_resource type="Script" path="res://scripts/characters/watermelon.gd" id="1_5duuv"]
+[ext_resource type="AudioStream" uid="uid://bskfgaldi5lxg" path="res://assets/characters/magali/rolling.mp3" id="3_oro1d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rphdm"]
 radius = 23.1948
@@ -28,10 +29,16 @@ collision_mask = 113
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_rphdm")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oro1d")
+max_distance = 500.0
+bus = &"SFX"
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
 
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
