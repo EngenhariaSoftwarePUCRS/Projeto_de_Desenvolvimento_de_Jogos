@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=23 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="2_8pm7o"]
@@ -31072,9 +31072,6 @@ sources/1 = SubResource("TileSetAtlasSource_3v4s3")
 sources/2 = SubResource("TileSetAtlasSource_o0syb")
 sources/3 = SubResource("TileSetAtlasSource_2tmty")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_apapl"]
-polygon = PackedVector2Array(1920, 1440, 2388, 1904, 3357, 1904, 3357, 2039, 3840, 1904, 3840, 2160, 1920, 2160)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6prt"]
 size = Vector2(88, 135)
 
@@ -31129,12 +31126,6 @@ layer_1/tile_data = PackedInt32Array(8323072, 0, 8, 8388608, 0, 9, 8454144, 0, 1
 layer_2/name = "foreground"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
-
-[node name="MapShadow" type="LightOccluder2D" parent="Scenery"]
-occluder = SubResource("OccluderPolygon2D_apapl")
-
-[node name="SunPreparer" type="CanvasModulate" parent="Scenery"]
-color = Color(0.607843, 0.607843, 0.607843, 1)
 
 [node name="Sun" parent="Scenery" instance=ExtResource("7_63pcc")]
 position = Vector2(3525, 284)

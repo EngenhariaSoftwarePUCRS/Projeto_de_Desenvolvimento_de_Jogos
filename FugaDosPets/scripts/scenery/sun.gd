@@ -3,14 +3,14 @@ extends DirectionalLight2D
 
 @export var MAX_ENERGY: float = 1.0
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var happy_sprite: AnimatedSprite2D = $HappySprite
 
 var rising: bool = true
 
 
 func _ready() -> void:
 	energy = 0.75
-	animated_sprite_2d.rotation = -rotation
+	happy_sprite.rotation = -rotation
 
 
 func _process(delta: float) -> void:
@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 	else:
 		energy -= 0.05 * delta
 	if energy <= 0:
-		animated_sprite_2d.stop()
+		happy_sprite.stop()
