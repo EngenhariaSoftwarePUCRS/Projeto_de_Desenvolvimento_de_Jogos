@@ -6,7 +6,6 @@ extends Node
 var configFile: ConfigFile = ConfigFile.new()
 var currentLevelNumber: int
 
-const LAST_LEVEL: int = 4 # 8
 const CONFIG_FILE_PATH: String = "user://config.cfg"
 
 enum LevelStatus { AVAILABLE, PASSED, LOCKED }
@@ -14,7 +13,10 @@ enum LevelStatus { AVAILABLE, PASSED, LOCKED }
 
 func _ready() -> void:
 	settings_layer.visible = false
-	get_available_levels()
+	var err: Error = configFile.load(CONFIG_FILE_PATH)
+	if err != OK:
+		configFile = ConfigFile.new()
+		configFile.save(CONFIG_FILE_PATH)
 
 
 func _input(event: InputEvent) -> void:	
@@ -52,16 +54,6 @@ func return_to_home() -> void:
 	call_deferred("_replace_last_node", home_res)
 
 
-func get_available_levels() -> void:
-	var err: Error = configFile.load(CONFIG_FILE_PATH)
-	if err != OK:
-		configFile = ConfigFile.new()
-		configFile.set_value("Levels", str(1), LevelStatus.AVAILABLE)
-		for i in range(2, LAST_LEVEL + 1):
-			configFile.set_value("Levels", str(i), LevelStatus.LOCKED)
-		configFile.save(CONFIG_FILE_PATH)
-
-
 func player_fell() -> void:
 	call_deferred("_replace_last_node", "res://scenes/layers/game_over.tscn")
 
@@ -71,6 +63,8 @@ func restart_level() -> void:
 
 
 func player_passed_level() -> void:
+	assert(configFile.has_section("Levels"),
+		"Could not find 'Levels' Section on Config File")
 	configFile.set_value("Levels", str(currentLevelNumber), LevelStatus.PASSED)
 	configFile.set_value("Levels", str(currentLevelNumber + 1), LevelStatus.AVAILABLE)
 	configFile.save(CONFIG_FILE_PATH)
