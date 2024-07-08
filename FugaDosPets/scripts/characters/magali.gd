@@ -77,4 +77,4 @@ func throw_watermelon() -> void:
 	watermelon_pos.x += 25 * direction_coeficient
 	watermelon_pos.y += 50 * direction_coeficient
 	watermelon_i.move(watermelon_pos)
-	get_tree().call_group("current_level", "spawn_object", watermelon_i)
+	get_tree().call_group("main", "spawn_object_on_level", watermelon_i)

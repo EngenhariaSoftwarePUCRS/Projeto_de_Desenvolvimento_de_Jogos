@@ -65,7 +65,3 @@ func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 func _on_collectible_1_body_entered(_body: Node2D) -> void:
 	collectible_1.queue_free()
 	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
-
-
-func spawn_object(obj_instance: Node) -> void:
-	add_child.call_deferred(obj_instance)

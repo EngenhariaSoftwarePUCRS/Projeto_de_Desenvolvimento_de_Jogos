@@ -25,12 +25,16 @@ func close_settings() -> void:
 	# get_tree().paused = false
 
 
+func _get_last_node() -> Node:
+	var last_node_index: int = get_child_count() - 1
+	var last_node: Node = get_child(last_node_index)
+	return last_node
+
+
 func _replace_last_node(new_scene_res: String) -> void:
 	var scene_exists: bool = ResourceLoader.exists(new_scene_res)
 	assert(scene_exists, "Scene Not Found")
-	var last_node_index: int = get_child_count() - 1
-	var last_node: Node = get_child(last_node_index)
-	last_node.free()
+	_get_last_node().free()
 	var new_scene: Resource = ResourceLoader.load(new_scene_res)
 	var new_scene_ins: Node = new_scene.instantiate()
 	add_child(new_scene_ins)
@@ -62,3 +66,10 @@ func on_level_selected(level: int) -> void:
 	current_level_number = level
 	var level_res: String = str("res://scenes/levels/level_", level, ".tscn")
 	call_deferred("_replace_last_node", level_res)
+
+
+func spawn_object_on_level(obj_instance: Node) -> void:
+	var last_node: Node = _get_last_node()
+	var is_last_node_name_valid_level: bool = str(last_node.name).begins_with("Level")
+	assert(is_last_node_name_valid_level, "Last node is not a level")
+	last_node.add_child.call_deferred(obj_instance)
