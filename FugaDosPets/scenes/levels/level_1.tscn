@@ -31084,9 +31084,6 @@ radius = 50.0899
 [node name="Level1" type="Node" groups=["level1"]]
 script = ExtResource("1_uouim")
 
-[node name="MenuCamera" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="CameraA" type="Camera2D" parent="."]
 modulate = Color(0.85098, 0, 0.156863, 1)
 position = Vector2(0, 1512)

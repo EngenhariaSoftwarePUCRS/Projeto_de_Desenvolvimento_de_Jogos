@@ -5,7 +5,6 @@ extends Node
 @onready var current_level: Node
 @onready var player: Node2D
 @onready var sceneLimit: Marker2D
-@onready var spawnPoint: Marker2D
 
 var current_level_number: int
 
@@ -20,8 +19,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_settings"):
 		print("Openning Settings")
 		show_settings()
-		if current_level != null:
-			get_tree().call_group("level1", "set_active_camera", "MenuCamera")
 
 
 func _physics_process(_delta: float) -> void:
@@ -51,10 +48,6 @@ func set_level_params(level_name: String) -> void:
 	if sceneLimit == null:
 		var scene_limit_node: String = str(level_name, "/SceneLimit")
 		sceneLimit = get_node(scene_limit_node)
-	
-	if spawnPoint == null:
-		var spawn_point_node: String = str(level_name, "/SpawnPoint")
-		spawnPoint = get_node(spawn_point_node)
 
 
 func show_settings() -> void:
@@ -64,8 +57,6 @@ func show_settings() -> void:
 
 func close_settings() -> void:
 	settings_layer.visible = false
-	if get_level() != null:
-		get_tree().call_group("level1", "reset_camera")
 	# get_tree().paused = false
 
 

@@ -1,7 +1,6 @@
 extends Node
 
 
-@onready var menu_camera: Camera2D = $MenuCamera
 @onready var camera_a: Camera2D = $CameraA
 @onready var camera_b: Camera2D = $CameraB
 @onready var camera_c: Camera2D = $CameraC
@@ -17,13 +16,9 @@ extends Node
 @onready var gate: StaticBody2D = $Scenery/Gate
 
 
-var activeCamera: String
-
-
 func _ready() -> void:
 	change_character("Monica")
 	
-	activeCamera = camera_a.name
 	set_active_camera(camera_a.name)
 	
 	for branch in tree.get_children():
@@ -47,31 +42,24 @@ func set_active_camera(camera_name: String) -> void:
 	camera.make_current()
 
 
-func reset_camera() -> void:
-	set_active_camera(activeCamera)
-
-
 func change_character(character_name: String) -> void:
 	get_tree().call_group("character", "change_character", character_name)
 
 
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 	checkpoint_a.queue_free()
-	activeCamera = camera_b.name
 	set_active_camera(camera_b.name)
 	change_character("Cebolinha")
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
 	checkpoint_b.queue_free()
-	activeCamera = camera_c.name
 	set_active_camera(camera_c.name)
 	change_character("Cascao")
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	checkpoint_c.queue_free()
-	activeCamera = camera_c.name
 	set_active_camera(camera_d.name)
 	change_character("Magali")
 

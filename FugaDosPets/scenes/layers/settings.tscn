@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dyru7wa4psw0w" path="res://assets/GUI/speaker.png" id="4_ghdqf"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="5_3l0lu"]
 
-
 [node name="Settings" type="CanvasLayer"]
-follow_viewport_enabled = true
 script = ExtResource("1_n6emk")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -97,8 +95,10 @@ flat = true
 
 [node name="KeyBindings" type="Button" parent="MarginContainer/Interactive"]
 layout_mode = 2
+tooltip_text = "Função temporariamente indisponível"
 theme_override_fonts/font = ExtResource("5_3l0lu")
 theme_override_font_sizes/font_size = 32
+disabled = true
 text = "Atalhos de Teclado"
 
 [node name="Exit" type="Button" parent="MarginContainer/Interactive"]
