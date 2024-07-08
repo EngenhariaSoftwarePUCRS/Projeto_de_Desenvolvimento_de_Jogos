@@ -31107,7 +31107,7 @@ anchor_mode = 0
 zoom = Vector2(0.3, 0.3)
 
 [node name="Player" parent="." instance=ExtResource("2_8pm7o")]
-position = Vector2(70, 365)
+position = Vector2(76, 1806)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
 position = Vector2(3840, 2160)
@@ -31118,6 +31118,7 @@ position = Vector2(3840, 2160)
 y_sort_enabled = true
 texture_filter = 1
 texture_repeat = 1
+position = Vector2(0, 1)
 tile_set = SubResource("TileSet_nqda1")
 format = 2
 layer_0/name = "background"
