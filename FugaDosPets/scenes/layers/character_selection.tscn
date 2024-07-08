@@ -51,7 +51,7 @@ events = [SubResource("InputEventKey_ermcl")]
 [node name="CharacterSelection" type="CanvasLayer"]
 script = ExtResource("1_gioiy")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ChangeUI" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -70,7 +70,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Magali" type="TextureButton" parent="MarginContainer"]
+[node name="Magali" type="TextureButton" parent="ChangeUI"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -78,7 +78,7 @@ tooltip_text = "Clique aqui ou Pressione Alt + 5 para trocar para a Magali"
 shortcut = SubResource("Shortcut_7xqx6")
 texture_normal = ExtResource("1_p217w")
 
-[node name="Label" type="Label" parent="MarginContainer/Magali"]
+[node name="Label" type="Label" parent="ChangeUI/Magali"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -97,7 +97,7 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cascao" type="TextureButton" parent="MarginContainer"]
+[node name="Cascao" type="TextureButton" parent="ChangeUI"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -105,7 +105,7 @@ tooltip_text = "Clique aqui ou Pressione Alt + 4 para trocar para o Cascão"
 shortcut = SubResource("Shortcut_sb30s")
 texture_normal = ExtResource("2_uitik")
 
-[node name="Label" type="Label" parent="MarginContainer/Cascao"]
+[node name="Label" type="Label" parent="ChangeUI/Cascao"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -122,7 +122,7 @@ text = "4
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cebolinha" type="TextureButton" parent="MarginContainer"]
+[node name="Cebolinha" type="TextureButton" parent="ChangeUI"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -130,7 +130,7 @@ tooltip_text = "Clique aqui ou Pressione Alt + 3 para trocar para o Cebolinha"
 shortcut = SubResource("Shortcut_bnkm3")
 texture_normal = ExtResource("3_5f5rp")
 
-[node name="Label" type="Label" parent="MarginContainer/Cebolinha"]
+[node name="Label" type="Label" parent="ChangeUI/Cebolinha"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -150,7 +150,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Monica" type="TextureButton" parent="MarginContainer"]
+[node name="Monica" type="TextureButton" parent="ChangeUI"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -158,7 +158,7 @@ tooltip_text = "Clique aqui ou Pressione Alt + 2 para trocar para a Mônica"
 shortcut = SubResource("Shortcut_mxo34")
 texture_normal = ExtResource("4_hiaeh")
 
-[node name="Label" type="Label" parent="MarginContainer/Monica"]
+[node name="Label" type="Label" parent="ChangeUI/Monica"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -175,7 +175,7 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Franjinha" type="TextureButton" parent="MarginContainer"]
+[node name="Franjinha" type="TextureButton" parent="ChangeUI"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -183,7 +183,7 @@ tooltip_text = "Clique aqui ou Pressione Alt + 1 para trocar para o Franjinha"
 shortcut = SubResource("Shortcut_2i6bj")
 texture_normal = ExtResource("1_qnmm5")
 
-[node name="Label" type="Label" parent="MarginContainer/Franjinha"]
+[node name="Label" type="Label" parent="ChangeUI/Franjinha"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -203,4 +203,25 @@ text = "1     "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/Monica" to="." method="_on_monica_button_pressed"]
+[node name="ChangeCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Label" type="Label" parent="ChangeCooldown"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -65.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+tooltip_text = "Segundos restantes para poder trocar novamente de personagem"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+
+[connection signal="pressed" from="ChangeUI/Monica" to="." method="_on_monica_button_pressed"]

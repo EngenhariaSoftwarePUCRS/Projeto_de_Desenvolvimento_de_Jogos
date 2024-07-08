@@ -1,7 +1,6 @@
 extends Node2D
 
 
-@onready var character_selection: CanvasLayer = $CharacterSelection
 @onready var monica: CharacterBody2D = $Monica
 @onready var cebolinha: CharacterBody2D = $Cebolinha
 @onready var cascao: CharacterBody2D = $Cascao
@@ -12,7 +11,6 @@ var sceneLimit: Vector2
 
 
 func _ready() -> void:
-	character_selection.visible = false
 	reset_characters()
 
 
@@ -22,11 +20,6 @@ func _process(_delta: float) -> void:
 		get_tree().call_group("main", "player_fell")
 	if active_character.position.x > sceneLimit.x:
 		get_tree().call_group("main", "player_passed_level")
-	
-	if Input.is_action_pressed("change_characters"):
-		character_selection.visible = true
-	else:
-		character_selection.visible = false
 
 
 func reset_characters() -> void:
