@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://pnd3v73y8dxp" path="res://assets/scenery/branch/branch.png" id="1_kuy3r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blcwi"]
-size = Vector2(215, 46)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smncg"]
+polygon = PackedVector2Array(-153, 39, -148, 50, -135, 54, -101, 39, -83, 38, -47, 44, 1, 48, 19, 47, 31, 44, 59, 42, 59, 38, 55, 36, 25.0651, 36.4338, 13, 33, -153, 33)
 
 [node name="Branch" type="StaticBody2D"]
 collision_layer = 32
@@ -12,8 +12,10 @@ collision_layer = 32
 scale = Vector2(0.385136, 0.385135)
 texture = ExtResource("1_kuy3r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-46.5, 29)
-shape = SubResource("RectangleShape2D_blcwi")
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-153, 39, -148, 50, -135, 54, -101, 39, -83, 38, 1, 47, 58, 42, 55, 36, 25.0651, 36.4338, 41, 26, 35, 24, 13, 33, -3, 33, -47, 25, -40, 11, -47, 9, -50, 15, -59, 19, -127, 7, -142, 11, -149, 18, -153, 32)
 one_way_collision = true
 one_way_collision_margin = 32.0
+
+[node name="Shadow" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_smncg")

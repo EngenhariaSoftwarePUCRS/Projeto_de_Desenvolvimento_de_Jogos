@@ -25,11 +25,11 @@ func _ready() -> void:
 	
 	for branch in tree.get_children():
 		branch.visible = false
-		branch.get_node("CollisionShape2D").disabled = true
+		branch.get_node("Collider").disabled = true
 	var show_branches: Callable = func() -> void:
 		for branch in tree.get_children():
 			branch.visible = true
-			branch.get_node("CollisionShape2D").disabled = false
+			branch.get_node("Collider").disabled = false
 	lever_1.on_pull(show_branches)
 	
 	var open_gate: Callable = func() -> void:
