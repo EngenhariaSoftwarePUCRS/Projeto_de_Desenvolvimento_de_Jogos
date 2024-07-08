@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 @export var SPEED: int = 1000
 
-const TARGET_OFFSET: int = 5
 var returning: bool = false
 var monica_pos: Vector2
 var target_pos: Vector2
+
+const TARGET_OFFSET: int = 5
 
 
 func _ready() -> void:
@@ -14,6 +17,10 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if not audio_stream_player_2d.playing:
+		print("Playing")
+		audio_stream_player_2d.play()
+	
 	if position.distance_to(target_pos) < TARGET_OFFSET:
 		move_back()
 	
