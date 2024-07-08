@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=25 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="2_8pm7o"]
@@ -31072,8 +31072,17 @@ sources/1 = SubResource("TileSetAtlasSource_3v4s3")
 sources/2 = SubResource("TileSetAtlasSource_o0syb")
 sources/3 = SubResource("TileSetAtlasSource_2tmty")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6prt"]
-size = Vector2(88, 135)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to5vq"]
+radius = 52.0
+height = 182.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wpai"]
+radius = 48.0
+height = 182.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwke2"]
+radius = 50.0
+height = 182.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iec46"]
 radius = 50.0899
@@ -31132,45 +31141,43 @@ position = Vector2(3525, 284)
 rotation = 0.785398
 
 [node name="CheckpointA" type="Area2D" parent="Scenery"]
-position = Vector2(1097, 1836)
+position = Vector2(1099, 1816)
 collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointA"]
-scale = Vector2(0.0490867, 0.0490867)
+scale = Vector2(0.065, 0.065)
 texture = ExtResource("8_lr60v")
 flip_h = true
 
-[node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointA"]
-position = Vector2(-1, 2.5)
-shape = SubResource("RectangleShape2D_b6prt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointA"]
+shape = SubResource("CapsuleShape2D_to5vq")
 
 [node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(396, 1125)
+position = Vector2(363, 1173)
 collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
 position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.0525114, 0.0480323)
+scale = Vector2(0.0650685, 0.0650685)
 texture = ExtResource("9_5w3wi")
 
-[node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointB"]
-position = Vector2(-1, -0.5)
-shape = SubResource("RectangleShape2D_b6prt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointB"]
+shape = SubResource("CapsuleShape2D_8wpai")
 
 [node name="CheckpointC" type="Area2D" parent="Scenery"]
-position = Vector2(2356, 1696)
+position = Vector2(2360, 1671)
 collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointC"]
 position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.0502283, 0.0460415)
+scale = Vector2(0.065, 0.065)
 texture = ExtResource("10_3l70c")
 
-[node name="CollisionBox" type="CollisionShape2D" parent="Scenery/CheckpointC"]
-shape = SubResource("RectangleShape2D_b6prt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointC"]
+shape = SubResource("CapsuleShape2D_nwke2")
 
 [node name="Collectible1" type="Area2D" parent="Scenery"]
 position = Vector2(2878, 236)
@@ -31194,7 +31201,7 @@ position = Vector2(698, 1674)
 position = Vector2(970, 1434)
 
 [node name="Branch4" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(490, 1180)
+position = Vector2(452, 1251)
 
 [node name="Lever1" parent="Scenery" instance=ExtResource("12_p8ld7")]
 light_mask = 64
