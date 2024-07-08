@@ -31073,7 +31073,7 @@ sources/2 = SubResource("TileSetAtlasSource_o0syb")
 sources/3 = SubResource("TileSetAtlasSource_2tmty")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_apapl"]
-polygon = PackedVector2Array(1920, 1440, 2388, 1904, 3357, 1904, 3357, 2039, 3840, 1904, 3840, 2160, 0, 2160, 1583, 1904)
+polygon = PackedVector2Array(1920, 1440, 2388, 1904, 3357, 1904, 3357, 2039, 3840, 1904, 3840, 2160, 1920, 2160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6prt"]
 size = Vector2(88, 135)
@@ -31137,7 +31137,7 @@ color = Color(0.607843, 0.607843, 0.607843, 1)
 
 [node name="Sun" parent="Scenery" instance=ExtResource("7_63pcc")]
 position = Vector2(3525, 284)
-shadow_enabled = true
+rotation = 0.785398
 
 [node name="CheckpointA" type="Area2D" parent="Scenery"]
 position = Vector2(1097, 1836)

@@ -10,6 +10,7 @@ var rising: bool = true
 
 func _ready() -> void:
 	energy = 0.75
+	animated_sprite_2d.rotation = -rotation
 
 
 func _process(delta: float) -> void:
