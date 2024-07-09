@@ -16,15 +16,24 @@ func _ready() -> void:
 	enable_right_collider()
 
 
+func _input(event: InputEvent) -> void:
+	if visible == false:
+		return
+	
+	if event.is_action_pressed("action") \
+		and is_on_floor():
+		jump()
+
+
 func _physics_process(delta: float) -> void:
 	if visible == false:
 		return
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	else:
+		if Input.is_action_just_pressed("jump"):
+			jump()
 
 	var direction: float = Input.get_axis("move_left", "move_right")
 	if direction:
@@ -34,6 +43,10 @@ func _physics_process(delta: float) -> void:
 	
 	animate()
 	move_and_slide()
+
+
+func jump() -> void:
+	velocity.y = JUMP_VELOCITY
 
 
 func go_intangible() -> void:

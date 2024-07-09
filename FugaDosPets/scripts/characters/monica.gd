@@ -33,10 +33,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		audio_stream_player_2d.stop()
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
+	else:
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = JUMP_VELOCITY
+	
 	var direction: float = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
