@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var SPEED: float = 300.0 * 2
-@export var JUMP_VELOCITY: float = -400.0 / 1.25
+@export var JUMP_VELOCITY: float = -400.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var right_collider: CollisionPolygon2D = $RightCollider
