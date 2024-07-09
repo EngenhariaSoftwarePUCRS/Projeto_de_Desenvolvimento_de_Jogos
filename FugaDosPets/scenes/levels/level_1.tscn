@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=30 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="2_8pm7o"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
 [ext_resource type="PackedScene" uid="uid://cx0dmxb8kaw6t" path="res://scenes/scenery/branch_to_left.tscn" id="13_e3lge"]
 [ext_resource type="PackedScene" uid="uid://83oftwnr2aj8" path="res://scenes/scenery/gate.tscn" id="14_yawya"]
+[ext_resource type="PackedScene" uid="uid://c7dr1tyumjxjq" path="res://scenes/scenery/trash_can.tscn" id="17_ki6y6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
 texture = ExtResource("3_0ryb7")
@@ -31233,6 +31234,9 @@ position = Vector2(1034, 1873)
 [node name="Cloud" parent="Scenery" instance=ExtResource("4_78xrr")]
 position = Vector2(2879, 1544)
 OFFSET = Vector2(0, -1300)
+
+[node name="TrashCan" parent="Scenery" instance=ExtResource("17_ki6y6")]
+position = Vector2(3393, 1720)
 
 [node name="Lever2" parent="Scenery" instance=ExtResource("12_p8ld7")]
 position = Vector2(3777, 2000)

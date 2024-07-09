@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7dr1tyumjxjq"]
+
+[ext_resource type="Texture2D" uid="uid://r8gruxw3xyld" path="res://assets/scenery/trash_can/trash_can.png" id="1_e0qap"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jt6ew"]
+a = Vector2(-5, -52)
+b = Vector2(0, 51)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3xrhm"]
+a = Vector2(33, -54)
+b = Vector2(31, 45)
+
+[node name="TrashCan" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 48
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.177778, 0.177778)
+texture = ExtResource("1_e0qap")
+
+[node name="LeftCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-42, 0)
+shape = SubResource("SegmentShape2D_jt6ew")
+
+[node name="RightCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_3xrhm")
