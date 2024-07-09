@@ -54,12 +54,16 @@ func _physics_process(delta: float) -> void:
 
 
 func go_intangible() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	get_tree().call_group("main", "mouse_hide")
 	visible = false
 	right_collider.set_deferred("disabled", true)
 	left_collider.set_deferred("disabled", true)
 
 
 func go_tangible() -> void:
+	get_tree().call_group("main", "mouse_show")
+	Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 	visible = true
 	if animated_sprite.flip_h:
 		enable_left_collider()

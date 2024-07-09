@@ -16,19 +16,29 @@ func _ready() -> void:
 	load_settings()
 
 
-func _input(event: InputEvent) -> void:	
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_settings"):
 		show_settings()
+
+
+func mouse_show() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func mouse_hide() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func show_settings() -> void:
 	# get_tree().paused = true
 	settings_layer.visible = true
+	mouse_show()
 
 
 func close_settings() -> void:
 	settings_layer.visible = false
 	# get_tree().paused = false
+	mouse_hide()
 
 
 func _get_last_node() -> Node:
@@ -54,11 +64,13 @@ func load_settings() -> void:
 
 
 func return_to_home() -> void:
+	mouse_show()
 	var home_res: String = "res://scenes/layers/initial.tscn"
 	call_deferred("_replace_last_node", home_res)
 
 
 func player_fell() -> void:
+	mouse_show()
 	call_deferred("_replace_last_node", "res://scenes/layers/game_over.tscn")
 
 
@@ -67,6 +79,7 @@ func restart_level() -> void:
 
 
 func player_passed_level() -> void:
+	mouse_show()
 	assert(configFile.has_section("Levels"),
 		"Could not find 'Levels' Section on Config File")
 	configFile.set_value("Levels", str(currentLevelNumber), LevelStatus.PASSED)
@@ -81,6 +94,7 @@ func go_to_next_level() -> void:
 
 
 func on_level_selected(level: int) -> void:
+	mouse_hide()
 	currentLevelNumber = level
 	var level_res: String = str("res://scenes/levels/level_", level, ".tscn")
 	call_deferred("_replace_last_node", level_res)
