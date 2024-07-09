@@ -31174,13 +31174,36 @@ position = Vector2(497, 1152)
 collision_layer = 64
 metadata/_edit_group_ = true
 
-[node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointB"]
 position = Vector2(0, -50)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_5w3wi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointB"]
+[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointB"]
 shape = SubResource("CapsuleShape2D_8wpai")
+
+[node name="Path" type="Node2D" parent="Scenery/CheckpointB"]
+visible = false
+
+[node name="Line2D" type="Line2D" parent="Scenery/CheckpointB/Path"]
+points = PackedVector2Array(0, 0, 720, -150)
+default_color = Color(0.0784314, 0.156863, 1, 0.627451)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="Scenery/CheckpointB/Path"]
+points = PackedVector2Array(720, -150, 1486, -57)
+default_color = Color(0.0784314, 0.156863, 1, 0.627451)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointB/Path"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(1490, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_5w3wi")
 
 [node name="CheckpointC" type="Area2D" parent="Scenery"]
 position = Vector2(2360, 1671)
@@ -31211,6 +31234,7 @@ position = Vector2(784, 1493)
 rotation = 1.5708
 scale = Vector2(1.56283, 1.62925)
 texture = ExtResource("12_l64so")
+metadata/_edit_group_ = true
 
 [node name="Branch1" parent="Scenery/Tree" instance=ExtResource("13_e3lge")]
 position = Vector2(-194.518, 187.203)

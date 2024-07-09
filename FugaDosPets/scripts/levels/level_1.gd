@@ -44,9 +44,11 @@ func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
-	checkpoint_b.queue_free()
 	camera_c.make_current()
 	player.change_character("Cascao")
+	checkpoint_b.get_node("Sprite").visible = false
+	checkpoint_b.get_node("Collider").set_deferred("disabled", true)
+	checkpoint_b.get_node("Path").visible = true
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
