@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://det6cs3wc1jx6"]
+[gd_scene load_steps=19 format=3 uid="uid://det6cs3wc1jx6"]
 
 [ext_resource type="Script" path="res://scripts/layers/character_selection.gd" id="1_gioiy"]
 [ext_resource type="Texture2D" uid="uid://di4cqn4pqormu" path="res://assets/GUI/characters/magali.png" id="1_p217w"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://ik30dr1mcngf" path="res://assets/GUI/characters/cebolinha.png" id="3_5f5rp"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="3_gipmf"]
 [ext_resource type="Texture2D" uid="uid://b27j5g67u6yvu" path="res://assets/GUI/characters/monica.png" id="4_hiaeh"]
+[ext_resource type="Texture2D" uid="uid://cltqube3eudad" path="res://assets/GUI/characters/franjinha_disabled.png" id="8_n6yhd"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ermcl"]
+device = -1
+alt_pressed = true
+keycode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_2i6bj"]
+events = [SubResource("InputEventKey_ermcl")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8vlx1"]
 device = -1
@@ -40,14 +49,6 @@ keycode = 50
 [sub_resource type="Shortcut" id="Shortcut_mxo34"]
 events = [SubResource("InputEventKey_dgpw6")]
 
-[sub_resource type="InputEventKey" id="InputEventKey_ermcl"]
-device = -1
-alt_pressed = true
-keycode = 49
-
-[sub_resource type="Shortcut" id="Shortcut_2i6bj"]
-events = [SubResource("InputEventKey_ermcl")]
-
 [node name="CharacterSelection" type="CanvasLayer"]
 script = ExtResource("1_gioiy")
 
@@ -69,6 +70,36 @@ theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
+
+[node name="Franjinha" type="TextureButton" parent="ChangeUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Clique aqui ou Pressione Alt + 1 para trocar para o Franjinha"
+disabled = true
+shortcut = SubResource("Shortcut_2i6bj")
+texture_normal = ExtResource("1_qnmm5")
+texture_disabled = ExtResource("8_n6yhd")
+
+[node name="Label" type="Label" parent="ChangeUI/Franjinha"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -32.5
+offset_right = 61.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_gipmf")
+theme_override_font_sizes/font_size = 64
+text = "1     "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Magali" type="TextureButton" parent="ChangeUI"]
 layout_mode = 2
@@ -172,34 +203,6 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("3_gipmf")
 theme_override_font_sizes/font_size = 64
 text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Franjinha" type="TextureButton" parent="ChangeUI"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-tooltip_text = "Clique aqui ou Pressione Alt + 1 para trocar para o Franjinha"
-shortcut = SubResource("Shortcut_2i6bj")
-texture_normal = ExtResource("1_qnmm5")
-
-[node name="Label" type="Label" parent="ChangeUI/Franjinha"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = -32.5
-offset_right = 61.5
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_gipmf")
-theme_override_font_sizes/font_size = 64
-text = "1     "
 horizontal_alignment = 1
 vertical_alignment = 1
 
