@@ -7,9 +7,9 @@ extends Node
 @onready var camera_d: Camera2D = $CameraD
 @onready var player: Node2D = $Player
 @onready var scene_limit: Marker2D = $SceneLimit
-@onready var checkpoint_a: Area2D = $Scenery/CheckpointA
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
+@onready var checkpoint_d: Area2D = $Scenery/CheckpointD
 @onready var collectible_1: Area2D = $Scenery/Collectible1
 @onready var tree: Sprite2D = $Scenery/Tree
 @onready var lever_1: AnimatableBody2D = $Scenery/Lever1
@@ -37,22 +37,22 @@ func _ready() -> void:
 	lever_2.on_pull(open_gate)
 
 
-func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
-	checkpoint_a.queue_free()
+func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
+	checkpoint_b.queue_free()
 	camera_b.make_current()
 	player.change_character("Cebolinha")
 
 
-func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
+func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	camera_c.make_current()
 	player.change_character("Cascao")
-	checkpoint_b.get_node("Sprite").visible = false
-	checkpoint_b.get_node("Collider").set_deferred("disabled", true)
-	checkpoint_b.get_node("Path").visible = true
+	checkpoint_c.get_node("Sprite").visible = false
+	checkpoint_c.get_node("Collider").set_deferred("disabled", true)
+	checkpoint_c.get_node("Path").visible = true
 
 
-func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
-	checkpoint_c.queue_free()
+func _on_checkpoint_d_body_entered(_body: Node2D) -> void:
+	checkpoint_d.queue_free()
 	camera_d.make_current()
 	player.change_character("Magali")
 

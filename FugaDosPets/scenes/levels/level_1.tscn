@@ -31155,67 +31155,67 @@ occluder = SubResource("OccluderPolygon2D_f273t")
 [node name="HoleShadow" type="LightOccluder2D" parent="Scenery"]
 occluder = SubResource("OccluderPolygon2D_4s2pv")
 
-[node name="CheckpointA" type="Area2D" parent="Scenery"]
+[node name="CheckpointB" type="Area2D" parent="Scenery"]
 position = Vector2(1099, 1816)
 collision_layer = 64
 metadata/_edit_group_ = true
 
-[node name="Box" type="Sprite2D" parent="Scenery/CheckpointA"]
+[node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
 position = Vector2(0, -50)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_lr60v")
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointA"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointB"]
 shape = SubResource("CapsuleShape2D_to5vq")
 
-[node name="CheckpointB" type="Area2D" parent="Scenery"]
+[node name="CheckpointC" type="Area2D" parent="Scenery"]
 position = Vector2(497, 1152)
 collision_layer = 64
 metadata/_edit_group_ = true
 
-[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointB"]
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointC"]
 position = Vector2(0, -50)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_5w3wi")
 
-[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointB"]
+[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointC"]
 shape = SubResource("CapsuleShape2D_8wpai")
 
-[node name="Path" type="Node2D" parent="Scenery/CheckpointB"]
+[node name="Path" type="Node2D" parent="Scenery/CheckpointC"]
 visible = false
 
-[node name="Line2D" type="Line2D" parent="Scenery/CheckpointB/Path"]
+[node name="Line2D" type="Line2D" parent="Scenery/CheckpointC/Path"]
 points = PackedVector2Array(0, 0, 720, -150)
 default_color = Color(0.0784314, 0.156863, 1, 0.627451)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Line2D3" type="Line2D" parent="Scenery/CheckpointB/Path"]
+[node name="Line2D3" type="Line2D" parent="Scenery/CheckpointC/Path"]
 points = PackedVector2Array(720, -150, 1486, -57)
 default_color = Color(0.0784314, 0.156863, 1, 0.627451)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointB/Path"]
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointC/Path"]
 modulate = Color(1, 1, 1, 0.313726)
 position = Vector2(1490, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_5w3wi")
 
-[node name="CheckpointC" type="Area2D" parent="Scenery"]
+[node name="CheckpointD" type="Area2D" parent="Scenery"]
 position = Vector2(2360, 1671)
 collision_layer = 64
 metadata/_edit_group_ = true
 
-[node name="Box" type="Sprite2D" parent="Scenery/CheckpointC"]
+[node name="Box" type="Sprite2D" parent="Scenery/CheckpointD"]
 position = Vector2(0, -50)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("10_3l70c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointC"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointD"]
 shape = SubResource("CapsuleShape2D_nwke2")
 
 [node name="Collectible1" type="Area2D" parent="Scenery"]
@@ -31269,7 +31269,7 @@ position = Vector2(3777, 2000)
 [node name="Gate" parent="Scenery" instance=ExtResource("14_yawya")]
 position = Vector2(3818, 1482)
 
-[connection signal="body_entered" from="Scenery/CheckpointA" to="." method="_on_checkpoint_a_body_entered"]
 [connection signal="body_entered" from="Scenery/CheckpointB" to="." method="_on_checkpoint_b_body_entered"]
 [connection signal="body_entered" from="Scenery/CheckpointC" to="." method="_on_checkpoint_c_body_entered"]
+[connection signal="body_entered" from="Scenery/CheckpointD" to="." method="_on_checkpoint_d_body_entered"]
 [connection signal="body_entered" from="Scenery/Collectible1" to="." method="_on_collectible_1_body_entered"]
