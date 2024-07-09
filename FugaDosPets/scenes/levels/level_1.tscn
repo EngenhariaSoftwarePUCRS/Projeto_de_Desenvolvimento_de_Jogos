@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=29 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="2_8pm7o"]
@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="9_5w3wi"]
 [ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="10_3l70c"]
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_eerfg"]
-[ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch.tscn" id="10_h0bbq"]
+[ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch_to_right.tscn" id="10_h0bbq"]
+[ext_resource type="Texture2D" uid="uid://680iibtfwyne" path="res://assets/scenery/branch/tree.png" id="12_l64so"]
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
+[ext_resource type="PackedScene" uid="uid://cx0dmxb8kaw6t" path="res://scenes/scenery/branch_to_left.tscn" id="13_e3lge"]
 [ext_resource type="PackedScene" uid="uid://83oftwnr2aj8" path="res://scenes/scenery/gate.tscn" id="14_yawya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
@@ -31166,7 +31168,7 @@ flip_h = true
 shape = SubResource("CapsuleShape2D_to5vq")
 
 [node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(363, 1173)
+position = Vector2(428, 1152)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31201,23 +31203,32 @@ texture = ExtResource("10_eerfg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Collectible1"]
 shape = SubResource("CircleShape2D_iec46")
 
-[node name="Tree" type="Node" parent="Scenery"]
+[node name="Tree" type="Sprite2D" parent="Scenery"]
+z_index = -1
+position = Vector2(784, 1493)
+rotation = 1.5708
+scale = Vector2(1.56283, 1.62925)
+texture = ExtResource("12_l64so")
 
-[node name="Branch1" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(865, 1898)
+[node name="Branch1" parent="Scenery/Tree" instance=ExtResource("13_e3lge")]
+position = Vector2(-194.518, 187.203)
+rotation = -1.48353
 
-[node name="Branch2" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(698, 1674)
+[node name="Branch2" parent="Scenery/Tree" instance=ExtResource("13_e3lge")]
+position = Vector2(31.3539, 146.079)
+rotation = -1.39626
 
-[node name="Branch3" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(970, 1434)
+[node name="Branch3" parent="Scenery/Tree" instance=ExtResource("13_e3lge")]
+position = Vector2(211.795, 30.0745)
+rotation = -1.44862
 
 [node name="Branch4" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
-position = Vector2(452, 1251)
+position = Vector2(-66.5469, -247.353)
+rotation = -1.74533
 
 [node name="Lever1" parent="Scenery" instance=ExtResource("12_p8ld7")]
 light_mask = 64
-position = Vector2(1034, 1871)
+position = Vector2(1034, 1873)
 
 [node name="Cloud" parent="Scenery" instance=ExtResource("4_78xrr")]
 position = Vector2(2879, 1544)

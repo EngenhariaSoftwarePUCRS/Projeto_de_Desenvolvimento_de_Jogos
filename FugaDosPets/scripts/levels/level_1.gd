@@ -11,7 +11,7 @@ extends Node
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
 @onready var collectible_1: Area2D = $Scenery/Collectible1
-@onready var tree: Node = $Scenery/Tree
+@onready var tree: Sprite2D = $Scenery/Tree
 @onready var lever_1: AnimatableBody2D = $Scenery/Lever1
 @onready var lever_2: AnimatableBody2D = $Scenery/Lever2
 @onready var gate: StaticBody2D = $Scenery/Gate
@@ -23,12 +23,12 @@ func _ready() -> void:
 	
 	camera_a.make_current()
 	
+	tree.visible = false
 	for branch in tree.get_children():
-		branch.visible = false
 		branch.get_node("Collider").disabled = true
 	var show_branches: Callable = func() -> void:
+		tree.visible = true
 		for branch in tree.get_children():
-			branch.visible = true
 			branch.get_node("Collider").disabled = false
 	lever_1.on_pull(show_branches)
 	
