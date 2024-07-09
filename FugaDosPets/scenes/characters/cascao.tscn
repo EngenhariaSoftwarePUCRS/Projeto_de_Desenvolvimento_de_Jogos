@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwqb20sshr84i"]
 
 [ext_resource type="Script" path="res://scripts/characters/cascao.gd" id="1_kwa58"]
-[ext_resource type="Texture2D" uid="uid://bnea38xfnoydo" path="res://assets/characters/cascao/gliding.png" id="2_1evov"]
-[ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="3_wwpnd"]
+[ext_resource type="Texture2D" uid="uid://bmj6mevsgnupw" path="res://assets/characters/cascao/gliding.png" id="2_1evov"]
+[ext_resource type="Texture2D" uid="uid://c6r55ule1bmlv" path="res://assets/characters/cascao/idle.png" id="3_wwpnd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnfb0"]
 animations = [{
@@ -30,13 +30,13 @@ script = ExtResource("1_kwa58")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.00018692, 0.000221252)
-scale = Vector2(0.0662103, 0.0662103)
+position = Vector2(-0.000206351, -33.5614)
+scale = Vector2(0.0901829, 0.0901829)
 sprite_frames = SubResource("SpriteFrames_tnfb0")
 animation = &"idle"
 
 [node name="RightCollider" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-21, 93, -2, 93, 30, 68, 48, -12, 36, -59, -27, -60, -45, -27, -43, 64)
+polygon = PackedVector2Array(-11, 92, 2, 92, 36, 65, 52, -11, 42, -60, -27, -60, -41, -25, -39, 65)
 
 [node name="LeftCollider" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(21, 93, 2, 93, -30, 68, -48, -12, -36, -59, 27, -60, 45, -27, 43, 64)
+polygon = PackedVector2Array(11, 92, -2, 92, -36, 65, -52, -11, -42, -60, 27, -60, 41, -25, 39, 65)

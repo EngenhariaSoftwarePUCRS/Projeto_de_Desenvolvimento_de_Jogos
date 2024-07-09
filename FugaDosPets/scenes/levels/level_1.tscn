@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://e527gc0sd2hb" path="res://assets/backgrounds/sky2.jpg" id="5_bnr8s"]
 [ext_resource type="Texture2D" uid="uid://be35uocy8r0tq" path="res://assets/backgrounds/skyblue.jpg" id="6_u7xba"]
 [ext_resource type="PackedScene" uid="uid://cyn8o0dxwdto7" path="res://scenes/scenery/sun.tscn" id="7_63pcc"]
-[ext_resource type="Texture2D" uid="uid://dde3p1dvaj2ps" path="res://assets/characters/cebolinha/idle.png" id="8_lr60v"]
-[ext_resource type="Texture2D" uid="uid://bp4qlw4kosfna" path="res://assets/characters/cascao/idle.png" id="9_5w3wi"]
-[ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="10_3l70c"]
+[ext_resource type="Texture2D" uid="uid://ck2p3wa1gtkvk" path="res://assets/characters/cebolinha/idle.png" id="8_lr60v"]
+[ext_resource type="Texture2D" uid="uid://c6r55ule1bmlv" path="res://assets/characters/cascao/idle.png" id="9_5w3wi"]
+[ext_resource type="Texture2D" uid="uid://bhmldvc41b4yr" path="res://assets/characters/magali/idle.png" id="10_3l70c"]
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_eerfg"]
 [ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch_to_right.tscn" id="10_h0bbq"]
 [ext_resource type="Texture2D" uid="uid://680iibtfwyne" path="res://assets/scenery/branch/tree.png" id="12_l64so"]
@@ -31161,7 +31161,8 @@ collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointA"]
-scale = Vector2(0.065, 0.065)
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_lr60v")
 flip_h = true
 
@@ -31174,8 +31175,8 @@ collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.0650685, 0.0650685)
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_5w3wi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointB"]
@@ -31187,8 +31188,8 @@ collision_layer = 64
 metadata/_edit_group_ = true
 
 [node name="Box" type="Sprite2D" parent="Scenery/CheckpointC"]
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.065, 0.065)
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("10_3l70c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointC"]

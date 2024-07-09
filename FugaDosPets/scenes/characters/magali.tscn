@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pmvljuwc7mxd"]
 
 [ext_resource type="Script" path="res://scripts/characters/magali.gd" id="1_ktqcn"]
-[ext_resource type="Texture2D" uid="uid://yckkkqar530p" path="res://assets/characters/magali/idle.png" id="2_ygoi3"]
+[ext_resource type="Texture2D" uid="uid://bhmldvc41b4yr" path="res://assets/characters/magali/idle.png" id="2_ygoi3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v04jp"]
 animations = [{
@@ -21,12 +21,13 @@ script = ExtResource("1_ktqcn")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.0707763, 0.0707763)
+position = Vector2(0, -33.561)
+scale = Vector2(0.09, 0.09)
 sprite_frames = SubResource("SpriteFrames_v04jp")
 animation = &"idle"
 
 [node name="RightCollider" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-19, 99, 2, 99, 27, 71, 46, -18, 25, -62, -52, -12, -42, 69)
+polygon = PackedVector2Array(-9, 92, 2, 92, 30, 65, 46, -18, 25, -62, -45, -10, -37, 63)
 
 [node name="LeftCollider" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(19, 99, 2, 99, -27, 71, -46, -18, -25, -62, 52, -12, 42, 69)
+polygon = PackedVector2Array(9, 92, -2, 92, -30, 65, -46, -18, -25, -62, 45, -10, 37, 63)
