@@ -139,7 +139,7 @@ animations = [{
 }]
 
 [node name="Sun" type="DirectionalLight2D"]
-color = Color(1, 0.862745, 0.0392157, 1)
+color = Color(1, 0.647059, 0.117647, 1)
 shadow_enabled = true
 script = ExtResource("1_w2pmb")
 
