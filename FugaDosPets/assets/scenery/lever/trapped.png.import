@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1taj1k28ad7d"
-path="res://.godot/imported/lever.png-f1aaa4c239bcc7cbb73c71c5cf2a7c9f.ctex"
+uid="uid://4hfcssdyisvn"
+path="res://.godot/imported/trapped.png-c0689f67c89abfe823db1c26f629a089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/lever/lever.png"
-dest_files=["res://.godot/imported/lever.png-f1aaa4c239bcc7cbb73c71c5cf2a7c9f.ctex"]
+source_file="res://assets/scenery/lever/trapped.png"
+dest_files=["res://.godot/imported/trapped.png-c0689f67c89abfe823db1c26f629a089.ctex"]
 
 [params]
 

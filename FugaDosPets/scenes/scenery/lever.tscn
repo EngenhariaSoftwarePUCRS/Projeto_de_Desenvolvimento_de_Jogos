@@ -1,7 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://frswvc5ksedu"]
+[gd_scene load_steps=6 format=3 uid="uid://frswvc5ksedu"]
 
-[ext_resource type="Texture2D" uid="uid://c1taj1k28ad7d" path="res://assets/scenery/lever/lever.png" id="1_rdi64"]
 [ext_resource type="Script" path="res://scripts/scenery/lever.gd" id="1_tn3du"]
+[ext_resource type="Texture2D" uid="uid://cjtn318eom6xl" path="res://assets/scenery/lever/pulled.png" id="2_yih6x"]
+[ext_resource type="Texture2D" uid="uid://4hfcssdyisvn" path="res://assets/scenery/lever/trapped.png" id="3_3u7tn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a03gy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yih6x")
+}],
+"loop": true,
+"name": &"pull",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3u7tn")
+}],
+"loop": false,
+"name": &"trapped",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gr4l"]
 radius = 6.0
@@ -12,9 +32,12 @@ collision_layer = 64
 collision_mask = 19
 script = ExtResource("1_tn3du")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0816327, 0.0816327)
-texture = ExtResource("1_rdi64")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_a03gy")
+animation = &"pull"
+autoplay = "trapped"
+offset = Vector2(250, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0gr4l")

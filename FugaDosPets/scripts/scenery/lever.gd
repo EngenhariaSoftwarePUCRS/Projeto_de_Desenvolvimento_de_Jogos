@@ -3,7 +3,7 @@ extends AnimatableBody2D
 
 @export var pulled: bool
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var collider: CollisionShape2D = $CollisionShape2D
 
 var pull_action: Callable
@@ -22,6 +22,7 @@ func pull() -> void:
 	if pulled:
 		return
 	pulled = true
+	sprite.play("pull")
 	collider.set_deferred("disabled", true)
 	pull_action.call()
 
