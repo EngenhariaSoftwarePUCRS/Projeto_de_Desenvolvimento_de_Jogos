@@ -12,7 +12,8 @@ const CONFIG_FILE_PATH: String = "user://config.cfg"
 
 func _ready() -> void:
 	var err: Error = configFile.load(CONFIG_FILE_PATH)
-	assert(err == OK, "Could not load audio settings file")
+	if err != OK:
+		get_tree().call_group("main", "load_settings")
 	
 	if not configFile.has_section("Audio"):
 		configFile.set_value("Audio", "Music", db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS)))

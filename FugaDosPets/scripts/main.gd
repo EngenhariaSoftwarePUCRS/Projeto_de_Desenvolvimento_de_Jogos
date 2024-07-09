@@ -13,10 +13,7 @@ enum LevelStatus { AVAILABLE, PASSED, LOCKED }
 
 func _ready() -> void:
 	settings_layer.visible = false
-	var err: Error = configFile.load(CONFIG_FILE_PATH)
-	if err != OK:
-		configFile = ConfigFile.new()
-		configFile.save(CONFIG_FILE_PATH)
+	load_settings()
 
 
 func _input(event: InputEvent) -> void:	
@@ -47,6 +44,13 @@ func _replace_last_node(new_scene_res: String) -> void:
 	var new_scene: Resource = ResourceLoader.load(new_scene_res)
 	var new_scene_ins: Node = new_scene.instantiate()
 	add_child(new_scene_ins)
+
+
+func load_settings() -> void:
+	var err: Error = configFile.load(CONFIG_FILE_PATH)
+	if err != OK:
+		configFile = ConfigFile.new()
+		configFile.save(CONFIG_FILE_PATH)
 
 
 func return_to_home() -> void:

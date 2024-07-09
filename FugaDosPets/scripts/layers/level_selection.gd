@@ -14,7 +14,8 @@ enum LevelStatus { AVAILABLE, PASSED, LOCKED }
 
 func _ready() -> void:
 	var err: Error = configFile.load(CONFIG_FILE_PATH)
-	assert(err == OK, "Could not load levels settings file")
+	if err != OK:
+		get_tree().call_group("main", "load_settings")
 	
 	if not configFile.has_section("Levels"):
 		configFile.set_value("Levels", str(1), LevelStatus.AVAILABLE)
