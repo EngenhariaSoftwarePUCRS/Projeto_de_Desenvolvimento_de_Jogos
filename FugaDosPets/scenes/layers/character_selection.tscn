@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://det6cs3wc1jx6"]
+[gd_scene load_steps=23 format=3 uid="uid://det6cs3wc1jx6"]
 
 [ext_resource type="Script" path="res://scripts/layers/character_selection.gd" id="1_gioiy"]
 [ext_resource type="Texture2D" uid="uid://di4cqn4pqormu" path="res://assets/GUI/characters/magali.png" id="1_p217w"]
@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ik30dr1mcngf" path="res://assets/GUI/characters/cebolinha.png" id="3_5f5rp"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="3_gipmf"]
 [ext_resource type="Texture2D" uid="uid://b27j5g67u6yvu" path="res://assets/GUI/characters/monica.png" id="4_hiaeh"]
+[ext_resource type="Texture2D" uid="uid://crrii5s700inp" path="res://assets/GUI/characters/magali_disabled.png" id="6_ipei5"]
+[ext_resource type="Texture2D" uid="uid://c5uvkh1c7ed3a" path="res://assets/GUI/characters/cascao_disabled.png" id="8_epokf"]
 [ext_resource type="Texture2D" uid="uid://cltqube3eudad" path="res://assets/GUI/characters/franjinha_disabled.png" id="8_n6yhd"]
+[ext_resource type="Texture2D" uid="uid://bji5qnv7ih1gc" path="res://assets/GUI/characters/cebolinha_disabled.png" id="10_ljnub"]
+[ext_resource type="Texture2D" uid="uid://bn5moqqs630tm" path="res://assets/GUI/characters/monica_disabled.png" id="12_xg4lb"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_ermcl"]
 device = -1
@@ -49,7 +53,7 @@ keycode = 50
 [sub_resource type="Shortcut" id="Shortcut_mxo34"]
 events = [SubResource("InputEventKey_dgpw6")]
 
-[node name="CharacterSelection" type="CanvasLayer"]
+[node name="CharacterSelection" type="CanvasLayer" groups=["characters"]]
 script = ExtResource("1_gioiy")
 
 [node name="ChangeUI" type="MarginContainer" parent="."]
@@ -108,6 +112,7 @@ size_flags_vertical = 4
 tooltip_text = "Clique aqui ou Pressione Alt + 5 para trocar para a Magali"
 shortcut = SubResource("Shortcut_7xqx6")
 texture_normal = ExtResource("1_p217w")
+texture_disabled = ExtResource("6_ipei5")
 
 [node name="Label" type="Label" parent="ChangeUI/Magali"]
 layout_mode = 1
@@ -135,6 +140,7 @@ size_flags_vertical = 4
 tooltip_text = "Clique aqui ou Pressione Alt + 4 para trocar para o Cascão"
 shortcut = SubResource("Shortcut_sb30s")
 texture_normal = ExtResource("2_uitik")
+texture_disabled = ExtResource("8_epokf")
 
 [node name="Label" type="Label" parent="ChangeUI/Cascao"]
 layout_mode = 1
@@ -160,6 +166,7 @@ size_flags_vertical = 8
 tooltip_text = "Clique aqui ou Pressione Alt + 3 para trocar para o Cebolinha"
 shortcut = SubResource("Shortcut_bnkm3")
 texture_normal = ExtResource("3_5f5rp")
+texture_disabled = ExtResource("10_ljnub")
 
 [node name="Label" type="Label" parent="ChangeUI/Cebolinha"]
 layout_mode = 1
@@ -188,6 +195,7 @@ size_flags_vertical = 0
 tooltip_text = "Clique aqui ou Pressione Alt + 2 para trocar para a Mônica"
 shortcut = SubResource("Shortcut_mxo34")
 texture_normal = ExtResource("4_hiaeh")
+texture_disabled = ExtResource("12_xg4lb")
 
 [node name="Label" type="Label" parent="ChangeUI/Monica"]
 layout_mode = 1

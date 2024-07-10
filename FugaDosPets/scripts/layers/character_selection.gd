@@ -29,6 +29,7 @@ func _ready() -> void:
 			change_cooldown.start()
 		)
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("change_characters"):
 		if change_cooldown.time_left == 0.0:
@@ -38,7 +39,7 @@ func _process(_delta: float) -> void:
 	
 	if change_cooldown.time_left > 0:
 		var time_left: String = str(change_cooldown.time_left).pad_decimals(2)
-		cooldown_label.text = str(time_left, " s")
+		cooldown_label.text = str(time_left, " s ")
 	else:
 		cooldown_label.text = ""
 	
@@ -47,3 +48,15 @@ func _process(_delta: float) -> void:
 			button.z_index = 99
 		else:
 			button.z_index = 0
+
+
+func enable_change_character(character_name: String) -> void:
+	var characterButton: String = str("ChangeUI/", character_name)
+	assert(has_node(characterButton), "Invalid character button name to disable")
+	get_node(characterButton).disabled = false
+
+
+func disable_change_character(character_name: String) -> void:
+	var characterButton: String = str("ChangeUI/", character_name)
+	assert(has_node(characterButton), "Invalid character button name to disable")
+	get_node(characterButton).disabled = true

@@ -25,6 +25,11 @@ func _ready() -> void:
 	
 	camera_a.make_current()
 	
+	get_tree().call_group("characters", "disable_change_character", "Monica")
+	get_tree().call_group("characters", "disable_change_character", "Cebolinha")
+	get_tree().call_group("characters", "disable_change_character", "Cascao")
+	get_tree().call_group("characters", "disable_change_character", "Magali")
+	
 	tree.visible = false
 	for branch in tree.get_children():
 		branch.get_node("Collider").disabled = true
@@ -41,6 +46,7 @@ func _ready() -> void:
 
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 	checkpoint_a.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
+	get_tree().call_group("characters", "enable_change_character", "Monica")
 	get_tree().call_group("main", "mouse_show")
 	checkpoint_a.get_node("Dialog").show()
 
@@ -49,6 +55,7 @@ func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
 	checkpoint_b.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	camera_b.make_current()
 	player.change_character("Cebolinha")
+	get_tree().call_group("characters", "enable_change_character", "Cebolinha")
 	get_tree().call_group("main", "mouse_show")
 	checkpoint_b.get_node("Dialog").show()
 
@@ -64,6 +71,7 @@ func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 	checkpoint_c.get_node("Path").visible = true
 	camera_c.make_current()
 	player.change_character("Cascao")
+	get_tree().call_group("characters", "enable_change_character", "Cascao")
 	get_tree().call_group("main", "mouse_show")
 	checkpoint_c.get_node("Dialog").show()
 
@@ -72,6 +80,7 @@ func _on_checkpoint_d_body_entered(_body: Node2D) -> void:
 	checkpoint_d.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	camera_d.make_current()
 	player.change_character("Magali")
+	get_tree().call_group("characters", "enable_change_character", "Magali")
 	get_tree().call_group("main", "mouse_show")
 	checkpoint_d.get_node("Dialog").show()
 
