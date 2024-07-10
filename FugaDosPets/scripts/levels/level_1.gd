@@ -45,6 +45,8 @@ func _ready() -> void:
 
 
 func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
+	if not checkpoint_a.has_node("Dialog"):
+		return
 	checkpoint_a.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	get_tree().call_group("characters", "enable_change_character", "Monica")
 	get_tree().call_group("main", "mouse_show")
@@ -52,6 +54,8 @@ func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
 
 
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
+	if not checkpoint_b.has_node("Dialog"):
+		return
 	checkpoint_b.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	camera_b.make_current()
 	player.change_character("Cebolinha")
@@ -67,6 +71,8 @@ func _on_hint_a_body_entered(_body: Node2D) -> void:
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
+	if not checkpoint_c.has_node("Dialog"):
+		return
 	checkpoint_c.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	checkpoint_c.get_node("Path").visible = true
 	camera_c.make_current()
@@ -77,6 +83,8 @@ func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
 
 
 func _on_checkpoint_d_body_entered(_body: Node2D) -> void:
+	if not checkpoint_d.has_node("Dialog"):
+		return
 	checkpoint_d.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	camera_d.make_current()
 	player.change_character("Magali")
@@ -90,5 +98,20 @@ func _on_collectible_1_body_entered(_body: Node2D) -> void:
 	collectible_1.get_node("Popup").visible = true
 
 
-func _on_dialog_closed() -> void:
+func _on_dialog_a_closed() -> void:
+	checkpoint_a.get_node("Dialog").queue_free()
+
+
+func _on_dialog_b_closed() -> void:
 	get_tree().call_group("main", "mouse_hide")
+	checkpoint_b.get_node("Dialog").queue_free()
+
+
+func _on_dialog_c_closed() -> void:
+	get_tree().call_group("main", "mouse_hide")
+	checkpoint_c.get_node("Dialog").queue_free()
+
+
+func _on_dialog_d_closed() -> void:
+	get_tree().call_group("main", "mouse_hide")
+	checkpoint_d.get_node("Dialog").queue_free()

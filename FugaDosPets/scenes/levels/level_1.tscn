@@ -31248,7 +31248,7 @@ size = Vector2i(492, 106)
 always_on_top = true
 popup_window = true
 max_size = Vector2i(1024, 32768)
-dialog_text = "Pressione \"Alt\" para trocar de personagem.
+dialog_text = "Pressione \"Alt\" ou \"Q\" para trocar de personagem.
 PS: É necessário esperar 3s antes de poder trocar novamente."
 dialog_autowrap = true
 
@@ -31397,16 +31397,18 @@ position = Vector2(3777, 2000)
 position = Vector2(3818, 1482)
 
 [connection signal="body_entered" from="Scenery/CheckpointA" to="." method="_on_checkpoint_a_body_entered"]
+[connection signal="canceled" from="Scenery/CheckpointA/Dialog" to="." method="_on_dialog_a_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointA/Dialog" to="." method="_on_dialog_a_closed"]
 [connection signal="body_entered" from="Scenery/CheckpointB" to="." method="_on_checkpoint_b_body_entered"]
-[connection signal="canceled" from="Scenery/CheckpointB/Dialog" to="." method="_on_dialog_closed"]
-[connection signal="confirmed" from="Scenery/CheckpointB/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="canceled" from="Scenery/CheckpointB/Dialog" to="." method="_on_dialog_b_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointB/Dialog" to="." method="_on_dialog_b_closed"]
 [connection signal="body_entered" from="Scenery/HintA" to="." method="_on_hint_a_body_entered"]
 [connection signal="canceled" from="Scenery/HintA/Dialog" to="." method="_on_dialog_closed"]
 [connection signal="confirmed" from="Scenery/HintA/Dialog" to="." method="_on_dialog_closed"]
 [connection signal="body_entered" from="Scenery/CheckpointC" to="." method="_on_checkpoint_c_body_entered"]
-[connection signal="canceled" from="Scenery/CheckpointC/Dialog" to="." method="_on_dialog_closed"]
-[connection signal="confirmed" from="Scenery/CheckpointC/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="canceled" from="Scenery/CheckpointC/Dialog" to="." method="_on_dialog_c_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointC/Dialog" to="." method="_on_dialog_c_closed"]
 [connection signal="body_entered" from="Scenery/CheckpointD" to="." method="_on_checkpoint_d_body_entered"]
-[connection signal="canceled" from="Scenery/CheckpointD/Dialog" to="." method="_on_dialog_closed"]
-[connection signal="confirmed" from="Scenery/CheckpointD/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="canceled" from="Scenery/CheckpointD/Dialog" to="." method="_on_dialog_d_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointD/Dialog" to="." method="_on_dialog_d_closed"]
 [connection signal="body_entered" from="Scenery/Collectible1" to="." method="_on_collectible_1_body_entered"]
