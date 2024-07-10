@@ -11,6 +11,7 @@ func _on_settings_pressed() -> void:
 func _on_play_pressed() -> void:
 	play_button.queue_free()
 	level_selection.visible = true
+	get_tree().call_group("main", "mouse_show")
 
 
 func _on_exit_pressed() -> void:

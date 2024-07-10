@@ -60,7 +60,7 @@ func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
 	checkpoint_b.get_node("Dialog").show()
 
 
-func _on_hint_a_body_entered(body: Node2D) -> void:
+func _on_hint_a_body_entered(_body: Node2D) -> void:
 	hint_a.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	get_tree().call_group("main", "mouse_show")
 	hint_a.get_node("Dialog").show()

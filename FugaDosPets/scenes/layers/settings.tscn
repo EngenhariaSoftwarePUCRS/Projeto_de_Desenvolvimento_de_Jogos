@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="5_3l0lu"]
 
 [node name="Settings" type="CanvasLayer"]
+layer = 100
 script = ExtResource("1_n6emk")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -23,7 +24,7 @@ offset_right = -176.0
 offset_bottom = -99.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.8)
+color = Color(1, 1, 1, 0.882353)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 show_behind_parent = true
@@ -36,6 +37,7 @@ offset_right = -173.0
 offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
@@ -44,11 +46,13 @@ theme_override_constants/margin_bottom = 40
 [node name="Interactive" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 0
 theme_override_constants/separation = 20
 
 [node name="Music" type="HBoxContainer" parent="MarginContainer/Interactive"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 0
 theme_override_constants/separation = 20
 metadata/_edit_group_ = true
 
@@ -72,6 +76,7 @@ flat = true
 [node name="SFX" type="HBoxContainer" parent="MarginContainer/Interactive"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 0
 theme_override_constants/separation = 20
 alignment = 1
 metadata/_edit_group_ = true

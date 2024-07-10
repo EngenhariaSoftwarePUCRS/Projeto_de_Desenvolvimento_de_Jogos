@@ -16,6 +16,7 @@ theme_override_fonts/font = ExtResource("2_8v2j5")
 theme_override_font_sizes/font_size = 64
 disabled = true
 text = "1"
+expand_icon = true
 
 [node name="LevelsGrid" type="GridContainer" parent="."]
 anchors_preset = 7
