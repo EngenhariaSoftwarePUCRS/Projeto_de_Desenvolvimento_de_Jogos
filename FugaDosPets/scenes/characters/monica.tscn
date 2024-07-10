@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://daigxicevnp71"]
+[gd_scene load_steps=8 format=3 uid="uid://daigxicevnp71"]
 
 [ext_resource type="Script" path="res://scripts/characters/monica.gd" id="1_wi4df"]
 [ext_resource type="Texture2D" uid="uid://bux734uh5udg0" path="res://assets/characters/monica/idle.png" id="2_4rxrd"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cbserudhob631" path="res://assets/characters/monica/walking_1.png" id="4_8p2bo"]
 [ext_resource type="Texture2D" uid="uid://rc6bsjmpk8la" path="res://assets/characters/monica/walking_2.png" id="5_awsep"]
 [ext_resource type="Texture2D" uid="uid://ce6fd6dxk33qs" path="res://assets/characters/monica/walking_3.png" id="6_rd8bu"]
-[ext_resource type="AudioStream" uid="uid://bl4owosdpnci0" path="res://assets/characters/walking_grass.mp3" id="7_1sw6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rd87y"]
 animations = [{
@@ -53,7 +52,3 @@ polygon = PackedVector2Array(-11, 92, 2, 92, 27, 71, 52, -17, 45, -54, -27, -37,
 
 [node name="LeftCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(11, 92, -2, 92, -27, 71, -52, -17, -45, -54, 27, -37, 40, 61)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_1sw6f")
-bus = &"SFX"

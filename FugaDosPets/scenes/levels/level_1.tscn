@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=34 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="2_8pm7o"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://e527gc0sd2hb" path="res://assets/backgrounds/sky2.jpg" id="5_bnr8s"]
 [ext_resource type="Texture2D" uid="uid://be35uocy8r0tq" path="res://assets/backgrounds/skyblue.jpg" id="6_u7xba"]
 [ext_resource type="PackedScene" uid="uid://cyn8o0dxwdto7" path="res://scenes/scenery/sun.tscn" id="7_63pcc"]
+[ext_resource type="Texture2D" uid="uid://bux734uh5udg0" path="res://assets/characters/monica/idle.png" id="8_iqclv"]
 [ext_resource type="Texture2D" uid="uid://ck2p3wa1gtkvk" path="res://assets/characters/cebolinha/idle.png" id="8_lr60v"]
 [ext_resource type="Texture2D" uid="uid://c6r55ule1bmlv" path="res://assets/characters/cascao/idle.png" id="9_5w3wi"]
 [ext_resource type="Texture2D" uid="uid://bhmldvc41b4yr" path="res://assets/characters/magali/idle.png" id="10_3l70c"]
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_eerfg"]
 [ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch_to_right.tscn" id="10_h0bbq"]
+[ext_resource type="Texture2D" uid="uid://bmj6mevsgnupw" path="res://assets/characters/cascao/gliding.png" id="12_dv0rs"]
 [ext_resource type="Texture2D" uid="uid://680iibtfwyne" path="res://assets/scenery/branch/tree.png" id="12_l64so"]
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
 [ext_resource type="PackedScene" uid="uid://cx0dmxb8kaw6t" path="res://scenes/scenery/branch_to_left.tscn" id="13_e3lge"]
@@ -31081,9 +31083,16 @@ polygon = PackedVector2Array(1920, 1249, 1919, 1249, 1920, 1905, 1921, 1905)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4s2pv"]
 polygon = PackedVector2Array(3408, 1795, 3840, 1795, 3840, 2161)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0tof"]
+radius = 45.0
+height = 178.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to5vq"]
 radius = 52.0
 height = 182.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7f0h"]
+radius = 37.0135
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wpai"]
 radius = 48.0
@@ -31155,79 +31164,6 @@ occluder = SubResource("OccluderPolygon2D_f273t")
 [node name="HoleShadow" type="LightOccluder2D" parent="Scenery"]
 occluder = SubResource("OccluderPolygon2D_4s2pv")
 
-[node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(1099, 1816)
-collision_layer = 64
-metadata/_edit_group_ = true
-
-[node name="Box" type="Sprite2D" parent="Scenery/CheckpointB"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_lr60v")
-flip_h = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointB"]
-shape = SubResource("CapsuleShape2D_to5vq")
-
-[node name="CheckpointC" type="Area2D" parent="Scenery"]
-position = Vector2(497, 1152)
-collision_layer = 64
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointC"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("9_5w3wi")
-
-[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointC"]
-shape = SubResource("CapsuleShape2D_8wpai")
-
-[node name="Path" type="Node2D" parent="Scenery/CheckpointC"]
-visible = false
-
-[node name="Line2D" type="Line2D" parent="Scenery/CheckpointC/Path"]
-points = PackedVector2Array(0, 0, 720, -150)
-default_color = Color(0.0784314, 0.156863, 1, 0.627451)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Line2D3" type="Line2D" parent="Scenery/CheckpointC/Path"]
-points = PackedVector2Array(720, -150, 1486, -57)
-default_color = Color(0.0784314, 0.156863, 1, 0.627451)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointC/Path"]
-modulate = Color(1, 1, 1, 0.313726)
-position = Vector2(1490, 0)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("9_5w3wi")
-
-[node name="CheckpointD" type="Area2D" parent="Scenery"]
-position = Vector2(2360, 1671)
-collision_layer = 64
-metadata/_edit_group_ = true
-
-[node name="Box" type="Sprite2D" parent="Scenery/CheckpointD"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_3l70c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/CheckpointD"]
-shape = SubResource("CapsuleShape2D_nwke2")
-
-[node name="Collectible1" type="Area2D" parent="Scenery"]
-position = Vector2(2878, 236)
-
-[node name="Sprite2D" type="Sprite2D" parent="Scenery/Collectible1"]
-scale = Vector2(0.233644, 0.233644)
-texture = ExtResource("10_eerfg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Collectible1"]
-shape = SubResource("CircleShape2D_iec46")
-
 [node name="Tree" type="Sprite2D" parent="Scenery"]
 z_index = -1
 position = Vector2(784, 1493)
@@ -31252,6 +31188,164 @@ rotation = -1.44862
 position = Vector2(-66.5469, -247.353)
 rotation = -1.74533
 
+[node name="CheckpointA" type="Area2D" parent="Scenery"]
+position = Vector2(231, 1943)
+metadata/_edit_group_ = true
+
+[node name="Dialog" type="AcceptDialog" parent="Scenery/CheckpointA"]
+title = "Mônica"
+position = Vector2i(20, 200)
+size = Vector2i(633, 106)
+always_on_top = true
+popup_window = true
+max_size = Vector2i(1024, 32768)
+dialog_text = "Mire com o mouse e clique para arremessar o sansão.
+PS: Cuidado pra não acertar nos seus amiguinhos... Se essa não for sua intenção"
+dialog_autowrap = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointA"]
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_iqclv")
+flip_h = true
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointA"]
+shape = SubResource("CapsuleShape2D_q0tof")
+
+[node name="CheckpointB" type="Area2D" parent="Scenery"]
+position = Vector2(1099, 1816)
+collision_layer = 64
+metadata/_edit_group_ = true
+
+[node name="Dialog" type="AcceptDialog" parent="Scenery/CheckpointB"]
+title = "Cebolinha"
+position = Vector2i(380, 200)
+size = Vector2i(747, 100)
+always_on_top = true
+popup_window = true
+max_size = Vector2i(1024, 32768)
+dialog_text = "Para seu último plano infalível, Cebolinha pôs molas em seus pés e agora pula muito mais alto."
+dialog_autowrap = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointB"]
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_lr60v")
+flip_h = true
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointB"]
+shape = SubResource("CapsuleShape2D_to5vq")
+
+[node name="HintA" type="Area2D" parent="Scenery"]
+position = Vector2(1249, 1262)
+metadata/_edit_group_ = true
+
+[node name="Dialog" type="AcceptDialog" parent="Scenery/HintA"]
+title = "Dica!"
+position = Vector2i(500, 350)
+size = Vector2i(492, 106)
+always_on_top = true
+popup_window = true
+max_size = Vector2i(1024, 32768)
+dialog_text = "Pressione \"Alt\" para trocar de personagem.
+PS: É necessário esperar 3s antes de poder trocar novamente."
+dialog_autowrap = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/HintA"]
+scale = Vector2(0.172897, 0.172897)
+texture = ExtResource("10_eerfg")
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/HintA"]
+shape = SubResource("CircleShape2D_n7f0h")
+
+[node name="CheckpointC" type="Area2D" parent="Scenery"]
+position = Vector2(497, 1152)
+collision_layer = 64
+metadata/_edit_group_ = true
+
+[node name="Dialog" type="AcceptDialog" parent="Scenery/CheckpointC"]
+title = "Cascão"
+position = Vector2i(40, 40)
+size = Vector2i(882, 106)
+always_on_top = true
+popup_window = true
+max_size = Vector2i(1024, 32768)
+dialog_text = "Graças a seu fiel escudeiro, o guarda-chuva, o Cascão não é tão afetado pela gravidade quanto seus amiguinhos.
+Teste chegar do outro lado do morrinho seguindo esta linha."
+dialog_autowrap = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointC"]
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_5w3wi")
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointC"]
+shape = SubResource("CapsuleShape2D_8wpai")
+
+[node name="Path" type="Node2D" parent="Scenery/CheckpointC"]
+visible = false
+
+[node name="Line2D" type="Line2D" parent="Scenery/CheckpointC/Path"]
+points = PackedVector2Array(0, 0, 720, -150)
+default_color = Color(0.0784314, 0.156863, 1, 0.627451)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="SpriteGliding" type="Sprite2D" parent="Scenery/CheckpointC/Path"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(730, -180)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_dv0rs")
+
+[node name="Line2D3" type="Line2D" parent="Scenery/CheckpointC/Path"]
+points = PackedVector2Array(720, -150, 1486, -57)
+default_color = Color(0.0784314, 0.156863, 1, 0.627451)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="SpriteLanded" type="Sprite2D" parent="Scenery/CheckpointC/Path"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(1490, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_5w3wi")
+
+[node name="CheckpointD" type="Area2D" parent="Scenery"]
+position = Vector2(2360, 1671)
+collision_layer = 64
+metadata/_edit_group_ = true
+
+[node name="Dialog" type="AcceptDialog" parent="Scenery/CheckpointD"]
+title = "Magali"
+position = Vector2i(80, 130)
+size = Vector2i(1024, 132)
+always_on_top = true
+popup_window = true
+max_size = Vector2i(1024, 32768)
+content_scale_mode = 2
+dialog_text = "Não é segredo que a Magali anda sempre com uma melancia por aí, mas você sabia que ela pode usar a casca dessas melancias como bolas de boliche?
+PS: Não se esqueça, é sempre bom jogar fora o lixo para não poluir..."
+dialog_autowrap = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointD"]
+position = Vector2(0, -50)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_3l70c")
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointD"]
+shape = SubResource("CapsuleShape2D_nwke2")
+
+[node name="Collectible1" type="Area2D" parent="Scenery"]
+position = Vector2(2878, 236)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/Collectible1"]
+scale = Vector2(0.233644, 0.233644)
+texture = ExtResource("10_eerfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Collectible1"]
+shape = SubResource("CircleShape2D_iec46")
+
 [node name="Lever1" parent="Scenery" instance=ExtResource("12_p8ld7")]
 light_mask = 64
 position = Vector2(1034, 1873)
@@ -31269,7 +31363,17 @@ position = Vector2(3777, 2000)
 [node name="Gate" parent="Scenery" instance=ExtResource("14_yawya")]
 position = Vector2(3818, 1482)
 
+[connection signal="body_entered" from="Scenery/CheckpointA" to="." method="_on_checkpoint_a_body_entered"]
 [connection signal="body_entered" from="Scenery/CheckpointB" to="." method="_on_checkpoint_b_body_entered"]
+[connection signal="canceled" from="Scenery/CheckpointB/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointB/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="body_entered" from="Scenery/HintA" to="." method="_on_hint_a_body_entered"]
+[connection signal="canceled" from="Scenery/HintA/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="confirmed" from="Scenery/HintA/Dialog" to="." method="_on_dialog_closed"]
 [connection signal="body_entered" from="Scenery/CheckpointC" to="." method="_on_checkpoint_c_body_entered"]
+[connection signal="canceled" from="Scenery/CheckpointC/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointC/Dialog" to="." method="_on_dialog_closed"]
 [connection signal="body_entered" from="Scenery/CheckpointD" to="." method="_on_checkpoint_d_body_entered"]
+[connection signal="canceled" from="Scenery/CheckpointD/Dialog" to="." method="_on_dialog_closed"]
+[connection signal="confirmed" from="Scenery/CheckpointD/Dialog" to="." method="_on_dialog_closed"]
 [connection signal="body_entered" from="Scenery/Collectible1" to="." method="_on_collectible_1_body_entered"]

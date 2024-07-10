@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var right_collider: CollisionPolygon2D = $RightCollider
 @onready var left_collider: CollisionPolygon2D = $LeftCollider
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var sansao: Resource = load("res://scenes/characters/sansao.tscn")
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -32,7 +31,6 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		audio_stream_player_2d.stop()
 	else:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
@@ -42,12 +40,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if velocity.x != 0:
-		if not audio_stream_player_2d.playing:
-			audio_stream_player_2d.play()
-	else:
-		audio_stream_player_2d.stop()
 	
 	animate()
 	move_and_slide()

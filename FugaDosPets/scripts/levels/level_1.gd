@@ -7,7 +7,9 @@ extends Node
 @onready var camera_d: Camera2D = $CameraD
 @onready var player: Node2D = $Player
 @onready var scene_limit: Marker2D = $SceneLimit
+@onready var checkpoint_a: Area2D = $Scenery/CheckpointA
 @onready var checkpoint_b: Area2D = $Scenery/CheckpointB
+@onready var hint_a: Area2D = $Scenery/HintA
 @onready var checkpoint_c: Area2D = $Scenery/CheckpointC
 @onready var checkpoint_d: Area2D = $Scenery/CheckpointD
 @onready var collectible_1: Area2D = $Scenery/Collectible1
@@ -37,26 +39,47 @@ func _ready() -> void:
 	lever_2.on_pull(open_gate)
 
 
+func _on_checkpoint_a_body_entered(_body: Node2D) -> void:
+	checkpoint_a.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
+	get_tree().call_group("main", "mouse_show")
+	checkpoint_a.get_node("Dialog").show()
+
+
 func _on_checkpoint_b_body_entered(_body: Node2D) -> void:
-	checkpoint_b.queue_free()
+	checkpoint_b.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	camera_b.make_current()
 	player.change_character("Cebolinha")
+	get_tree().call_group("main", "mouse_show")
+	checkpoint_b.get_node("Dialog").show()
+
+
+func _on_hint_a_body_entered(body: Node2D) -> void:
+	hint_a.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
+	get_tree().call_group("main", "mouse_show")
+	hint_a.get_node("Dialog").show()
 
 
 func _on_checkpoint_c_body_entered(_body: Node2D) -> void:
+	checkpoint_c.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
+	checkpoint_c.get_node("Path").visible = true
 	camera_c.make_current()
 	player.change_character("Cascao")
-	checkpoint_c.get_node("Sprite").visible = false
-	checkpoint_c.get_node("Collider").set_deferred("disabled", true)
-	checkpoint_c.get_node("Path").visible = true
+	get_tree().call_group("main", "mouse_show")
+	checkpoint_c.get_node("Dialog").show()
 
 
 func _on_checkpoint_d_body_entered(_body: Node2D) -> void:
-	checkpoint_d.queue_free()
+	checkpoint_d.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
 	camera_d.make_current()
 	player.change_character("Magali")
+	get_tree().call_group("main", "mouse_show")
+	checkpoint_d.get_node("Dialog").show()
 
 
 func _on_collectible_1_body_entered(_body: Node2D) -> void:
 	collectible_1.queue_free()
 	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
+
+
+func _on_dialog_closed() -> void:
+	get_tree().call_group("main", "mouse_hide")
