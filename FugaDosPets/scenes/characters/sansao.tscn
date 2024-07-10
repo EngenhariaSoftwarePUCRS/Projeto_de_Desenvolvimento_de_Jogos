@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://btr8vlwc323xg"]
 
 [ext_resource type="Script" path="res://scripts/characters/sansao.gd" id="1_rmrjc"]
-[ext_resource type="Texture2D" uid="uid://rw17rbwm8yrd" path="res://assets/characters/bidu/bidu.webp" id="2_l67lk"]
+[ext_resource type="Texture2D" uid="uid://c6auw2hm51sha" path="res://assets/characters/sansao/sansao.png" id="2_oaqq1"]
 [ext_resource type="AudioStream" uid="uid://cywgfqdcm4pdl" path="res://assets/characters/monica/sansao.mp3" id="3_183sj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dstxg"]
-size = Vector2(66, 90)
+size = Vector2(50.6051, 82.5859)
 
 [node name="Sansao" type="CharacterBody2D"]
 collision_layer = 2
@@ -14,13 +14,14 @@ slide_on_ceiling = false
 script = ExtResource("1_rmrjc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11.049, 9.31698)
 rotation = 1.0472
 shape = SubResource("RectangleShape2D_dstxg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.0472
-scale = Vector2(0.444444, 0.444444)
-texture = ExtResource("2_l67lk")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_oaqq1")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -29,6 +30,7 @@ collision_layer = 2
 collision_mask = 108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11.2321, 9.09806)
 rotation = 1.0472
 shape = SubResource("RectangleShape2D_dstxg")
 

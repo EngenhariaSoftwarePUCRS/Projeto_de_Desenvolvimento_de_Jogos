@@ -26,7 +26,10 @@ func mouse_show() -> void:
 
 
 func mouse_hide() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	var last_node: Node = _get_last_node()
+	var is_last_node_name_valid_level: bool = str(last_node.name).begins_with("Level")
+	if is_last_node_name_valid_level:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func show_settings() -> void:
