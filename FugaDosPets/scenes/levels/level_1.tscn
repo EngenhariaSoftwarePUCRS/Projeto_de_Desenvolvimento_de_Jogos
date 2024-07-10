@@ -31132,7 +31132,7 @@ anchor_mode = 0
 zoom = Vector2(0.3, 0.3)
 
 [node name="Player" parent="." instance=ExtResource("2_8pm7o")]
-position = Vector2(76, 1806)
+position = Vector2(81, 1934)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
 position = Vector2(3840, 2160)
@@ -31182,7 +31182,7 @@ position = Vector2(31.3539, 146.079)
 rotation = -1.39626
 
 [node name="Branch3" parent="Scenery/Tree" instance=ExtResource("13_e3lge")]
-position = Vector2(211.795, 30.0745)
+position = Vector2(220, 25)
 rotation = -1.44862
 
 [node name="Branch4" parent="Scenery/Tree" instance=ExtResource("10_h0bbq")]
@@ -31190,7 +31190,7 @@ position = Vector2(-66.5469, -247.353)
 rotation = -1.74533
 
 [node name="CheckpointA" type="Area2D" parent="Scenery"]
-position = Vector2(229, 1947)
+position = Vector2(84, 1946)
 metadata/_edit_group_ = true
 
 [node name="Dialog" type="AcceptDialog" parent="Scenery/CheckpointA"]
@@ -31208,7 +31208,6 @@ dialog_autowrap = true
 position = Vector2(0, -25)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_iqclv")
-flip_h = true
 
 [node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointA"]
 shape = SubResource("CapsuleShape2D_q0tof")
@@ -31379,7 +31378,7 @@ position = Vector2(2879, 1544)
 OFFSET = Vector2(0, -1300)
 
 [node name="TrashCan" parent="Scenery" instance=ExtResource("17_ki6y6")]
-position = Vector2(3393, 1720)
+position = Vector2(3393, 1730)
 
 [node name="Ramp" type="StaticBody2D" parent="Scenery"]
 position = Vector2(3359, 1975)
@@ -31391,7 +31390,7 @@ position = Vector2(1, -2)
 polygon = PackedVector2Array(75, 60, 0, 60, 0, 0)
 
 [node name="Lever2" parent="Scenery" instance=ExtResource("12_p8ld7")]
-position = Vector2(3777, 2000)
+position = Vector2(3762, 2002)
 
 [node name="Gate" parent="Scenery" instance=ExtResource("14_yawya")]
 position = Vector2(3818, 1482)

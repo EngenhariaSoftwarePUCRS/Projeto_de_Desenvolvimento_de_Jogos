@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://twlmxrbvcd76"]
+[gd_scene load_steps=15 format=3 uid="uid://twlmxrbvcd76"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_d78lk"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="1_lkad4"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cx0dmxb8kaw6t" path="res://scenes/scenery/branch_to_left.tscn" id="5_7alol"]
 [ext_resource type="PackedScene" uid="uid://cri4ke3c3lhgt" path="res://scenes/scenery/branch_to_right.tscn" id="6_c3lfy"]
 [ext_resource type="PackedScene" uid="uid://c7dr1tyumjxjq" path="res://scenes/scenery/trash_can.tscn" id="7_u4nyo"]
+[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="9_ekb5u"]
+[ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_58344"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m67sh"]
 texture = ExtResource("2_f31co")
@@ -26702,6 +26704,9 @@ texture = ExtResource("2_f31co")
 physics_layer_0/collision_layer = 32
 sources/0 = SubResource("TileSetAtlasSource_m67sh")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmp5e"]
+radius = 16.0312
+
 [node name="Level2" type="Node"]
 script = ExtResource("1_d78lk")
 
@@ -26782,6 +26787,41 @@ scale = Vector2(1.5, 1.5)
 [node name="Branch" parent="Scenery" instance=ExtResource("5_7alol")]
 position = Vector2(2168, 341)
 
+[node name="Collectible" type="Area2D" parent="Scenery"]
+position = Vector2(1815, 64)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Popup" type="PopupPanel" parent="Scenery/Collectible"]
+title = "Curiosidade"
+position = Vector2i(900, 25)
+size = Vector2i(250, 65)
+max_size = Vector2i(300, 200)
+
+[node name="Label" type="Label" parent="Scenery/Collectible/Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("9_ekb5u")
+text = "Curioso..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/Collectible"]
+scale = Vector2(0.0747667, 0.0747668)
+texture = ExtResource("10_58344")
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/Collectible"]
+shape = SubResource("CircleShape2D_jmp5e")
+
 [node name="LeverRight" parent="Scenery" instance=ExtResource("4_tjvhx")]
 position = Vector2(1946, 689)
 scale = Vector2(1.5, 1.5)
@@ -26793,3 +26833,5 @@ scale = Vector2(1.5, 1.5)
 
 [node name="TrashCan" parent="Scenery" instance=ExtResource("7_u4nyo")]
 position = Vector2(45, 260)
+
+[connection signal="body_entered" from="Scenery/Collectible" to="." method="_on_collectible_body_entered"]

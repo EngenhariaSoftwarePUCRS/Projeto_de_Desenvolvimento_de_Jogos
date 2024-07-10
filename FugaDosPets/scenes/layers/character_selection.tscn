@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://det6cs3wc1jx6"]
+[gd_scene load_steps=27 format=3 uid="uid://det6cs3wc1jx6"]
 
 [ext_resource type="Script" path="res://scripts/layers/character_selection.gd" id="1_gioiy"]
 [ext_resource type="Texture2D" uid="uid://di4cqn4pqormu" path="res://assets/GUI/characters/magali.png" id="1_p217w"]
@@ -26,32 +26,52 @@ device = -1
 alt_pressed = true
 keycode = 53
 
+[sub_resource type="InputEventKey" id="InputEventKey_xuorv"]
+device = -1
+alt_pressed = true
+keycode = 4194321
+
 [sub_resource type="Shortcut" id="Shortcut_7xqx6"]
-events = [SubResource("InputEventKey_8vlx1")]
+events = [SubResource("InputEventKey_8vlx1"), SubResource("InputEventKey_xuorv")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_go3ck"]
 device = -1
 alt_pressed = true
 keycode = 52
 
+[sub_resource type="InputEventKey" id="InputEventKey_umnr5"]
+device = -1
+alt_pressed = true
+keycode = 4194319
+
 [sub_resource type="Shortcut" id="Shortcut_sb30s"]
-events = [SubResource("InputEventKey_go3ck")]
+events = [SubResource("InputEventKey_go3ck"), SubResource("InputEventKey_umnr5")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_s7vri"]
 device = -1
 alt_pressed = true
 keycode = 51
 
+[sub_resource type="InputEventKey" id="InputEventKey_ee7vu"]
+device = -1
+alt_pressed = true
+keycode = 4194322
+
 [sub_resource type="Shortcut" id="Shortcut_bnkm3"]
-events = [SubResource("InputEventKey_s7vri")]
+events = [SubResource("InputEventKey_s7vri"), SubResource("InputEventKey_ee7vu")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_dgpw6"]
 device = -1
 alt_pressed = true
 keycode = 50
 
+[sub_resource type="InputEventKey" id="InputEventKey_moy5l"]
+device = -1
+alt_pressed = true
+keycode = 4194320
+
 [sub_resource type="Shortcut" id="Shortcut_mxo34"]
-events = [SubResource("InputEventKey_dgpw6")]
+events = [SubResource("InputEventKey_dgpw6"), SubResource("InputEventKey_moy5l")]
 
 [node name="CharacterSelection" type="CanvasLayer" groups=["characters"]]
 script = ExtResource("1_gioiy")

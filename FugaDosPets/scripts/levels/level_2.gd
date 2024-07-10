@@ -12,6 +12,7 @@ extends Node
 @onready var branch_2: StaticBody2D = $Scenery/Branch2
 @onready var lever_upper: AnimatableBody2D = $Scenery/LeverUpper
 @onready var branch: StaticBody2D = $Scenery/Branch
+@onready var collectible: Area2D = $Scenery/Collectible
 @onready var lever_right: AnimatableBody2D = $Scenery/LeverRight
 @onready var lever_left: AnimatableBody2D = $Scenery/LeverLeft
 
@@ -60,3 +61,7 @@ func _ready() -> void:
 	lever_left.on_pull(func() -> void:
 		print(4)
 	)
+
+
+func _on_collectible_body_entered(_body: Node2D) -> void:
+	collectible.get_node("Popup").visible = true
