@@ -33,6 +33,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("change_characters"):
 		if change_cooldown.time_left == 0.0:
+			get_tree().call_group("main", "mouse_show")
 			change_ui.visible = true
 	else:
 		change_ui.visible = false

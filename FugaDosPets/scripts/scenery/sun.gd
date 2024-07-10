@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 	if energy < 0:
 		return
 	if rising:
-		energy += 0.01 * delta
+		energy += 0.005 * delta
 		if energy >= MAX_ENERGY:
 			rising = false
 	else:
-		energy -= 0.02 * delta
+		energy -= 0.05 * delta
 	if energy <= 0:
 		happy_sprite.stop()

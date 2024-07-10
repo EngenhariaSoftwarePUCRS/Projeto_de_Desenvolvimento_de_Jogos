@@ -31084,23 +31084,23 @@ polygon = PackedVector2Array(1920, 1249, 1919, 1249, 1920, 1905, 1921, 1905)
 polygon = PackedVector2Array(3408, 1795, 3840, 1795, 3840, 2161)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0tof"]
-radius = 45.0
-height = 178.0
+radius = 48.0
+height = 172.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to5vq"]
-radius = 52.0
-height = 182.0
+radius = 46.0
+height = 174.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7f0h"]
 radius = 37.0135
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wpai"]
-radius = 48.0
-height = 182.0
+radius = 47.0
+height = 174.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwke2"]
-radius = 50.0
-height = 182.0
+radius = 43.0
+height = 174.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iec46"]
 radius = 50.0899
@@ -31189,7 +31189,7 @@ position = Vector2(-66.5469, -247.353)
 rotation = -1.74533
 
 [node name="CheckpointA" type="Area2D" parent="Scenery"]
-position = Vector2(231, 1943)
+position = Vector2(229, 1947)
 metadata/_edit_group_ = true
 
 [node name="Dialog" type="AcceptDialog" parent="Scenery/CheckpointA"]
@@ -31204,8 +31204,8 @@ PS: Cuidado pra não acertar nos seus amiguinhos... Se essa não for sua intenç
 dialog_autowrap = true
 
 [node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointA"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -25)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_iqclv")
 flip_h = true
 
@@ -31213,7 +31213,7 @@ flip_h = true
 shape = SubResource("CapsuleShape2D_q0tof")
 
 [node name="CheckpointB" type="Area2D" parent="Scenery"]
-position = Vector2(1099, 1816)
+position = Vector2(1100, 1819)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31228,8 +31228,8 @@ dialog_text = "Para seu último plano infalível, Cebolinha pôs molas em seus p
 dialog_autowrap = true
 
 [node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointB"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -25)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_lr60v")
 flip_h = true
 
@@ -31259,7 +31259,7 @@ texture = ExtResource("10_eerfg")
 shape = SubResource("CircleShape2D_n7f0h")
 
 [node name="CheckpointC" type="Area2D" parent="Scenery"]
-position = Vector2(497, 1152)
+position = Vector2(513, 1151)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31275,8 +31275,8 @@ Teste chegar do outro lado do morrinho seguindo esta linha."
 dialog_autowrap = true
 
 [node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointC"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -25)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("9_5w3wi")
 
 [node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointC"]
@@ -31295,7 +31295,7 @@ end_cap_mode = 2
 [node name="SpriteGliding" type="Sprite2D" parent="Scenery/CheckpointC/Path"]
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(730, -180)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("12_dv0rs")
 
 [node name="Line2D3" type="Line2D" parent="Scenery/CheckpointC/Path"]
@@ -31307,12 +31307,12 @@ end_cap_mode = 2
 
 [node name="SpriteLanded" type="Sprite2D" parent="Scenery/CheckpointC/Path"]
 modulate = Color(1, 1, 1, 0.313726)
-position = Vector2(1490, 0)
-scale = Vector2(0.1, 0.1)
+position = Vector2(1470, 15)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("9_5w3wi")
 
 [node name="CheckpointD" type="Area2D" parent="Scenery"]
-position = Vector2(2360, 1671)
+position = Vector2(2360, 1675)
 collision_layer = 64
 metadata/_edit_group_ = true
 
@@ -31329,8 +31329,8 @@ PS: Não se esqueça, é sempre bom jogar fora o lixo para não poluir..."
 dialog_autowrap = true
 
 [node name="Sprite" type="Sprite2D" parent="Scenery/CheckpointD"]
-position = Vector2(0, -50)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -25)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("10_3l70c")
 
 [node name="Collider" type="CollisionShape2D" parent="Scenery/CheckpointD"]
