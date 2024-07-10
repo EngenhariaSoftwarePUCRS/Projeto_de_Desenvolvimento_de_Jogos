@@ -5,6 +5,7 @@ extends AnimatableBody2D
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var collider: CollisionShape2D = $Collider
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var pull_action: Callable
 
@@ -23,6 +24,7 @@ func pull() -> void:
 		return
 	pulled = true
 	sprite.play("pull")
+	audio_stream_player_2d.play()
 	collider.set_deferred("disabled", true)
 	pull_action.call()
 
