@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://putmp8s4hwsc"]
+[gd_scene load_steps=35 format=3 uid="uid://putmp8s4hwsc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_uouim"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="2_8pm7o"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://frswvc5ksedu" path="res://scenes/scenery/lever.tscn" id="12_p8ld7"]
 [ext_resource type="PackedScene" uid="uid://cx0dmxb8kaw6t" path="res://scenes/scenery/branch_to_left.tscn" id="13_e3lge"]
 [ext_resource type="PackedScene" uid="uid://83oftwnr2aj8" path="res://scenes/scenery/gate.tscn" id="14_yawya"]
+[ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="17_igufk"]
 [ext_resource type="PackedScene" uid="uid://c7dr1tyumjxjq" path="res://scenes/scenery/trash_can.tscn" id="17_ki6y6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fruj"]
@@ -31339,7 +31340,30 @@ shape = SubResource("CapsuleShape2D_nwke2")
 [node name="Collectible1" type="Area2D" parent="Scenery"]
 position = Vector2(2878, 236)
 
-[node name="Sprite2D" type="Sprite2D" parent="Scenery/Collectible1"]
+[node name="Popup" type="PopupPanel" parent="Scenery/Collectible1"]
+title = "Curiosidade"
+position = Vector2i(650, 50)
+size = Vector2i(250, 65)
+max_size = Vector2i(300, 200)
+
+[node name="Label" type="Label" parent="Scenery/Collectible1/Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("17_igufk")
+text = "Você sabia que a turminha começou a aparecer em sua própria revista em 1970?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/Collectible1"]
 scale = Vector2(0.233644, 0.233644)
 texture = ExtResource("10_eerfg")
 

@@ -86,8 +86,8 @@ func _on_checkpoint_d_body_entered(_body: Node2D) -> void:
 
 
 func _on_collectible_1_body_entered(_body: Node2D) -> void:
-	collectible_1.queue_free()
-	print("Você sabia que a turminha começou a aparecer em sua própria revista em 1970?")
+	collectible_1.get_node("Sprite").set("modulate", Color(Color.BLACK, 0.2))
+	collectible_1.get_node("Popup").visible = true
 
 
 func _on_dialog_closed() -> void:
