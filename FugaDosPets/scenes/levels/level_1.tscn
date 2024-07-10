@@ -31357,6 +31357,15 @@ OFFSET = Vector2(0, -1300)
 [node name="TrashCan" parent="Scenery" instance=ExtResource("17_ki6y6")]
 position = Vector2(3393, 1720)
 
+[node name="Ramp" type="StaticBody2D" parent="Scenery"]
+position = Vector2(3359, 1975)
+collision_layer = 32
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Scenery/Ramp"]
+position = Vector2(1, -2)
+polygon = PackedVector2Array(75, 60, 0, 60, 0, 0)
+
 [node name="Lever2" parent="Scenery" instance=ExtResource("12_p8ld7")]
 position = Vector2(3777, 2000)
 

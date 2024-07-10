@@ -143,6 +143,7 @@ tooltip_text = "Sair"
 icon = ExtResource("6_khrp2")
 flat = true
 
+[connection signal="pressed" from="Bidu" to="." method="_on_bidu_pressed"]
 [connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

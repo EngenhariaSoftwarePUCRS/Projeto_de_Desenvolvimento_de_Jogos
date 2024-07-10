@@ -4,7 +4,7 @@ extends AnimatableBody2D
 @export var pulled: bool
 
 @onready var sprite: AnimatedSprite2D = $Sprite
-@onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var collider: CollisionShape2D = $Collider
 
 var pull_action: Callable
 

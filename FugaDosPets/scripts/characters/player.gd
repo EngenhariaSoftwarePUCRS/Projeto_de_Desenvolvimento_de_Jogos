@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@onready var character_selection: CanvasLayer = $CharacterSelection
 @onready var audio_listener_2d: AudioListener2D = $AudioListener2D
 @onready var monica: CharacterBody2D = $Monica
 @onready var cebolinha: CharacterBody2D = $Cebolinha
@@ -12,6 +13,7 @@ var sceneLimit: Vector2
 
 
 func _ready() -> void:
+	character_selection.visible = true
 	reset_characters()
 
 

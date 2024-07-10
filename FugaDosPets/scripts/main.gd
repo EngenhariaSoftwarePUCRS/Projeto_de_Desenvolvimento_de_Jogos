@@ -63,6 +63,11 @@ func load_settings() -> void:
 		configFile.save(CONFIG_FILE_PATH)
 
 
+func reset_settings() -> void:
+	DirAccess.remove_absolute(CONFIG_FILE_PATH)
+	get_tree().quit()
+
+
 func return_to_home() -> void:
 	mouse_show()
 	var home_res: String = "res://scenes/layers/initial.tscn"

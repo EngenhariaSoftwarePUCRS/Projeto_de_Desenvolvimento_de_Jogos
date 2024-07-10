@@ -11,6 +11,7 @@
 script = ExtResource("1_sktxr")
 
 [node name="CharacterSelection" parent="." instance=ExtResource("2_76kqb")]
+visible = false
 
 [node name="Monica" parent="." instance=ExtResource("2_d13fs")]
 
