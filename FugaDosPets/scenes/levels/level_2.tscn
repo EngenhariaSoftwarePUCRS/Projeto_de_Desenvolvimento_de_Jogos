@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://twlmxrbvcd76"]
+[gd_scene load_steps=19 format=3 uid="uid://twlmxrbvcd76"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_d78lk"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="1_lkad4"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="9_ekb5u"]
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_58344"]
 [ext_resource type="Texture2D" uid="uid://dko4afwhg8uyk" path="res://assets/scenery/gate/gate.jpg" id="12_exbwk"]
+[ext_resource type="Texture2D" uid="uid://rw17rbwm8yrd" path="res://assets/characters/bidu/bidu.webp" id="12_qspn6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m67sh"]
 texture = ExtResource("2_f31co")
@@ -26708,6 +26709,10 @@ sources/0 = SubResource("TileSetAtlasSource_m67sh")
 [sub_resource type="CircleShape2D" id="CircleShape2D_jmp5e"]
 radius = 16.0312
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_22vgq"]
+radius = 37.0
+height = 98.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfi65"]
 size = Vector2(132, 220)
 
@@ -26816,8 +26821,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 246.0
-offset_bottom = 61.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
@@ -26846,6 +26851,18 @@ scale = Vector2(1.5, 1.5)
 [node name="TrashCan" parent="Scenery" instance=ExtResource("7_u4nyo")]
 position = Vector2(45, 260)
 
+[node name="Bidu" type="Area2D" parent="Scenery"]
+position = Vector2(580, 1186)
+collision_layer = 64
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/Bidu"]
+scale = Vector2(0.477778, 0.477778)
+texture = ExtResource("12_qspn6")
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/Bidu"]
+shape = SubResource("CapsuleShape2D_22vgq")
+
 [node name="Gate" type="Area2D" parent="Scenery"]
 position = Vector2(571, 1123)
 collision_layer = 96
@@ -26853,7 +26870,10 @@ metadata/_edit_group_ = true
 
 [node name="LockedDialog" type="AcceptDialog" parent="Scenery/Gate"]
 title = "Trancado"
-dialog_text = "Puxe as alavancas para liberar o portão"
+position = Vector2i(175, 450)
+size = Vector2i(180, 132)
+always_on_top = true
+dialog_text = "Puxe todas as alavancas para liberar o portão"
 dialog_autowrap = true
 
 [node name="Sprite" type="Sprite2D" parent="Scenery/Gate"]
@@ -26864,6 +26884,7 @@ texture = ExtResource("12_exbwk")
 shape = SubResource("RectangleShape2D_wfi65")
 
 [connection signal="body_entered" from="Scenery/Collectible" to="." method="_on_collectible_body_entered"]
+[connection signal="body_entered" from="Scenery/Bidu" to="." method="_on_bidu_body_entered"]
 [connection signal="body_entered" from="Scenery/Gate" to="." method="_on_gate_body_entered"]
 [connection signal="canceled" from="Scenery/Gate/LockedDialog" to="." method="_on_dialog_closed"]
 [connection signal="confirmed" from="Scenery/Gate/LockedDialog" to="." method="_on_dialog_closed"]

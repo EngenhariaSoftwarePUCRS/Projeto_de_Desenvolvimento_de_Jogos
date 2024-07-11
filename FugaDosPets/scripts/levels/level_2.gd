@@ -64,10 +64,18 @@ func _ready() -> void:
 	lever_right.on_pull(func() -> void:
 		gate_locks[2] = false
 		lever_left.visible = true
+		for lock in gate_locks:
+			if lock:
+				return
+		gate.visible = false
 	)
 	
 	lever_left.on_pull(func() -> void:
 		gate_locks[3] = false
+		for lock in gate_locks:
+			if lock:
+				return
+		gate.visible = false
 	)
 
 
@@ -75,16 +83,31 @@ func _on_collectible_body_entered(_body: Node2D) -> void:
 	collectible.get_node("Popup").visible = true
 
 
+func is_character(character_name: String) -> bool:
+	const CHARACTER_NAMES: Array[String] = [
+		"Monica", "Cebolinha", "Cascao", "Magali"]
+	return CHARACTER_NAMES.has(character_name)
+
+
 func _on_gate_body_entered(body: Node2D) -> void:
-	if not body.name.begins_with("Player"):
+	if not is_character(body.name):
 		return
 	for lock_i in gate_locks.size():
 		if gate_locks[lock_i]:
 			get_tree().call_group("main", "mouse_show")
 			gate.get_node("LockedDialog").show()
 			return
-	print("Gate Opened")
+	gate.visible = false
 
 
 func _on_dialog_closed() -> void:
 	get_tree().call_group("main", "mouse_hide")
+
+
+func _on_bidu_body_entered(body: Node2D) -> void:
+	if not is_character(body.name):
+		return
+	for lock in gate_locks:
+		if lock:
+			return
+	get_tree().call_group("main", "player_passed_level")
