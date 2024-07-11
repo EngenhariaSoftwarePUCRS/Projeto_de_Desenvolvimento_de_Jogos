@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://twlmxrbvcd76"]
+[gd_scene load_steps=17 format=3 uid="uid://twlmxrbvcd76"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_d78lk"]
 [ext_resource type="PackedScene" uid="uid://duqcgnkn5yt03" path="res://scenes/characters/player.tscn" id="1_lkad4"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c7dr1tyumjxjq" path="res://scenes/scenery/trash_can.tscn" id="7_u4nyo"]
 [ext_resource type="FontFile" uid="uid://b652jstmymcxh" path="res://assets/texts/splurge.ttf" id="9_ekb5u"]
 [ext_resource type="Texture2D" uid="uid://bfii28tjg7x04" path="res://assets/scenery/question_mark/question_mark.png" id="10_58344"]
+[ext_resource type="Texture2D" uid="uid://dko4afwhg8uyk" path="res://assets/scenery/gate/gate.jpg" id="12_exbwk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m67sh"]
 texture = ExtResource("2_f31co")
@@ -26707,6 +26708,9 @@ sources/0 = SubResource("TileSetAtlasSource_m67sh")
 [sub_resource type="CircleShape2D" id="CircleShape2D_jmp5e"]
 radius = 16.0312
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfi65"]
+size = Vector2(132, 220)
+
 [node name="Level2" type="Node"]
 script = ExtResource("1_d78lk")
 
@@ -26718,12 +26722,20 @@ zoom = Vector2(0.5, 0.5)
 position = Vector2(211, 202)
 
 [node name="SceneLimit" type="Marker2D" parent="."]
-position = Vector2(2304, 1296)
+position = Vector2(5887, 1296)
 
 [node name="Scenery" type="Node" parent="."]
 
+[node name="InvisibleWallLeft" parent="Scenery" instance=ExtResource("3_43aad")]
+position = Vector2(-10, 296)
+scale = Vector2(1, 100)
+
 [node name="InvisibleWall" parent="Scenery" instance=ExtResource("3_43aad")]
 position = Vector2(616, 0)
+scale = Vector2(1, 100)
+
+[node name="InvisibleWallRight" parent="Scenery" instance=ExtResource("3_43aad")]
+position = Vector2(2314, 296)
 scale = Vector2(1, 100)
 
 [node name="InvisibleFloor" parent="Scenery" instance=ExtResource("3_43aad")]
@@ -26804,8 +26816,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 246.0
-offset_bottom = 61.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
@@ -26834,4 +26846,24 @@ scale = Vector2(1.5, 1.5)
 [node name="TrashCan" parent="Scenery" instance=ExtResource("7_u4nyo")]
 position = Vector2(45, 260)
 
+[node name="Gate" type="Area2D" parent="Scenery"]
+position = Vector2(571, 1123)
+collision_layer = 96
+metadata/_edit_group_ = true
+
+[node name="LockedDialog" type="AcceptDialog" parent="Scenery/Gate"]
+title = "Trancado"
+dialog_text = "Puxe as alavancas para liberar o portão"
+dialog_autowrap = true
+
+[node name="Sprite" type="Sprite2D" parent="Scenery/Gate"]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_exbwk")
+
+[node name="Collider" type="CollisionShape2D" parent="Scenery/Gate"]
+shape = SubResource("RectangleShape2D_wfi65")
+
 [connection signal="body_entered" from="Scenery/Collectible" to="." method="_on_collectible_body_entered"]
+[connection signal="body_entered" from="Scenery/Gate" to="." method="_on_gate_body_entered"]
+[connection signal="canceled" from="Scenery/Gate/LockedDialog" to="." method="_on_dialog_closed"]
+[connection signal="confirmed" from="Scenery/Gate/LockedDialog" to="." method="_on_dialog_closed"]

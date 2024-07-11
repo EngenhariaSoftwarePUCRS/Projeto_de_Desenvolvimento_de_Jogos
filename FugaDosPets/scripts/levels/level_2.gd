@@ -15,9 +15,14 @@ extends Node
 @onready var collectible: Area2D = $Scenery/Collectible
 @onready var lever_right: AnimatableBody2D = $Scenery/LeverRight
 @onready var lever_left: AnimatableBody2D = $Scenery/LeverLeft
+@onready var gate: Area2D = $Scenery/Gate
+
+var gate_locks: Array[bool]
 
 
 func _ready() -> void:
+	gate_locks = [true, true, true, true]
+	
 	player.sceneLimit = Vector2(scene_limit.position.x, scene_limit.position.y)
 	player.change_character("Magali")
 	
@@ -38,6 +43,7 @@ func _ready() -> void:
 	
 	
 	lever_lower.on_pull(func() -> void:
+		gate_locks[0] = false
 		branch_2.visible = true
 		b_map.set_layer_enabled(0, true)
 		b_map.set_layer_enabled(1, true)
@@ -46,6 +52,7 @@ func _ready() -> void:
 	)
 	
 	lever_upper.on_pull(func() -> void:
+		gate_locks[1] = false
 		c_map.set_layer_enabled(0, true)
 		c_map.set_layer_enabled(1, true)
 		branch.visible = true
@@ -55,13 +62,29 @@ func _ready() -> void:
 	)
 	
 	lever_right.on_pull(func() -> void:
+		gate_locks[2] = false
 		lever_left.visible = true
 	)
 	
 	lever_left.on_pull(func() -> void:
-		print(4)
+		gate_locks[3] = false
 	)
 
 
 func _on_collectible_body_entered(_body: Node2D) -> void:
 	collectible.get_node("Popup").visible = true
+
+
+func _on_gate_body_entered(body: Node2D) -> void:
+	if not body.name.begins_with("Player"):
+		return
+	for lock_i in gate_locks.size():
+		if gate_locks[lock_i]:
+			get_tree().call_group("main", "mouse_show")
+			gate.get_node("LockedDialog").show()
+			return
+	print("Gate Opened")
+
+
+func _on_dialog_closed() -> void:
+	get_tree().call_group("main", "mouse_hide")
