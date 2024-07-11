@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfokx5p5xsp00"]
+[gd_scene load_steps=7 format=3 uid="uid://cfokx5p5xsp00"]
 
 [ext_resource type="Script" path="res://scripts/characters/cebolinha.gd" id="1_miuif"]
 [ext_resource type="Texture2D" uid="uid://ck2p3wa1gtkvk" path="res://assets/characters/cebolinha/idle.png" id="2_imh6s"]
+[ext_resource type="Texture2D" uid="uid://bs8tuntpqp0dy" path="res://assets/characters/cebolinha/jumping.png" id="3_r2vgm"]
+[ext_resource type="Texture2D" uid="uid://dk5xk5yws5u27" path="res://assets/characters/cebolinha/walking_0.png" id="4_h00fd"]
+[ext_resource type="Texture2D" uid="uid://hoydp17eoc3x" path="res://assets/characters/cebolinha/walking_1.png" id="5_waynj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sgcbv"]
 animations = [{
@@ -12,6 +15,31 @@ animations = [{
 "loop": false,
 "name": &"idle",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r2vgm")
+}],
+"loop": false,
+"name": &"jumping",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h00fd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_imh6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_waynj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_imh6s")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [node name="Cebolinha" type="CharacterBody2D"]
@@ -25,7 +53,6 @@ position = Vector2(0, -33.561)
 scale = Vector2(0.09, 0.09)
 sprite_frames = SubResource("SpriteFrames_sgcbv")
 animation = &"idle"
-frame_progress = 1.0
 
 [node name="RightCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-10, 92, 2, 92, 27, 66, 50, -20, 32, -61, -33, -53, -43, 56)

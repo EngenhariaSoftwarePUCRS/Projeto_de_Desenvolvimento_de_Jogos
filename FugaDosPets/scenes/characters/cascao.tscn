@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwqb20sshr84i"]
+[gd_scene load_steps=7 format=3 uid="uid://bwqb20sshr84i"]
 
 [ext_resource type="Script" path="res://scripts/characters/cascao.gd" id="1_kwa58"]
 [ext_resource type="Texture2D" uid="uid://bmj6mevsgnupw" path="res://assets/characters/cascao/gliding.png" id="2_1evov"]
 [ext_resource type="Texture2D" uid="uid://c6r55ule1bmlv" path="res://assets/characters/cascao/idle.png" id="3_wwpnd"]
+[ext_resource type="Texture2D" uid="uid://r62d4g1ucsnm" path="res://assets/characters/cascao/walking_0.png" id="4_e2qb6"]
+[ext_resource type="Texture2D" uid="uid://dtlp31xn6ns8j" path="res://assets/characters/cascao/walking_1.png" id="5_nd6ke"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnfb0"]
 animations = [{
@@ -10,9 +12,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_1evov")
 }],
-"loop": true,
+"loop": false,
 "name": &"gliding",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -21,6 +23,23 @@ animations = [{
 "loop": false,
 "name": &"idle",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e2qb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wwpnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nd6ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wwpnd")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [node name="Cascao" type="CharacterBody2D"]

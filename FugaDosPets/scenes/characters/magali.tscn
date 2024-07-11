@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://pmvljuwc7mxd"]
+[gd_scene load_steps=6 format=3 uid="uid://pmvljuwc7mxd"]
 
 [ext_resource type="Script" path="res://scripts/characters/magali.gd" id="1_ktqcn"]
 [ext_resource type="Texture2D" uid="uid://bhmldvc41b4yr" path="res://assets/characters/magali/idle.png" id="2_ygoi3"]
+[ext_resource type="Texture2D" uid="uid://c4rdugw2gueki" path="res://assets/characters/magali/walking_0.png" id="3_cd343"]
+[ext_resource type="Texture2D" uid="uid://duoy56pk43vmv" path="res://assets/characters/magali/walking_1.png" id="4_jp3le"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v04jp"]
 animations = [{
@@ -12,6 +14,23 @@ animations = [{
 "loop": false,
 "name": &"idle",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cd343")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ygoi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jp3le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ygoi3")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [node name="Magali" type="CharacterBody2D"]
@@ -25,6 +44,7 @@ position = Vector2(0, -33.561)
 scale = Vector2(0.09, 0.09)
 sprite_frames = SubResource("SpriteFrames_v04jp")
 animation = &"idle"
+frame_progress = 0.705835
 
 [node name="RightCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-9, 92, 2, 92, 30, 65, 46, -18, 25, -62, -45, -10, -37, 63)

@@ -74,10 +74,13 @@ func enable_right_collider() -> void:
 
 
 func animate() -> void:
-	if velocity.x == 0:
-		animated_sprite.play("idle")
-		return
-	# animated_sprite.play("walking")
+	if velocity.y < 0:
+		animated_sprite.play("jumping")
+	else:
+		if velocity.x == 0:
+			animated_sprite.play("idle")
+			return
+		animated_sprite.play("walking")
 	if velocity.x > 0:
 		animated_sprite.flip_h = false
 		enable_right_collider()

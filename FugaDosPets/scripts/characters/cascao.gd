@@ -77,11 +77,12 @@ func animate() -> void:
 	if velocity.y > 0:
 		animated_sprite.play("gliding")
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity") / 8
-	elif velocity.x == 0:
-		animated_sprite.play("idle")
-		gravity = ProjectSettings.get_setting("physics/2d/default_gravity") / 2
-		return
-	# animated_sprite.play("walking")
+	else:
+		if velocity.x == 0:
+			animated_sprite.play("idle")
+			gravity = ProjectSettings.get_setting("physics/2d/default_gravity") / 2
+			return
+		animated_sprite.play("walking")
 	if velocity.x > 0:
 		animated_sprite.flip_h = false
 		enable_right_collider()

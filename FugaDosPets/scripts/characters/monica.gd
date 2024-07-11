@@ -77,7 +77,7 @@ func animate() -> void:
 	if velocity.x == 0:
 		animated_sprite.play("idle")
 		return
-	#animated_sprite.play("walking")
+	animated_sprite.play("walking")
 	if velocity.x > 0:
 		animated_sprite.flip_h = false
 		enable_right_collider()
